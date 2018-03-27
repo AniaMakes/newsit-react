@@ -1,11 +1,14 @@
 import React from 'react';
+import SearchContainer from '../containers/SearchContainer';
+import FeedContainer from '../containers/FeedContainer';
 
 const App = () => {
-  return {
+  return (
     <div>
-      Our App goes here!
+      <SearchContainer />
+      <FeedContainer />
     </div>
-  };
+  );
 };
 
 export default App;
