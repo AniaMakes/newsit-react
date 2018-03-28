@@ -16,7 +16,6 @@ const GroupMain = ({categoryData}) => {
 };
 
 GroupMain.propTypes = {
-	category: PropTypes.string,
 	categoryData: PropTypes.object
 };
 

@@ -7,7 +7,7 @@ const StoryMain = ({storyData}) => {
 	return (
 		<a href={url}>
 			<article className='story-main-item'>
-				<img className='story-main-img' src={urlToImage} alt={'image for' + title}/>
+				<img width='150' height='150' className='story-main-img' src={urlToImage} alt={'image for' + title}/>
 				<h3 className="story-main-title">
 					{title}
 				</h3>
