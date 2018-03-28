@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import Search from '../components/Search';
+import {updateQuery} from '../actions';
 
 const getQuery = (state) => {
   return state.query;
