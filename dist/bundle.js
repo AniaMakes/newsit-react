@@ -21305,7 +21305,9 @@ var SearchBar = function SearchBar(_ref) {
     {
       onSubmit: function onSubmit(event) {
         event.preventDefault();
-        searchRequest(query);
+        if (query.length > 1) {
+          searchRequest(query);
+        }
       }
     },
     _react2.default.createElement('input', {

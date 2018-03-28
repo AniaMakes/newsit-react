@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 const SearchBar = ({query, updateQuery, searchRequest}) => {
   return (
     <form
       onSubmit={event =>{
         event.preventDefault();
-        searchRequest(query);
+        if (query.length>1){
+        searchRequest(query);}
       }}
       >
       <input
@@ -21,6 +23,7 @@ const SearchBar = ({query, updateQuery, searchRequest}) => {
   );
 
 };
+
 
 SearchBar.propTypes = {
   query: PropTypes.string,
