@@ -13,23 +13,23 @@ import GroupMain from './GroupMain';
 // 				category='business'
 // 				categoryData={data.businessData}
 // 			/>
-// 			<Group 
+// 			<Group
 // 				category='entertaiment'
 // 				categoryData={data.entertaimentData}
 // 			/>
-// 			<Group 
+// 			<Group
 // 				category='health'
 // 				categoryData={data.healthData}
 // 			/>
-// 			<Group 
+// 			<Group
 // 				category='science'
 // 				categoryData={data.scienceData}
 // 			/>
-// 			<Group 
+// 			<Group
 // 				category='sports'
 // 				categoryData={data.sportsData}
 // 			/>
-// 			<Group 
+// 			<Group
 // 				category='technology'
 // 				categoryData={data.technologyData}
 // 			/>}
@@ -38,29 +38,29 @@ import GroupMain from './GroupMain';
 // };
 
 class Feed extends React.Component {
-	constructor(props) {
-		super(props);
-	};
+  constructor(props) {
+    super(props);
+  }
 
-	componentDidMount() {
-		this.props.getNews();
-	};
+  componentDidMount() {
+    this.props.getNews();
+  }
 
-	render() {
-		return (
+  render() {
+    return (
 			<section className="feed">
-				<GroupMain 
+				<GroupMain
 					categoryData={this.props.generalNews}
 				/>
 			</section>
-		);
-	};
-};
+    );
+  }
+}
 
 
 Feed.propTypes = {
-	generalNews: PropTypes.object,
-	getNews: PropTypes.func
+  generalNews: PropTypes.object,
+  getNews: PropTypes.func,
 };
 
 

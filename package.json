@@ -1,12 +1,15 @@
 {
-  "name": "resource-library",
+  "name": "News.it",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "./node_modules/eslint/bin/eslint.js --fix ./",
+    "start": "node index.js",
+    "start-nodemon": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +28,8 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "newsapi": "^2.2.2"
   },
   "devDependencies": {
     "babel-jest": "^22.4.1",
@@ -38,11 +42,17 @@
     "eslint": "^4.18.2",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-react": "^7.7.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
     "fetch-mock": "5.13.1",
     "jest": "^22.4.2",
     "node-sass": "^4.7.2",
     "react-test-renderer": "^16.2.0",
     "redux-devtools": "^3.4.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "webpack": "^4.2.0",

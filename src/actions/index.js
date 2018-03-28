@@ -1,23 +1,17 @@
 function receiveNews(news) {
-	return {
-		type: 'RECEIVE_NEWS',
-		news: news
-	};
-};
+  return {
+    type: 'RECEIVE_NEWS',
+    news
+  };
+}
 
 function fetchNews() {
-	return function(dispatch) {
-		return fetch('http://localhost:3000/topheadlines')
-			.then(response => response.json())
-			.then(news => {
-				return dispatch(receiveNews(news.articles));
-			})
-			.catch(error => console.log(error)); // TO DO ADD ERROR MESSAGE HERE
-	};
-};
+  return function(dispatch) {
+    return fetch('http://localhost:3000/api/topheadlines')
+      .then(response => response.json())
+      .then(news => dispatch(receiveNews(news.articles)))
+      .catch(error => console.log(error)); // TO DO ADD ERROR MESSAGE HERE
+  };
+}
 
-export const requestNews = () => {
-	return(dispatch) => {
-		return dispatch(fetchNews());
-	};
-};
+export const requestNews = () => dispatch => dispatch(fetchNews());

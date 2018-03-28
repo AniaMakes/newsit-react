@@ -2,13 +2,11 @@ import React from 'react';
 // import SearchContainer from '../containers/SearchContainer';
 import FeedContainer from '../containers/FeedContainer';
 
-const App = () => {
-  return (
+const App = () => (
     <div>
-      {/*<SearchContainer />*/}
+      {/* <SearchContainer /> */}
       <FeedContainer />
     </div>
-  );
-};
+);
 
 export default App;
