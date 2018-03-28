@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <SearchContainer />
-      <FeedContainer />
+      {/* <FeedContainer /> */}
     </div>
   );
 };

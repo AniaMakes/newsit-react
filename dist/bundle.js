@@ -20959,6 +20959,54 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./src/actions/index.js":
+/*!******************************!*\
+  !*** ./src/actions/index.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.receiveSearch = receiveSearch;
+var updateQuery = exports.updateQuery = function updateQuery(query) {
+  console.log(query);
+  return {
+    type: 'UPDATE_QUERY',
+    query: query
+  };
+};
+
+function receiveSearch(articles, query) {
+  return {
+    type: 'RECEIVE_SEARCH',
+    results: articles,
+    query: query
+  };
+};
+
+var fetchSearch = exports.fetchSearch = function fetchSearch(query) {
+  return function (dispatch) {
+    return fetch('https://newsapi.org/v2/everything?q=' + query + '&apiKey=c28b8dc432854485a62509bd93f210d3').then(function (response) {
+      return response.json();
+    }).then(function (results) {
+      return dispatch(receiveSearch(results.articles));
+    });
+  };
+};
+
+var searchRequest = exports.searchRequest = function searchRequest(query) {
+  return function (dispatch) {
+    return dispatch(fetchSearch(query));
+  };
+};
+
+/***/ }),
+
 /***/ "./src/components/App.js":
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
@@ -20991,8 +21039,7 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_SearchContainer2.default, null),
-    _react2.default.createElement(_FeedContainer2.default, null)
+    _react2.default.createElement(_SearchContainer2.default, null)
   );
 };
 
@@ -21206,9 +21253,41 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Search = function Search() {};
+var Search = function Search(_ref) {
+  var query = _ref.query,
+      updateQuery = _ref.updateQuery,
+      searchRequest = _ref.searchRequest;
 
-Search.propTypes = {};
+  return _react2.default.createElement(
+    'form',
+    {
+      onSubmit: function onSubmit(event) {
+        event.preventDefault();
+        searchRequest(query);
+      }
+    },
+    _react2.default.createElement('input', {
+      type: 'text',
+      name: 'query',
+      placeholder: 'Search..',
+      onChange: function onChange(event) {
+        return updateQuery(event.target.value);
+      },
+      value: query
+    }),
+    _react2.default.createElement(
+      'button',
+      { type: 'submit' },
+      'Search'
+    )
+  );
+};
+
+Search.propTypes = {
+  query: _propTypes2.default.string,
+  updateQuery: _propTypes2.default.func.isRequired,
+  searchRequest: _propTypes2.default.func.isRequired
+};
 
 exports.default = Search;
 
@@ -21374,11 +21453,32 @@ var _Search = __webpack_require__(/*! ../components/Search */ "./src/components/
 
 var _Search2 = _interopRequireDefault(_Search);
 
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var SearchContainer = function SearchContainer() {};
+var getQuery = function getQuery(state) {
+  return state.query;
+};
 
-exports.default = (0, _reactRedux.connect)()(_Search2.default);
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    query: getQuery(state)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    updateQuery: function updateQuery(query) {
+      return dispatch((0, _actions.updateQuery)(query));
+    },
+    searchRequest: function searchRequest(query) {
+      return dispatch((0, _actions.searchRequest)(query));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Search2.default);
 
 /***/ }),
 
@@ -21412,19 +21512,113 @@ var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js"
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var _reducers = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./reducers\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+var _reducers = __webpack_require__(/*! ./reducers */ "./src/reducers/index.js");
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(thunkMiddleware));
+var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default));
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,
   { store: store },
   _react2.default.createElement(_App2.default, null)
 ), document.getElementById('root'));
+
+/***/ }),
+
+/***/ "./src/reducers/index.js":
+/*!*******************************!*\
+  !*** ./src/reducers/index.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+
+var _query = __webpack_require__(/*! ./query */ "./src/reducers/query.js");
+
+var _query2 = _interopRequireDefault(_query);
+
+var _search = __webpack_require__(/*! ./search */ "./src/reducers/search.js");
+
+var _search2 = _interopRequireDefault(_search);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.combineReducers)({
+  query: _query2.default,
+  search: _search2.default
+});
+
+/***/ }),
+
+/***/ "./src/reducers/query.js":
+/*!*******************************!*\
+  !*** ./src/reducers/query.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var query = function query() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'UPDATE_QUERY':
+      return action.query;
+    default:
+      return state;
+  }
+};
+
+exports.default = query;
+
+/***/ }),
+
+/***/ "./src/reducers/search.js":
+/*!********************************!*\
+  !*** ./src/reducers/search.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var search = function search() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'RECEIVE_SEARCH':
+      return Object.assign({}, state, _defineProperty({}, action.query, action.results));
+    default:
+      return state;
+  }
+};
+
+exports.default = search;
 
 /***/ })
 
