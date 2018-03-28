@@ -4,14 +4,34 @@ import {requestNews} from '../actions/';
 
 
 const getNews = (state) => {
-	// console.log(state);
-	return state.news.generalNews;
+	console.log('state in getNews ', state);
+	let workingState = Object.assign({}, state);
+
+	Object.keys(workingState.news).forEach(item => {
+		console.log('content in getNews ', item, state.news[item]);
+		return state.news[item];
+	});
+
+	return workingState;
 };
 
-const mapStateToProps = state => ({generalNews: getNews(state)});
+const mapStateToProps = state => {
+	// console.log('state in mapStateToProps ', state);
+
+	// Object.keys(state.news).forEach(item => {
+	// 	console.log('content in getNews ', item, state.news[item]);
+	// 	return [item]
+	// });
+
+
+	return {
+	news : getNews(state)
+	};
+
+};
 
 const mapDispatchToProps = dispatch => ({
-	getNews: () => dispatch(requestNews())
+	getNews: (category) => dispatch(requestNews(category))
 });
 
 export default connect(

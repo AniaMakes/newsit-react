@@ -1,41 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import Group from './Group';
-import GroupMain from './GroupMain';
-
-// const Feed = ({data}) => {
-// 	return (
-// 		<section className="feed">
-// 			<GroupMain
-// 				categoryData={data.generalData}
-// 			/>
-// {			<Group
-// 				category='business'
-// 				categoryData={data.businessData}
-// 			/>
-// 			<Group 
-// 				category='entertaiment'
-// 				categoryData={data.entertaimentData}
-// 			/>
-// 			<Group 
-// 				category='health'
-// 				categoryData={data.healthData}
-// 			/>
-// 			<Group 
-// 				category='science'
-// 				categoryData={data.scienceData}
-// 			/>
-// 			<Group 
-// 				category='sports'
-// 				categoryData={data.sportsData}
-// 			/>
-// 			<Group 
-// 				category='technology'
-// 				categoryData={data.technologyData}
-// 			/>}
-// 		</section>
-// 	);
-// };
+import Group from './Group';
+import categories from '../constants/categories';
 
 class Feed extends React.Component {
 	constructor(props) {
@@ -43,15 +9,23 @@ class Feed extends React.Component {
 	};
 
 	componentDidMount() {
-		this.props.getNews();
+		categories.forEach((category) => {
+			this.props.getNews(category);
+		}, this);
 	};
 
 	render() {
+		console.log('props in Feed.js: ', this.props);
+		const groups = categories.map(category => {
+			console.log('category ', category);
+			return <Group
+				category={category}
+				data={this.props.news.news[category]}
+			/>;
+		});
 		return (
 			<section className="feed">
-				<GroupMain 
-					categoryData={this.props.generalNews}
-				/>
+				{groups}
 			</section>
 		);
 	};
@@ -59,7 +33,7 @@ class Feed extends React.Component {
 
 
 Feed.propTypes = {
-	generalNews: PropTypes.object,
+	// generalNews: PropTypes.object,
 	getNews: PropTypes.func
 };
 

@@ -1,27 +1,18 @@
-// import CATEGORIES from '../constants/categories';
+import categories from '../constants/categories';
 
-// const {categories} = CATEGORIES;
+const initialState = {};
+categories.forEach(category => {
+	initialState[category] = [];
+});
 
-
-
-// const news = (state = { // TODO CREATE AN OBJ USING REDUCE
-// 	category: [{
-// 		title: '',
-// 		url: '',
-// 		description: '',
-// 		urlToImage: ''
-// 	}],
-// }, action) => {
-
-// }
-
-const news = (state = {
-	generalNews: []
-}, action) => {
+const news = (state = initialState, action) => {
 	switch(action.type) {
 		case 'RECEIVE_NEWS':
+			console.log('action in receiveNews receiver: ', action);
 			return Object.assign({}, state, {
-				generalNews: action.news
+				[action.category]: action.news
+				// category: category
+				// currentCategory: action.category
 			});
 		default:
 			return state;

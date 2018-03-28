@@ -1,15 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './Story';
+import StoryMain from './StoryMain';
 
-const Group = ({category, categoryData}) => {
+const Group = ({category, data}) => {
+	console.log('in Group.js ', category, data);
+
 	return (
 		<section className={'group-' + category}>
-			{categoryData.map((storyData, i) => {
-				return <Story
-					storyData={storyData}
-					key={i}
+			{data.map((storyData, i) => {
+				if ({category} == 'general') {
+					return <StoryMain 
+						storyData={storyData}
+						key={i}
+					/>;
+				} else {
+					return <Story
+						storyData={storyData}
+						key={i}
 				/>;
+				}
 			})}
 		</section>
 	);
@@ -17,7 +27,7 @@ const Group = ({category, categoryData}) => {
 
 Group.propTypes = {
 	category: PropTypes.string,
-	categoryData: PropTypes.object
+	data: PropTypes.object
 };
 
 export default Group;
