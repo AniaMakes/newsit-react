@@ -20982,6 +20982,7 @@ var updateQuery = exports.updateQuery = function updateQuery(query) {
 };
 
 function receiveSearch(articles, query) {
+  console.log(articles);
   return {
     type: 'RECEIVE_SEARCH',
     results: articles,
@@ -20994,7 +20995,7 @@ var fetchSearch = exports.fetchSearch = function fetchSearch(query) {
     return fetch('https://newsapi.org/v2/everything?q=' + query + '&apiKey=c28b8dc432854485a62509bd93f210d3').then(function (response) {
       return response.json();
     }).then(function (results) {
-      return dispatch(receiveSearch(results.articles));
+      return dispatch(receiveSearch(results.articles, query));
     });
   };
 };
@@ -21025,9 +21026,9 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SearchContainer = __webpack_require__(/*! ../containers/SearchContainer */ "./src/containers/SearchContainer.js");
+var _Search = __webpack_require__(/*! ./Search */ "./src/components/Search.js");
 
-var _SearchContainer2 = _interopRequireDefault(_SearchContainer);
+var _Search2 = _interopRequireDefault(_Search);
 
 var _FeedContainer = __webpack_require__(/*! ../containers/FeedContainer */ "./src/containers/FeedContainer.js");
 
@@ -21039,7 +21040,7 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement(_SearchContainer2.default, null)
+    _react2.default.createElement(_Search2.default, null)
   );
 };
 
@@ -21247,13 +21248,54 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _SearchBarContainer = __webpack_require__(/*! ../containers/SearchBarContainer */ "./src/containers/SearchBarContainer.js");
+
+var _SearchBarContainer2 = _interopRequireDefault(_SearchBarContainer);
+
+var _SearchResultsContainer = __webpack_require__(/*! ../containers/SearchResultsContainer */ "./src/containers/SearchResultsContainer.js");
+
+var _SearchResultsContainer2 = _interopRequireDefault(_SearchResultsContainer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Search = function Search() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_SearchBarContainer2.default, null),
+    _react2.default.createElement(_SearchResultsContainer2.default, null)
+  );
+};
+
+exports.default = Search;
+
+/***/ }),
+
+/***/ "./src/components/SearchBar.js":
+/*!*************************************!*\
+  !*** ./src/components/SearchBar.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Search = function Search(_ref) {
+var SearchBar = function SearchBar(_ref) {
   var query = _ref.query,
       updateQuery = _ref.updateQuery,
       searchRequest = _ref.searchRequest;
@@ -21283,13 +21325,66 @@ var Search = function Search(_ref) {
   );
 };
 
-Search.propTypes = {
+SearchBar.propTypes = {
   query: _propTypes2.default.string,
   updateQuery: _propTypes2.default.func.isRequired,
   searchRequest: _propTypes2.default.func.isRequired
 };
 
-exports.default = Search;
+exports.default = SearchBar;
+
+/***/ }),
+
+/***/ "./src/components/SearchResults.js":
+/*!*****************************************!*\
+  !*** ./src/components/SearchResults.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Story = __webpack_require__(/*! ./Story */ "./src/components/Story.js");
+
+var _Story2 = _interopRequireDefault(_Story);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SearchResults = function SearchResults(_ref) {
+  var articles = _ref.articles;
+
+
+  return _react2.default.createElement(
+    'section',
+    null,
+    articles.map(function (storyData, i) {
+      return _react2.default.createElement(_Story2.default, {
+        storyData: storyData,
+        key: i
+      });
+    })
+  );
+};
+
+SearchResults.propTypes = {
+  articles: _propTypes2.default.array,
+  getResults: _propTypes2.default.func
+};
+
+exports.default = SearchResults;
 
 /***/ }),
 
@@ -21433,10 +21528,10 @@ exports.default = (0, _reactRedux.connect)()(_Feed2.default);
 
 /***/ }),
 
-/***/ "./src/containers/SearchContainer.js":
-/*!*******************************************!*\
-  !*** ./src/containers/SearchContainer.js ***!
-  \*******************************************/
+/***/ "./src/containers/SearchBarContainer.js":
+/*!**********************************************!*\
+  !*** ./src/containers/SearchBarContainer.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21449,9 +21544,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var _Search = __webpack_require__(/*! ../components/Search */ "./src/components/Search.js");
+var _SearchBar = __webpack_require__(/*! ../components/SearchBar */ "./src/components/SearchBar.js");
 
-var _Search2 = _interopRequireDefault(_Search);
+var _SearchBar2 = _interopRequireDefault(_SearchBar);
 
 var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
 
@@ -21478,7 +21573,50 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Search2.default);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_SearchBar2.default);
+
+/***/ }),
+
+/***/ "./src/containers/SearchResultsContainer.js":
+/*!**************************************************!*\
+  !*** ./src/containers/SearchResultsContainer.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _SearchResults = __webpack_require__(/*! ../components/SearchResults */ "./src/components/SearchResults.js");
+
+var _SearchResults2 = _interopRequireDefault(_SearchResults);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import{} from '../actions';
+
+var getResults = function getResults(state) {
+  console.log(state.search[state.results]);
+  return state.search[state.query] || [];
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    articles: getResults(state)
+  };
+};
+
+// const mapDispatchToProps = dispatch => ({
+//   getResults
+// })
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(_SearchResults2.default);
 
 /***/ }),
 

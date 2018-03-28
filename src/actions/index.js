@@ -6,8 +6,8 @@ export const updateQuery = query => {
   };
 };
 
-
 export function receiveSearch(articles,query){
+  console.log(articles);
   return {
     type: 'RECEIVE_SEARCH',
     results: articles,
@@ -19,7 +19,7 @@ export const fetchSearch = query =>{
   return function(dispatch){
     return fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=c28b8dc432854485a62509bd93f210d3`)
     .then(response => response.json())
-    .then(results => dispatch(receiveSearch(results.articles)));
+    .then(results => dispatch(receiveSearch(results.articles, query)));
   };
 };
 

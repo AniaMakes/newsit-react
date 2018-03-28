@@ -1,31 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import SearchBarContainer from '../containers/SearchBarContainer';
+import SearchResultsContainer from '../containers/SearchResultsContainer';
 
-const Search = ({query, updateQuery, searchRequest}) => {
+const Search = () => {
   return (
-    <form
-      onSubmit={event =>{
-        event.preventDefault();
-        searchRequest(query);
-      }}
-      >
-      <input
-        type="text"
-        name="query"
-        placeholder="Search.."
-        onChange={event => updateQuery(event.target.value)}
-        value={query}
-       />
-      <button type="submit">Search</button>
-    </form>
+    <div>
+      <SearchBarContainer />
+      <SearchResultsContainer />
+    </div>
   );
-
-};
-
-Search.propTypes = {
-  query: PropTypes.string,
-  updateQuery: PropTypes.func.isRequired,
-  searchRequest: PropTypes.func.isRequired
 };
 
 export default Search;

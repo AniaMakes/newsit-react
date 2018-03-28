@@ -1,11 +1,11 @@
 import React from 'react';
-import SearchContainer from '../containers/SearchContainer';
+import Search from './Search';
 import FeedContainer from '../containers/FeedContainer';
 
 const App = () => {
   return (
     <div>
-      <SearchContainer />
+      <Search />
       {/* <FeedContainer /> */}
     </div>
   );
