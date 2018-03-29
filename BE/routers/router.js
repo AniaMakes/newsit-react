@@ -6,14 +6,12 @@ const newsapi = new NewsAPI(process.env.API_KEY);
 
 
 // make get requests here. Account for 404 and 500 errors.
-router.get('/topheadlines', (req, res, next) => {
+router.get('/topheadlines/:category', (req, res, next) => {
   const acceptLang = req.headers['accept-language'];
-
-  console.log(acceptLang);
   const queryLang = processLangFromBrowser(acceptLang);
 
   newsapi.v2.topHeadlines({
-    category: 'general',
+    category: req.params.category,
     country: queryLang,
     pageSize: 5,
   }).then((response) => {
