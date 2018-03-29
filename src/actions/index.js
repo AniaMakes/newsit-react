@@ -4,7 +4,7 @@ function receiveNews(news,category) {
 	console.log('receive news ', news, category);
 	return {
 		type: 'RECEIVE_NEWS',
-		[category]: news,
+		news: news,
 		category: category
 	};
 };

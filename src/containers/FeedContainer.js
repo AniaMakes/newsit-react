@@ -9,8 +9,10 @@ const getNews = (state) => {
 
 	Object.keys(workingState.news).forEach(item => {
 		console.log('content in getNews ', item, state.news[item]);
-		return state.news[item];
+		workingState.news[item] = state.news[item];
 	});
+
+	console.log('working state ', workingState);
 
 	return workingState;
 };

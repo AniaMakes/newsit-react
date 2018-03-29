@@ -9,6 +9,7 @@ const news = (state = initialState, action) => {
 	switch(action.type) {
 		case 'RECEIVE_NEWS':
 			console.log('action in receiveNews receiver: ', action);
+			console.log('initialState in receiveNews receiver ', state);
 			return Object.assign({}, state, {
 				[action.category]: action.news
 				// category: category

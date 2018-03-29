@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import Story from './Story';
 import StoryMain from './StoryMain';
 
-const Group = ({category, data}) => {
+const Group = (props) => {
+	console.log(props);
+	const {category, data} = props;
 	console.log('in Group.js ', category, data);
 
 	return (

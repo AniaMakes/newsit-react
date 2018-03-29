@@ -18,6 +18,11 @@ class Feed extends React.Component {
 		console.log('props in Feed.js: ', this.props);
 		const groups = categories.map(category => {
 			console.log('category ', category);
+			console.log('1 ', this.props);
+			console.log('2 ', this.props.news);
+			console.log('3 ', this.props.news.news);
+			console.log('4 ', this.props.news.news[category]);
+
 			return <Group
 				category={category}
 				data={this.props.news.news[category]}
