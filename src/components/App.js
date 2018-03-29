@@ -1,14 +1,15 @@
 import React from 'react';
 import Search from './Search';
+
+// import SearchContainer from '../containers/SearchContainer';
 import FeedContainer from '../containers/FeedContainer';
 
-const App = () => {
-  return (
+const App = () => (
     <div>
       <Search />
-      {/* <FeedContainer /> */}
+      {/* <SearchContainer /> */}
+      <FeedContainer />
     </div>
-  );
-};
+);
 
 export default App;

@@ -21008,6 +21008,46 @@ var searchRequest = exports.searchRequest = function searchRequest(query) {
 
 /***/ }),
 
+/***/ "./src/actions/index.js":
+/*!******************************!*\
+  !*** ./src/actions/index.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+function receiveNews(news) {
+  return {
+    type: 'RECEIVE_NEWS',
+    news: news
+  };
+}
+
+function fetchNews() {
+  return function (dispatch) {
+    return fetch('http://localhost:3000/api/topheadlines').then(function (response) {
+      return response.json();
+    }).then(function (news) {
+      return dispatch(receiveNews(news.articles));
+    }).catch(function (error) {
+      return console.log(error);
+    }); // TO DO ADD ERROR MESSAGE HERE
+  };
+}
+
+var requestNews = exports.requestNews = function requestNews() {
+  return function (dispatch) {
+    return dispatch(fetchNews());
+  };
+};
+
+/***/ }),
+
 /***/ "./src/components/App.js":
 /*!*******************************!*\
   !*** ./src/components/App.js ***!
@@ -21026,10 +21066,13 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD:dist/bundle.js
 var _Search = __webpack_require__(/*! ./Search */ "./src/components/Search.js");
 
 var _Search2 = _interopRequireDefault(_Search);
 
+=======
+>>>>>>> master:BE/public/dist/bundle.js
 var _FeedContainer = __webpack_require__(/*! ../containers/FeedContainer */ "./src/containers/FeedContainer.js");
 
 var _FeedContainer2 = _interopRequireDefault(_FeedContainer);
@@ -21040,10 +21083,14 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
+<<<<<<< HEAD:dist/bundle.js
     _react2.default.createElement(_Search2.default, null)
+=======
+    _react2.default.createElement(_FeedContainer2.default, null)
+>>>>>>> master:BE/public/dist/bundle.js
   );
 };
-
+// import SearchContainer from '../containers/SearchContainer';
 exports.default = App;
 
 /***/ }),
@@ -21059,8 +21106,10 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -21069,10 +21118,6 @@ var _react2 = _interopRequireDefault(_react);
 var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Group = __webpack_require__(/*! ./Group */ "./src/components/Group.js");
-
-var _Group2 = _interopRequireDefault(_Group);
 
 var _GroupMain = __webpack_require__(/*! ./GroupMain */ "./src/components/GroupMain.js");
 
@@ -21080,100 +21125,84 @@ var _GroupMain2 = _interopRequireDefault(_GroupMain);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Feed = function Feed(_ref) {
-	var data = _ref.data;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	return _react2.default.createElement(
-		'section',
-		{ className: 'feed' },
-		_react2.default.createElement(_GroupMain2.default, {
-			categoryData: data.generalData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'business',
-			categoryData: data.businessData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'entertaiment',
-			categoryData: data.entertaimentData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'health',
-			categoryData: data.healthData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'science',
-			categoryData: data.scienceData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'sports',
-			categoryData: data.sportsData
-		}),
-		_react2.default.createElement(_Group2.default, {
-			category: 'technology',
-			categoryData: data.technologyData
-		})
-	);
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import Group from './Group';
+
+
+// const Feed = ({data}) => {
+// 	return (
+// 		<section className="feed">
+// 			<GroupMain
+// 				categoryData={data.generalData}
+// 			/>
+// {			<Group
+// 				category='business'
+// 				categoryData={data.businessData}
+// 			/>
+// 			<Group
+// 				category='entertaiment'
+// 				categoryData={data.entertaimentData}
+// 			/>
+// 			<Group
+// 				category='health'
+// 				categoryData={data.healthData}
+// 			/>
+// 			<Group
+// 				category='science'
+// 				categoryData={data.scienceData}
+// 			/>
+// 			<Group
+// 				category='sports'
+// 				categoryData={data.sportsData}
+// 			/>
+// 			<Group
+// 				category='technology'
+// 				categoryData={data.technologyData}
+// 			/>}
+// 		</section>
+// 	);
+// };
+
+var Feed = function (_React$Component) {
+  _inherits(Feed, _React$Component);
+
+  function Feed(props) {
+    _classCallCheck(this, Feed);
+
+    return _possibleConstructorReturn(this, (Feed.__proto__ || Object.getPrototypeOf(Feed)).call(this, props));
+  }
+
+  _createClass(Feed, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.getNews();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'section',
+        { className: 'feed' },
+        _react2.default.createElement(_GroupMain2.default, {
+          categoryData: this.props.generalNews
+        })
+      );
+    }
+  }]);
+
+  return Feed;
+}(_react2.default.Component);
 
 Feed.propTypes = {
-	data: _propTypes2.default.object
+  generalNews: _propTypes2.default.object,
+  getNews: _propTypes2.default.func
 };
 
 exports.default = Feed;
-
-/***/ }),
-
-/***/ "./src/components/Group.js":
-/*!*********************************!*\
-  !*** ./src/components/Group.js ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _Story = __webpack_require__(/*! ./Story */ "./src/components/Story.js");
-
-var _Story2 = _interopRequireDefault(_Story);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Group = function Group(_ref) {
-	var category = _ref.category,
-	    categoryData = _ref.categoryData;
-
-	return _react2.default.createElement(
-		'section',
-		{ className: 'group-' + category },
-		categoryData.map(function (storyData, i) {
-			return _react2.default.createElement(_Story2.default, {
-				storyData: storyData,
-				key: i
-			});
-		})
-	);
-};
-
-Group.propTypes = {
-	category: _propTypes2.default.string,
-	categoryData: _propTypes2.default.object
-};
-
-exports.default = Group;
 
 /***/ }),
 
@@ -21188,7 +21217,7 @@ exports.default = Group;
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+		value: true
 });
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -21206,30 +21235,29 @@ var _StoryMain2 = _interopRequireDefault(_StoryMain);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var GroupMain = function GroupMain(_ref) {
-	var categoryData = _ref.categoryData;
-
-	return _react2.default.createElement(
-		'section',
-		{ className: 'group-main' },
-		categoryData.map(function (storyData, i) {
-			return _react2.default.createElement(_StoryMain2.default, {
-				storyData: storyData,
-				key: i
-			});
-		}),
-		';'
-	);
+		var categoryData = _ref.categoryData;
+		return _react2.default.createElement(
+				'section',
+				{ className: 'group-main' },
+				categoryData.map(function (storyData, i) {
+						return _react2.default.createElement(_StoryMain2.default, {
+								storyData: storyData,
+								key: i
+						});
+				}),
+				';'
+		);
 };
 
 GroupMain.propTypes = {
-	category: _propTypes2.default.string,
-	categoryData: _propTypes2.default.object
+		categoryData: _propTypes2.default.object
 };
 
 exports.default = GroupMain;
 
 /***/ }),
 
+<<<<<<< HEAD:dist/bundle.js
 /***/ "./src/components/Search.js":
 /*!**********************************!*\
   !*** ./src/components/Search.js ***!
@@ -21442,6 +21470,8 @@ exports.default = Story;
 
 /***/ }),
 
+=======
+>>>>>>> master:BE/public/dist/bundle.js
 /***/ "./src/components/StoryMain.js":
 /*!*************************************!*\
   !*** ./src/components/StoryMain.js ***!
@@ -21479,7 +21509,7 @@ var StoryMain = function StoryMain(_ref) {
 		_react2.default.createElement(
 			'article',
 			{ className: 'story-main-item' },
-			_react2.default.createElement('img', { className: 'story-main-img', src: urlToImage, alt: 'image for' + title }),
+			_react2.default.createElement('img', { width: '150', height: '150', className: 'story-main-img', src: urlToImage, alt: 'image for' + title }),
 			_react2.default.createElement(
 				'h3',
 				{ className: 'story-main-title' },
@@ -21522,6 +21552,7 @@ var _Feed = __webpack_require__(/*! ../components/Feed */ "./src/components/Feed
 
 var _Feed2 = _interopRequireDefault(_Feed);
 
+<<<<<<< HEAD:dist/bundle.js
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var FeedContainer = function FeedContainer() {};
@@ -21619,6 +21650,31 @@ var mapStateToProps = function mapStateToProps(state) {
 // })
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(_SearchResults2.default);
+=======
+var _actions = __webpack_require__(/*! ../actions/ */ "./src/actions/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getNews = function getNews(state) {
+  return (
+    // console.log(state);
+    state.news.generalNews
+  );
+};
+var mapStateToProps = function mapStateToProps(state) {
+  return { generalNews: getNews(state) };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    getNews: function getNews() {
+      return dispatch((0, _actions.requestNews)());
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Feed2.default);
+>>>>>>> master:BE/public/dist/bundle.js
 
 /***/ }),
 
@@ -21684,6 +21740,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 
+<<<<<<< HEAD:dist/bundle.js
 var _query = __webpack_require__(/*! ./query */ "./src/reducers/query.js");
 
 var _query2 = _interopRequireDefault(_query);
@@ -21691,20 +21748,36 @@ var _query2 = _interopRequireDefault(_query);
 var _search = __webpack_require__(/*! ./search */ "./src/reducers/search.js");
 
 var _search2 = _interopRequireDefault(_search);
+=======
+var _receiveNews = __webpack_require__(/*! ./receiveNews */ "./src/reducers/receiveNews.js");
+
+var _receiveNews2 = _interopRequireDefault(_receiveNews);
+>>>>>>> master:BE/public/dist/bundle.js
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
+<<<<<<< HEAD:dist/bundle.js
   query: _query2.default,
   search: _search2.default
+=======
+  news: _receiveNews2.default
+>>>>>>> master:BE/public/dist/bundle.js
 });
 
 /***/ }),
 
+<<<<<<< HEAD:dist/bundle.js
 /***/ "./src/reducers/query.js":
 /*!*******************************!*\
   !*** ./src/reducers/query.js ***!
   \*******************************/
+=======
+/***/ "./src/reducers/receiveNews.js":
+/*!*************************************!*\
+  !*** ./src/reducers/receiveNews.js ***!
+  \*************************************/
+>>>>>>> master:BE/public/dist/bundle.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21714,6 +21787,7 @@ exports.default = (0, _redux.combineReducers)({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< HEAD:dist/bundle.js
 var query = function query() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var action = arguments[1];
@@ -21753,12 +21827,44 @@ var search = function search() {
   switch (action.type) {
     case 'RECEIVE_SEARCH':
       return Object.assign({}, state, _defineProperty({}, action.query, action.results));
+=======
+// import CATEGORIES from '../constants/categories';
+
+// const {categories} = CATEGORIES;
+
+// const news = (state = { // TODO CREATE AN OBJ USING REDUCE
+// 	category: [{
+// 		title: '',
+// 		url: '',
+// 		description: '',
+// 		urlToImage: ''
+// 	}],
+// }, action) => {
+
+// }
+
+var news = function news() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    generalNews: []
+  };
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'RECEIVE_NEWS':
+      return Object.assign({}, state, {
+        generalNews: action.news
+      });
+>>>>>>> master:BE/public/dist/bundle.js
     default:
       return state;
   }
 };
 
+<<<<<<< HEAD:dist/bundle.js
 exports.default = search;
+=======
+exports.default = news;
+>>>>>>> master:BE/public/dist/bundle.js
 
 /***/ })
 
