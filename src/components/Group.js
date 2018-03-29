@@ -27,7 +27,7 @@ const Group = (props) => {
 					return <Story
 						storyData={storyData}
 						key={i}
-				/>;
+					/>;
 				}
 			})}
 		</section>

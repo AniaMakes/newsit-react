@@ -3,19 +3,19 @@ import SearchBar from '../components/SearchBar';
 import { updateQuery,searchRequest } from '../actions';
 
 const getQuery = (state) => {
-  return state.query;
+	return state.query;
 };
 
 const mapStateToProps = state => ({
-  query:getQuery(state)
+	query:getQuery(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateQuery: query => dispatch(updateQuery(query)),
-  searchRequest: query => dispatch(searchRequest(query))
+	updateQuery: query => dispatch(updateQuery(query)),
+	searchRequest: query => dispatch(searchRequest(query))
 });
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(SearchBar);

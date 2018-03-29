@@ -4,7 +4,7 @@ import Group from '../components/Group';
 
 const GroupContainer = () => {
 
-}
+};
 
 export default connect(
 

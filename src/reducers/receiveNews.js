@@ -7,12 +7,12 @@ categories.forEach(category => {
 
 const news = (state = initialState, action) => {
 	switch(action.type) {
-		case 'RECEIVE_NEWS':
-			return Object.assign({}, state, {
-				[action.category]: action.news
-			});
-		default:
-			return state;
+	case 'RECEIVE_NEWS':
+		return Object.assign({}, state, {
+			[action.category]: action.news
+		});
+	default:
+		return state;
 	};
 };
 
