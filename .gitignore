@@ -1,4 +1,5 @@
 /node_modules
-/dist
+/BE/public/dist
 .envrc
+.DS_Store
 

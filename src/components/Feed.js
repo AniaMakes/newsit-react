@@ -5,9 +5,8 @@ import categories from '../constants/categories';
 
 class Feed extends React.Component {
 	constructor(props) {
-		super(props);
-	};
-
+    	super(props);
+ 	}
 	componentDidMount() {
 		categories.forEach((category) => {
 			this.props.getNews(category);
@@ -15,14 +14,7 @@ class Feed extends React.Component {
 	};
 
 	render() {
-		console.log('props in Feed.js: ', this.props);
 		const groups = categories.map(category => {
-			console.log('category ', category);
-			console.log('1 ', this.props);
-			console.log('2 ', this.props.news);
-			console.log('3 ', this.props.news.news);
-			console.log('4 ', this.props.news.news[category]);
-
 			return <Group
 				category={category}
 				data={this.props.news.news[category]}
@@ -32,15 +24,12 @@ class Feed extends React.Component {
 			<section className="feed">
 				{groups}
 			</section>
-		);
-	};
-};
-
+    	);
+  	}
+}
 
 Feed.propTypes = {
-	// generalNews: PropTypes.object,
 	getNews: PropTypes.func
 };
-
 
 export default Feed;
