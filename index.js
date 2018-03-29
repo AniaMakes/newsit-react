@@ -11,12 +11,12 @@ app.use(express.static('BE/public'));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  res.status.sendFile('index.html');
+	res.status.sendFile('index.html');
 });
 
 
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+	console.log(`Example app listening on port ${port}`);
 });

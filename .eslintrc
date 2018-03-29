@@ -9,6 +9,7 @@
   },
   "plugins": ["react", "jest"],
   "rules": {
+    "indent": ["error", 'tab'],
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "avoidEscape": true,

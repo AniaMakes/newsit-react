@@ -2,7 +2,7 @@ import categories from '../constants/categories';
 
 // ============ DEFAULT CATEGORIES BLOCK
 
-function receiveNews(news,category) {
+export function receiveNews(news,category) {
 	return {
 		type: 'RECEIVE_NEWS',
 		news: news,
@@ -30,30 +30,30 @@ export const requestNews = (category) => {
 // ============= SEARCH BLOCK
 
 export const updateQuery = query => {
-  return {
-    type: 'UPDATE_QUERY',
-    query: query
-  };
+	return {
+		type: 'UPDATE_QUERY',
+		query: query
+	};
 };
 
 export function receiveSearch(articles,query){
-  return {
-    type: 'RECEIVE_SEARCH',
-    results: articles,
-    query: query
-  };
+	return {
+		type: 'RECEIVE_SEARCH',
+		results: articles,
+		query: query
+	};
 };
 
 export const fetchSearch = query =>{
-  return function(dispatch){
-    return fetch(`http://localhost:3000/api/search/${query}`)
-    .then(response => response.json())
-    .then(results => dispatch(receiveSearch(results.articles, query)));
-  };
+	return function(dispatch){
+		return fetch(`http://localhost:3000/api/search/${query}`)
+			.then(response => response.json())
+			.then(results => dispatch(receiveSearch(results.articles, query)));
+	};
 };
 
 export const searchRequest = query => {
-  return(dispatch) => {
-    return dispatch(fetchSearch(query));
-  };
+	return(dispatch) => {
+		return dispatch(fetchSearch(query));
+	};
 };

@@ -4,7 +4,7 @@ import search from './search';
 import news from './receiveNews';
 
 export default combineReducers({
-  query,
-  news,
-  search
+	query,
+	news,
+	search
 });
