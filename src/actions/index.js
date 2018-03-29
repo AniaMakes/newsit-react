@@ -3,7 +3,6 @@ import categories from '../constants/categories';
 // ============ DEFAULT CATEGORIES BLOCK
 
 function receiveNews(news,category) {
-	console.log('receive news ', news, category);
 	return {
 		type: 'RECEIVE_NEWS',
 		news: news,
@@ -13,7 +12,7 @@ function receiveNews(news,category) {
 
 function fetchNews(category) {
 	return function(dispatch) {
-		return fetch('http://localhost:3000/api/topheadlines')
+		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
 			.then(response => response.json())
 			.then(news => {
 				return dispatch(receiveNews(news.articles, category));

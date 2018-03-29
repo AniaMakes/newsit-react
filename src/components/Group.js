@@ -6,10 +6,18 @@ import StoryMain from './StoryMain';
 const Group = (props) => {
 	const {category, data} = props;
 
+	let headline;
+
+	if (category != 'general') {
+		headline = <h2> Category: {category} </h2>;
+	};
+
+
 	return (
 		<section className={'group-' + category}>
+			{headline}
+
 			{data.map((storyData, i) => {
-				console.log('category in group',category);
 				if (category == 'general') {
 					return <StoryMain 
 						storyData={storyData}
@@ -28,7 +36,7 @@ const Group = (props) => {
 
 Group.propTypes = {
 	category: PropTypes.string,
-	data: PropTypes.object
+	data: PropTypes.array
 };
 
 export default Group;
