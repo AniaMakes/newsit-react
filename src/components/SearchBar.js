@@ -8,7 +8,7 @@ const SearchBar = ({query, updateQuery, searchRequest}) => {
       onSubmit={event =>{
         event.preventDefault();
         if (query.length>1){
-        searchRequest(query);}
+          searchRequest(query);}
       }}
       >
       <input
@@ -19,6 +19,7 @@ const SearchBar = ({query, updateQuery, searchRequest}) => {
         value={query}
        />
       <button type="submit">Search</button>
+      {message}
     </form>
   );
 
