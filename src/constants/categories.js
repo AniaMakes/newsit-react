@@ -1,1 +1,1 @@
-export default ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology'];
+export default ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'];

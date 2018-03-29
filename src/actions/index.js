@@ -1,5 +1,36 @@
+import categories from '../constants/categories';
+
+// ============ DEFAULT CATEGORIES BLOCK
+
+function receiveNews(news,category) {
+	console.log('receive news ', news, category);
+	return {
+		type: 'RECEIVE_NEWS',
+		news: news,
+		category: category
+	};
+};
+
+function fetchNews(category) {
+	return function(dispatch) {
+		return fetch('http://localhost:3000/api/topheadlines')
+			.then(response => response.json())
+			.then(news => {
+				return dispatch(receiveNews(news.articles, category));
+			})
+			.catch(error => console.log(error)); // TO DO ADD ERROR MESSAGE HERE
+	};
+};
+
+export const requestNews = (category) => {
+	return(dispatch) => {
+		return dispatch(fetchNews(category));
+	};
+};
+
+// ============= SEARCH BLOCK
+
 export const updateQuery = query => {
-  console.log(query);
   return {
     type: 'UPDATE_QUERY',
     query: query
@@ -7,7 +38,6 @@ export const updateQuery = query => {
 };
 
 export function receiveSearch(articles,query){
-  console.log(articles);
   return {
     type: 'RECEIVE_SEARCH',
     results: articles,
@@ -28,21 +58,5 @@ export const searchRequest = query => {
     return dispatch(fetchSearch(query));
   };
 };
-function receiveNews(news) {
-  return {
-    type: 'RECEIVE_NEWS',
-    news
-  };
-}
 
-function fetchNews() {
-  return function(dispatch) {
-    return fetch('http://localhost:3000/api/topheadlines')
-      .then(response => response.json())
-      .then(news => dispatch(receiveNews(news.articles)))
-      .catch(error => console.log(error)); // TO DO ADD ERROR MESSAGE HERE
-  };
-}
-
-export const requestNews = () => dispatch => dispatch(fetchNews());
 
