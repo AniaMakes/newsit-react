@@ -20972,6 +20972,55 @@ module.exports = function(originalModule) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.receiveSearch = receiveSearch;
+var updateQuery = exports.updateQuery = function updateQuery(query) {
+  console.log(query);
+  return {
+    type: 'UPDATE_QUERY',
+    query: query
+  };
+};
+
+function receiveSearch(articles, query) {
+  console.log(articles);
+  return {
+    type: 'RECEIVE_SEARCH',
+    results: articles,
+    query: query
+  };
+};
+
+var fetchSearch = exports.fetchSearch = function fetchSearch(query) {
+  return function (dispatch) {
+    return fetch('https://newsapi.org/v2/everything?q=' + query + '&apiKey=c28b8dc432854485a62509bd93f210d3').then(function (response) {
+      return response.json();
+    }).then(function (results) {
+      return dispatch(receiveSearch(results.articles, query));
+    });
+  };
+};
+
+var searchRequest = exports.searchRequest = function searchRequest(query) {
+  return function (dispatch) {
+    return dispatch(fetchSearch(query));
+  };
+};
+
+/***/ }),
+
+/***/ "./src/actions/index.js":
+/*!******************************!*\
+  !*** ./src/actions/index.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 function receiveNews(news) {
   return {
     type: 'RECEIVE_NEWS',
@@ -21017,6 +21066,13 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+<<<<<<< HEAD:dist/bundle.js
+var _Search = __webpack_require__(/*! ./Search */ "./src/components/Search.js");
+
+var _Search2 = _interopRequireDefault(_Search);
+
+=======
+>>>>>>> master:BE/public/dist/bundle.js
 var _FeedContainer = __webpack_require__(/*! ../containers/FeedContainer */ "./src/containers/FeedContainer.js");
 
 var _FeedContainer2 = _interopRequireDefault(_FeedContainer);
@@ -21027,7 +21083,11 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
+<<<<<<< HEAD:dist/bundle.js
+    _react2.default.createElement(_Search2.default, null)
+=======
     _react2.default.createElement(_FeedContainer2.default, null)
+>>>>>>> master:BE/public/dist/bundle.js
   );
 };
 // import SearchContainer from '../containers/SearchContainer';
@@ -21197,6 +21257,221 @@ exports.default = GroupMain;
 
 /***/ }),
 
+<<<<<<< HEAD:dist/bundle.js
+/***/ "./src/components/Search.js":
+/*!**********************************!*\
+  !*** ./src/components/Search.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SearchBarContainer = __webpack_require__(/*! ../containers/SearchBarContainer */ "./src/containers/SearchBarContainer.js");
+
+var _SearchBarContainer2 = _interopRequireDefault(_SearchBarContainer);
+
+var _SearchResultsContainer = __webpack_require__(/*! ../containers/SearchResultsContainer */ "./src/containers/SearchResultsContainer.js");
+
+var _SearchResultsContainer2 = _interopRequireDefault(_SearchResultsContainer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Search = function Search() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_SearchBarContainer2.default, null),
+    _react2.default.createElement(_SearchResultsContainer2.default, null)
+  );
+};
+
+exports.default = Search;
+
+/***/ }),
+
+/***/ "./src/components/SearchBar.js":
+/*!*************************************!*\
+  !*** ./src/components/SearchBar.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SearchBar = function SearchBar(_ref) {
+  var query = _ref.query,
+      updateQuery = _ref.updateQuery,
+      searchRequest = _ref.searchRequest;
+
+  return _react2.default.createElement(
+    'form',
+    {
+      onSubmit: function onSubmit(event) {
+        event.preventDefault();
+        if (query.length > 1) {
+          searchRequest(query);
+        }
+      }
+    },
+    _react2.default.createElement('input', {
+      type: 'text',
+      name: 'query',
+      placeholder: 'Search..',
+      onChange: function onChange(event) {
+        return updateQuery(event.target.value);
+      },
+      value: query
+    }),
+    _react2.default.createElement(
+      'button',
+      { type: 'submit' },
+      'Search'
+    )
+  );
+};
+
+SearchBar.propTypes = {
+  query: _propTypes2.default.string,
+  updateQuery: _propTypes2.default.func.isRequired,
+  searchRequest: _propTypes2.default.func.isRequired
+};
+
+exports.default = SearchBar;
+
+/***/ }),
+
+/***/ "./src/components/SearchResults.js":
+/*!*****************************************!*\
+  !*** ./src/components/SearchResults.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Story = __webpack_require__(/*! ./Story */ "./src/components/Story.js");
+
+var _Story2 = _interopRequireDefault(_Story);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SearchResults = function SearchResults(_ref) {
+  var articles = _ref.articles;
+
+
+  return _react2.default.createElement(
+    'section',
+    null,
+    articles.map(function (storyData, i) {
+      return _react2.default.createElement(_Story2.default, {
+        storyData: storyData,
+        key: i
+      });
+    })
+  );
+};
+
+SearchResults.propTypes = {
+  articles: _propTypes2.default.array,
+  getResults: _propTypes2.default.func
+};
+
+exports.default = SearchResults;
+
+/***/ }),
+
+/***/ "./src/components/Story.js":
+/*!*********************************!*\
+  !*** ./src/components/Story.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Story = function Story(_ref) {
+	var storyData = _ref.storyData;
+	var url = storyData.url,
+	    title = storyData.title;
+
+	return _react2.default.createElement(
+		'a',
+		{ href: url },
+		_react2.default.createElement(
+			'article',
+			{ className: 'story' },
+			_react2.default.createElement(
+				'h3',
+				{ className: 'story-title' },
+				title
+			)
+		)
+	);
+};
+
+Story.propTypes = {
+	storyData: _propTypes2.default.object
+};
+
+exports.default = Story;
+
+/***/ }),
+
+=======
+>>>>>>> master:BE/public/dist/bundle.js
 /***/ "./src/components/StoryMain.js":
 /*!*************************************!*\
   !*** ./src/components/StoryMain.js ***!
@@ -21277,6 +21552,105 @@ var _Feed = __webpack_require__(/*! ../components/Feed */ "./src/components/Feed
 
 var _Feed2 = _interopRequireDefault(_Feed);
 
+<<<<<<< HEAD:dist/bundle.js
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var FeedContainer = function FeedContainer() {};
+
+exports.default = (0, _reactRedux.connect)()(_Feed2.default);
+
+/***/ }),
+
+/***/ "./src/containers/SearchBarContainer.js":
+/*!**********************************************!*\
+  !*** ./src/containers/SearchBarContainer.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _SearchBar = __webpack_require__(/*! ../components/SearchBar */ "./src/components/SearchBar.js");
+
+var _SearchBar2 = _interopRequireDefault(_SearchBar);
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var getQuery = function getQuery(state) {
+  return state.query;
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    query: getQuery(state)
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    updateQuery: function updateQuery(query) {
+      return dispatch((0, _actions.updateQuery)(query));
+    },
+    searchRequest: function searchRequest(query) {
+      return dispatch((0, _actions.searchRequest)(query));
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_SearchBar2.default);
+
+/***/ }),
+
+/***/ "./src/containers/SearchResultsContainer.js":
+/*!**************************************************!*\
+  !*** ./src/containers/SearchResultsContainer.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _SearchResults = __webpack_require__(/*! ../components/SearchResults */ "./src/components/SearchResults.js");
+
+var _SearchResults2 = _interopRequireDefault(_SearchResults);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import{} from '../actions';
+
+var getResults = function getResults(state) {
+  console.log(state.search[state.results]);
+  return state.search[state.query] || [];
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    articles: getResults(state)
+  };
+};
+
+// const mapDispatchToProps = dispatch => ({
+//   getResults
+// })
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps)(_SearchResults2.default);
+=======
 var _actions = __webpack_require__(/*! ../actions/ */ "./src/actions/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -21300,6 +21674,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Feed2.default);
+>>>>>>> master:BE/public/dist/bundle.js
 
 /***/ }),
 
@@ -21365,22 +21740,44 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 
+<<<<<<< HEAD:dist/bundle.js
+var _query = __webpack_require__(/*! ./query */ "./src/reducers/query.js");
+
+var _query2 = _interopRequireDefault(_query);
+
+var _search = __webpack_require__(/*! ./search */ "./src/reducers/search.js");
+
+var _search2 = _interopRequireDefault(_search);
+=======
 var _receiveNews = __webpack_require__(/*! ./receiveNews */ "./src/reducers/receiveNews.js");
 
 var _receiveNews2 = _interopRequireDefault(_receiveNews);
+>>>>>>> master:BE/public/dist/bundle.js
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
+<<<<<<< HEAD:dist/bundle.js
+  query: _query2.default,
+  search: _search2.default
+=======
   news: _receiveNews2.default
+>>>>>>> master:BE/public/dist/bundle.js
 });
 
 /***/ }),
 
+<<<<<<< HEAD:dist/bundle.js
+/***/ "./src/reducers/query.js":
+/*!*******************************!*\
+  !*** ./src/reducers/query.js ***!
+  \*******************************/
+=======
 /***/ "./src/reducers/receiveNews.js":
 /*!*************************************!*\
   !*** ./src/reducers/receiveNews.js ***!
   \*************************************/
+>>>>>>> master:BE/public/dist/bundle.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21390,6 +21787,47 @@ exports.default = (0, _redux.combineReducers)({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< HEAD:dist/bundle.js
+var query = function query() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'UPDATE_QUERY':
+      return action.query;
+    default:
+      return state;
+  }
+};
+
+exports.default = query;
+
+/***/ }),
+
+/***/ "./src/reducers/search.js":
+/*!********************************!*\
+  !*** ./src/reducers/search.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var search = function search() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'RECEIVE_SEARCH':
+      return Object.assign({}, state, _defineProperty({}, action.query, action.results));
+=======
 // import CATEGORIES from '../constants/categories';
 
 // const {categories} = CATEGORIES;
@@ -21416,12 +21854,17 @@ var news = function news() {
       return Object.assign({}, state, {
         generalNews: action.news
       });
+>>>>>>> master:BE/public/dist/bundle.js
     default:
       return state;
   }
 };
 
+<<<<<<< HEAD:dist/bundle.js
+exports.default = search;
+=======
 exports.default = news;
+>>>>>>> master:BE/public/dist/bundle.js
 
 /***/ })
 
