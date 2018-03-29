@@ -20974,7 +20974,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.receiveSearch = receiveSearch;
 var updateQuery = exports.updateQuery = function updateQuery(query) {
-  console.log(query);
+  // console.log(query);
   return {
     type: 'UPDATE_QUERY',
     query: query
@@ -20982,7 +20982,7 @@ var updateQuery = exports.updateQuery = function updateQuery(query) {
 };
 
 function receiveSearch(articles, query) {
-  console.log(articles);
+  // console.log(articles);
   return {
     type: 'RECEIVE_SEARCH',
     results: articles,
@@ -20992,7 +20992,7 @@ function receiveSearch(articles, query) {
 
 var fetchSearch = exports.fetchSearch = function fetchSearch(query) {
   return function (dispatch) {
-    return fetch('https://newsapi.org/v2/everything?q=' + query + '&apiKey=c28b8dc432854485a62509bd93f210d3').then(function (response) {
+    return fetch('http://localhost:3000/api/search/' + query).then(function (response) {
       return response.json();
     }).then(function (results) {
       return dispatch(receiveSearch(results.articles, query));
@@ -21005,22 +21005,6 @@ var searchRequest = exports.searchRequest = function searchRequest(query) {
     return dispatch(fetchSearch(query));
   };
 };
-
-/***/ }),
-
-/***/ "./src/actions/index.js":
-/*!******************************!*\
-  !*** ./src/actions/index.js ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 function receiveNews(news) {
   return {
     type: 'RECEIVE_NEWS',
@@ -21066,13 +21050,10 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD:dist/bundle.js
 var _Search = __webpack_require__(/*! ./Search */ "./src/components/Search.js");
 
 var _Search2 = _interopRequireDefault(_Search);
 
-=======
->>>>>>> master:BE/public/dist/bundle.js
 var _FeedContainer = __webpack_require__(/*! ../containers/FeedContainer */ "./src/containers/FeedContainer.js");
 
 var _FeedContainer2 = _interopRequireDefault(_FeedContainer);
@@ -21083,13 +21064,11 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-<<<<<<< HEAD:dist/bundle.js
-    _react2.default.createElement(_Search2.default, null)
-=======
+    _react2.default.createElement(_Search2.default, null),
     _react2.default.createElement(_FeedContainer2.default, null)
->>>>>>> master:BE/public/dist/bundle.js
   );
 };
+
 // import SearchContainer from '../containers/SearchContainer';
 exports.default = App;
 
@@ -21257,7 +21236,6 @@ exports.default = GroupMain;
 
 /***/ }),
 
-<<<<<<< HEAD:dist/bundle.js
 /***/ "./src/components/Search.js":
 /*!**********************************!*\
   !*** ./src/components/Search.js ***!
@@ -21445,7 +21423,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Story = function Story(_ref) {
 	var storyData = _ref.storyData;
 	var url = storyData.url,
-	    title = storyData.title;
+	    title = storyData.title,
+	    description = storyData.description;
 
 	return _react2.default.createElement(
 		'a',
@@ -21457,6 +21436,11 @@ var Story = function Story(_ref) {
 				'h3',
 				{ className: 'story-title' },
 				title
+			),
+			_react2.default.createElement(
+				'p',
+				{ className: 'story-description' },
+				description
 			)
 		)
 	);
@@ -21470,8 +21454,6 @@ exports.default = Story;
 
 /***/ }),
 
-=======
->>>>>>> master:BE/public/dist/bundle.js
 /***/ "./src/components/StoryMain.js":
 /*!*************************************!*\
   !*** ./src/components/StoryMain.js ***!
@@ -21552,12 +21534,29 @@ var _Feed = __webpack_require__(/*! ../components/Feed */ "./src/components/Feed
 
 var _Feed2 = _interopRequireDefault(_Feed);
 
-<<<<<<< HEAD:dist/bundle.js
+var _actions = __webpack_require__(/*! ../actions/ */ "./src/actions/index.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var FeedContainer = function FeedContainer() {};
+var getNews = function getNews(state) {
+  return (
+    // console.log(state);
+    state.news.generalNews
+  );
+};
+var mapStateToProps = function mapStateToProps(state) {
+  return { generalNews: getNews(state) };
+};
 
-exports.default = (0, _reactRedux.connect)()(_Feed2.default);
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    getNews: function getNews() {
+      return dispatch((0, _actions.requestNews)());
+    }
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Feed2.default);
 
 /***/ }),
 
@@ -21635,7 +21634,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import{} from '../actions';
 
 var getResults = function getResults(state) {
-  console.log(state.search[state.results]);
+  // console.log(state.search[state.results]);
   return state.search[state.query] || [];
 };
 
@@ -21650,31 +21649,6 @@ var mapStateToProps = function mapStateToProps(state) {
 // })
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(_SearchResults2.default);
-=======
-var _actions = __webpack_require__(/*! ../actions/ */ "./src/actions/index.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var getNews = function getNews(state) {
-  return (
-    // console.log(state);
-    state.news.generalNews
-  );
-};
-var mapStateToProps = function mapStateToProps(state) {
-  return { generalNews: getNews(state) };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    getNews: function getNews() {
-      return dispatch((0, _actions.requestNews)());
-    }
-  };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Feed2.default);
->>>>>>> master:BE/public/dist/bundle.js
 
 /***/ }),
 
@@ -21740,7 +21714,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 
-<<<<<<< HEAD:dist/bundle.js
 var _query = __webpack_require__(/*! ./query */ "./src/reducers/query.js");
 
 var _query2 = _interopRequireDefault(_query);
@@ -21748,36 +21721,25 @@ var _query2 = _interopRequireDefault(_query);
 var _search = __webpack_require__(/*! ./search */ "./src/reducers/search.js");
 
 var _search2 = _interopRequireDefault(_search);
-=======
+
 var _receiveNews = __webpack_require__(/*! ./receiveNews */ "./src/reducers/receiveNews.js");
 
 var _receiveNews2 = _interopRequireDefault(_receiveNews);
->>>>>>> master:BE/public/dist/bundle.js
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
-<<<<<<< HEAD:dist/bundle.js
   query: _query2.default,
+  news: _receiveNews2.default,
   search: _search2.default
-=======
-  news: _receiveNews2.default
->>>>>>> master:BE/public/dist/bundle.js
 });
 
 /***/ }),
 
-<<<<<<< HEAD:dist/bundle.js
 /***/ "./src/reducers/query.js":
 /*!*******************************!*\
   !*** ./src/reducers/query.js ***!
   \*******************************/
-=======
-/***/ "./src/reducers/receiveNews.js":
-/*!*************************************!*\
-  !*** ./src/reducers/receiveNews.js ***!
-  \*************************************/
->>>>>>> master:BE/public/dist/bundle.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21787,7 +21749,6 @@ exports.default = (0, _redux.combineReducers)({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-<<<<<<< HEAD:dist/bundle.js
 var query = function query() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var action = arguments[1];
@@ -21804,10 +21765,10 @@ exports.default = query;
 
 /***/ }),
 
-/***/ "./src/reducers/search.js":
-/*!********************************!*\
-  !*** ./src/reducers/search.js ***!
-  \********************************/
+/***/ "./src/reducers/receiveNews.js":
+/*!*************************************!*\
+  !*** ./src/reducers/receiveNews.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21817,17 +21778,6 @@ exports.default = query;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var search = function search() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var action = arguments[1];
-
-  switch (action.type) {
-    case 'RECEIVE_SEARCH':
-      return Object.assign({}, state, _defineProperty({}, action.query, action.results));
-=======
 // import CATEGORIES from '../constants/categories';
 
 // const {categories} = CATEGORIES;
@@ -21854,17 +21804,44 @@ var news = function news() {
       return Object.assign({}, state, {
         generalNews: action.news
       });
->>>>>>> master:BE/public/dist/bundle.js
     default:
       return state;
   }
 };
 
-<<<<<<< HEAD:dist/bundle.js
-exports.default = search;
-=======
 exports.default = news;
->>>>>>> master:BE/public/dist/bundle.js
+
+/***/ }),
+
+/***/ "./src/reducers/search.js":
+/*!********************************!*\
+  !*** ./src/reducers/search.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var search = function search() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  switch (action.type) {
+    case 'RECEIVE_SEARCH':
+      return Object.assign({}, state, _defineProperty({}, action.query, action.results));
+    default:
+      return state;
+  }
+};
+
+exports.default = search;
 
 /***/ })
 

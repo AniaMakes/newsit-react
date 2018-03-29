@@ -1,5 +1,5 @@
 export const updateQuery = query => {
-  console.log(query);
+  // console.log(query);
   return {
     type: 'UPDATE_QUERY',
     query: query
@@ -7,7 +7,7 @@ export const updateQuery = query => {
 };
 
 export function receiveSearch(articles,query){
-  console.log(articles);
+  // console.log(articles);
   return {
     type: 'RECEIVE_SEARCH',
     results: articles,
@@ -17,7 +17,7 @@ export function receiveSearch(articles,query){
 
 export const fetchSearch = query =>{
   return function(dispatch){
-    return fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=c28b8dc432854485a62509bd93f210d3`)
+    return fetch(`http://localhost:3000/api/search/${query}`)
     .then(response => response.json())
     .then(results => dispatch(receiveSearch(results.articles, query)));
   };
@@ -45,4 +45,3 @@ function fetchNews() {
 }
 
 export const requestNews = () => dispatch => dispatch(fetchNews());
-

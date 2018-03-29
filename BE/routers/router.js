@@ -24,6 +24,20 @@ router.get('/topheadlines', (req, res, next) => {
   });
 });
 
+router.get('/search/:query', (req,res, next) => {
+  const query = req.params.query;
+  newsapi.v2.everything({
+    q: query,
+    sortBy: 'popularity'
+  }).then((response) => {
+    // console.log(response);
+    res.status(200).json(response);
+  }).catch((err) => {
+    next(err);
+  });
+});
+
+
 router.use((req, res) => {
   res.status(404).send(':( NOPES. Nothing to see here');
 });
