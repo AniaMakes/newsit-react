@@ -14,10 +14,11 @@ class Feed extends React.Component {
 	};
 
 	render() {
-		const groups = categories.map(category => {
+		const groups = categories.map((category, i) => {
 			return <Group
 				category={category}
 				data={this.props.news.news[category]}
+				key={i}
 			/>;
 		});
 		return (

@@ -3,7 +3,6 @@ import categories from '../constants/categories';
 // ============ DEFAULT CATEGORIES BLOCK
 
 function receiveNews(news,category) {
-	console.log('receive news ', news, category);
 	return {
 		type: 'RECEIVE_NEWS',
 		news: news,
