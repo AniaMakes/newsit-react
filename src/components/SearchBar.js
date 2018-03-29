@@ -19,7 +19,6 @@ const SearchBar = ({query, updateQuery, searchRequest}) => {
         value={query}
        />
       <button type="submit">Search</button>
-      {message}
     </form>
   );
 
