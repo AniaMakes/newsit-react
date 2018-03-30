@@ -1,4 +1,4 @@
-const { processLangFromBrowser } = require('../../helpers/processLangFromBrowser');
+const { processLangFromBrowser } = require('../../BE/helpers/processLangFromBrowser');
 
 describe('processLangFromBrowser', () => {
 	it('returns a language ISO code if the regional language is an accepted parameter in the API', () => {

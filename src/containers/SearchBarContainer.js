@@ -4,7 +4,7 @@ import { updateQuery,searchRequest } from '../actions';
 import { withRouter } from 'react-router';
 
 const getQuery = (state) => {
-	return state.query;
+	return state.searchComponentFunctionality.searchQueryInput;
 };
 
 const mapStateToProps = state => ({
