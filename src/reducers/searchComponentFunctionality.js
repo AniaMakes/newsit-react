@@ -12,7 +12,7 @@ const searchComponentFunctionality = (state = {
 			searchResults: {
 				[action.query]: action.results
 			},
-			searchQueryInput: '', 
+			searchQueryInput: '',
 			mostRecentSearch: action.query
 		});
 	default:
