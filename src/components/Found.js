@@ -5,7 +5,7 @@ import FeedContainer from '../containers/FeedContainer';
 const Found = () => (
 	<div>
 		<Search 
-			searchResults={false}
+			searchResults={true}
 		/>
 		<FeedContainer
 			categoryCollapse={true}

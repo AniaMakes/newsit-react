@@ -11,9 +11,10 @@ const getNews = (state) => {
 	return workingState;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	return {
-		news : getNews(state)
+		news : getNews(state),
+		ownProps
 	};
 };
 

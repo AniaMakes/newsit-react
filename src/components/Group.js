@@ -23,8 +23,8 @@ const Group = (props) => {
 						/>;
 					}
 				})}	
+				<button> More </button>
 			</div>
-			
 		</section>
 	);
 };

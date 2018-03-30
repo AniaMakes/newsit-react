@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './Story';
 
-const SearchResults = ({articles}) => {
+const SearchResults = ({articles, searchResults}) => {
 
 	return (
 		<section>
-			{articles.map((storyData, i) => {
+{/*			<h3> Found: </h3>
+*/}			{articles.map((storyData, i) => {
 				return <Story
 					storyData={storyData}
 					key={i}

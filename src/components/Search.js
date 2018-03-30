@@ -2,11 +2,12 @@ import React from 'react';
 import SearchBarContainer from '../containers/SearchBarContainer';
 import SearchResultsContainer from '../containers/SearchResultsContainer';
 
-const Search = () => {
+const Search = (props) => {
+	console.log(props);
 	return (
 		<div>
 			<SearchBarContainer />
-			<SearchResultsContainer />
+			<SearchResultsContainer props={props}/>
 		</div>
 	);
 };

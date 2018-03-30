@@ -1,14 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-
-const SearchBar = ({query, updateQuery, searchRequest}) => {
+const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 	return (
 		<form
 			onSubmit={event =>{
 				event.preventDefault();
 				if (query.length>1){
 					searchRequest(query);}
+				history.push('/found');
 			}}
 		>
 			<input
@@ -18,7 +19,7 @@ const SearchBar = ({query, updateQuery, searchRequest}) => {
 				onChange={event => updateQuery(event.target.value)}
 				value={query}
 			/>
-			<button type="submit">Search</button>
+				<button type="submit">Search</button>
 		</form>
 	);
 

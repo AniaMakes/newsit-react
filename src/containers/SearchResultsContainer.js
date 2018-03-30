@@ -5,8 +5,9 @@ const getResults = state => {
 	return state.search[state.query] || [];
 };
 
-const mapStateToProps = state => ({
-	articles: getResults(state)
+const mapStateToProps = (state, ownProps) => ({
+	articles: getResults(state),
+	ownProps
 });
 
 export default connect(
