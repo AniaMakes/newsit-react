@@ -3,7 +3,6 @@ import SearchBar from '../components/SearchBar';
 import { updateQuery,searchRequest } from '../actions';
 
 const getQuery = (state) => {
-	console.log(state);
 	return state.searchComponentFunctionality.searchQueryInput;
 };
 
