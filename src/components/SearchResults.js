@@ -6,7 +6,7 @@ const SearchResults = ({articles, searchResults}) => {
 
 	return (
 		<section>
-{/*			<h3> Found: </h3>
+			{/*			<h3> Found: </h3>
 */}			{articles.map((storyData, i) => {
 				return <Story
 					storyData={storyData}

@@ -8,6 +8,7 @@ const Found = () => (
 			searchResults={true}
 		/>
 		<FeedContainer
+			view='found'
 			categoryCollapse={true}
 			numberOfStories={20}
 		/>

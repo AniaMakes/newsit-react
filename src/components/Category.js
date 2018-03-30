@@ -8,7 +8,8 @@ const Category = () => (
 			searchResults={false}
 		/>
 		<FeedContainer
-			categoryCollapse={true}
+			/*categoryCollapse={true}*/
+			view='category'
 			numberOfStories={20}
 		/>
 	</div>

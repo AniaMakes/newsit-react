@@ -8,6 +8,7 @@ const Default = () => (
 			searchResults={false}
 		/>
 		<FeedContainer
+			view='default'
 			categoryCollapse={false}
 			numberOfStories={5}
 		/>

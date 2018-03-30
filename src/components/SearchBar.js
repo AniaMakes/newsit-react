@@ -19,7 +19,7 @@ const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 				onChange={event => updateQuery(event.target.value)}
 				value={query}
 			/>
-				<button type="submit">Search</button>
+			<button type="submit">Search</button>
 		</form>
 	);
 

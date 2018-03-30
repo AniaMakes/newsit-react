@@ -10,17 +10,17 @@ const AppRouter = () => (
 	<Router>
 		<div>
 			<ul>
-				<li><Link to='/'>Link to Default</Link></li>
+				<li><Link to='/'>Home</Link></li>
 				{/*<li><Link to='/category'>Link to Category</Link></li>*/}
-				<li><Link to='/customize'>Link to customize</Link></li>
+				<li><Link to='/customize'>Customize</Link></li>
 			</ul>
 
 			<hr/>
 
-				<Route exact path='/' component={Default} />
-				{/*<Route path='/category' component={Category} />*/}
-				<Route path='/found' component={Found} />
-				<Route path='/customize' component={Customize} />
+			<Route exact path='/' component={Default} />
+			<Route path='/category' component={Category} />
+			<Route path='/found' component={Found} />
+			<Route path='/customize' component={Customize} />
 		</div>	
 	</Router>
 
