@@ -29,9 +29,6 @@ describe('updateQuery', () => {
 	});
 });
 
-if(spaces){
-	console.log( 'hello');
-}
 
 // describe('receiveSearch', () => {
 //   it('should output receiveSearch object ready for receiver', () => {
