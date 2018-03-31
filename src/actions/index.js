@@ -57,3 +57,20 @@ export const searchRequest = query => {
 		return dispatch(fetchSearch(query));
 	};
 };
+
+//=============== HOME BUTTON
+//
+// export const ToHomePage = => {
+//     return(dispatch) => {
+//         return dispatch => {
+//         }
+//     }
+// }
+//
+export const updateCheckboxValue = (category)=> {
+	console.log('I made it into updateCheckboxValue action');
+	return{
+		type: 'CHANGE_CHECKBOX_VALUE',
+		category: category
+	};
+};

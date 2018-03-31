@@ -37,3 +37,9 @@ describe('updateQuery', () => {
 //     const expectedOutcome =
 //   })
 // })
+
+// 
+// describe('updateCheckboxValue', () => {
+// 	it('should output updateCheckboxValue object ready for receiver', () => {
+// 	});
+// });
