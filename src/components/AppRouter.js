@@ -4,19 +4,13 @@ import Default from './Default';
 import Category from './Category';
 import Found from './Found';
 import CustomiseContainer from '../containers/CustomiseContainer';
+import NavBar from './NavBar';
 
 
 const AppRouter = () => (
 	<Router>
 		<div>
-			<ul>
-				<li><Link to='/'>Home</Link></li>
-				{/*<li><Link to='/category'>Link to Category</Link></li>*/}
-				<li><Link to='/customise'>Customise</Link></li>
-			</ul>
-
-			<hr/>
-
+			<NavBar />
 			<Route exact path='/' component={Default} />
 			<Route path='/category/:category' component={Category} />
 			<Route path='/found' component={Found} />
