@@ -5,16 +5,17 @@ import PropTypes from 'prop-types';
 const Story = ({storyData}) => {
 	const {url, title, description} = storyData;
 	return (
-		<a href={url}>
-			<article className="story">
-				<h3 className="story-title">
+		<article className='story'>
+			<a href={url} target='_blank'>
+				<h3 className='story-title'>
 					{title}
 				</h3>
-				<p className="story-description">
-					{description}
-				</p>
-			</article>
-		</a>
+			</a>
+			<p className='story-description'>
+				{description}
+			</p>
+		</article>
+		
 	);
 };
 

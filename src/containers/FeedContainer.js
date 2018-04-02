@@ -5,7 +5,6 @@ import { withRouter } from 'react-router';
 
 const getNews = (state) => {
 	let workingState = Object.assign({}, state);
-
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
