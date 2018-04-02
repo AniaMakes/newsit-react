@@ -15,9 +15,16 @@ const Group = (props) => {
 	 		activeCategory
 	} = props;
 
-	let filteredData = data.filter((story) => {
-		return data.indexOf(story) <= (numberOfStories-1);
-	});
+	let filteredData;
+	if (view === 'default' && category == 'general') {
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= 2;
+		});
+	} else {
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= (numberOfStories-1);
+		});
+	}
 
 	const viewToRender = 
 	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
@@ -45,9 +52,11 @@ const Group = (props) => {
 
 	return (
 		<section className={'group-' + category}>
-			<h2 onClick={event => {
-				history.push(`/category/${category}`);
-			}}
+			<h2 
+				className='category-heading'
+				onClick={event => {
+					history.push(`/category/${category}`);
+				}}
 			> Category: {category} 
 			</h2>
 			{viewToRender}
