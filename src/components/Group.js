@@ -4,32 +4,62 @@ import Story from './Story';
 import StoryMain from './StoryMain';
 
 const Group = (props) => {
-	const {category, data} = props;
+	const {
+		category,
+	 		data, 
+	 		searchResults,
+	 		categoryCollapse,
+	 		numberOfStories,
+	 		history,
+	 		view,
+	 		activeCategory
+	} = props;
 
-	let headline;
+	let filteredData;
+	if (view === 'default' && category == 'general') {
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= 2;
+		});
+	} else {
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= (numberOfStories-1);
+		});
+	}
 
-	if (category != 'general') {
-		headline = <h2> Category: {category} </h2>;
-	};
-
+	const viewToRender = 
+	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
+		{filteredData.map((storyData, i) => {
+			if (view === 'default' && category == 'general') {
+				return <StoryMain 
+					storyData={storyData}
+					key={i}
+				/>;
+			} else {
+				return <Story
+					storyData={storyData}
+					key={i}
+				/>;
+			}
+		})}	
+		<button 
+			className={(category === activeCategory) ? 'hidden' : 'stories-show'} // change the class css
+			onClick={event => {
+				history.push(`/category/${category}`);
+			}}
+		> More 
+		</button>
+	</div>;
 
 	return (
 		<section className={'group-' + category}>
-			{headline}
-
-			{data.map((storyData, i) => {
-				if (category == 'general') {
-					return <StoryMain 
-						storyData={storyData}
-						key={i}
-					/>;
-				} else {
-					return <Story
-						storyData={storyData}
-						key={i}
-					/>;
-				}
-			})}
+			<h2 
+				className='category-heading'
+				onClick={event => {
+					history.push(`/category/${category}`);
+				}}
+			> Category: {category} 
+			</h2>
+			{viewToRender}
 		</section>
 	);
 };

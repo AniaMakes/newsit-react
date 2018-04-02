@@ -19,6 +19,11 @@ class Feed extends React.Component {
 				category={category}
 				data={this.props.news.news[category]}
 				key={i}
+				categoryCollapse={this.props.categoryCollapse}
+				numberOfStories={this.props.numberOfStories}
+				history={this.props.history}
+				view={this.props.view}
+				activeCategory={this.props.activeCategory}
 			/>;
 		});
 		return (

@@ -13,7 +13,7 @@ router.get('/topheadlines/:category', (req, res, next) => {
 	newsapi.v2.topHeadlines({
 		category: req.params.category,
 		country: queryLang,
-		pageSize: 5,
+		pageSize: 20,
 	}).then((response) => {
 		// console.log(response);
 		res.status(200).json(response);

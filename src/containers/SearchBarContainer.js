@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import SearchBar from '../components/SearchBar';
 import { updateQuery,searchRequest } from '../actions';
+import { withRouter } from 'react-router';
 
 const getQuery = (state) => {
 	return state.searchComponentFunctionality.searchQueryInput;
@@ -15,7 +16,7 @@ const mapDispatchToProps = dispatch => ({
 	searchRequest: query => dispatch(searchRequest(query))
 });
 
-export default connect(
+export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SearchBar);
+)(SearchBar));

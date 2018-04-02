@@ -1,0 +1,17 @@
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.category-heading {
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.stories-show {
+	display: block;
+}
+
