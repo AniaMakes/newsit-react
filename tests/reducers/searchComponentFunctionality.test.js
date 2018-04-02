@@ -28,25 +28,25 @@ describe('searchComponentFunctionality', () => {
 		expect(searchComponentFunctionality(preState, action)).toEqual(desiredOutput);
 	});
 
-	it('should handle update query input '),
-	() => {
-		const preState = {
-			searchResults: {},
-			query: '',
-			mostRecentSearch: ''
-		};
+	it('should handle update query input ',
+		() => {
+			const preState = {
+				searchResults: {},
+				searchQueryInput: '',
+				mostRecentSearch: ''
+			};
 
-		const incomingAction = {
-			type: 'UPDATE_QUERY',
-			query: 'kittens'
-		};
+			const incomingAction = {
+				type: 'UPDATE_QUERY',
+				query: 'kittens'
+			};
 
-		const desiredOutput = {
-			searchResults: {},
-			query: 'kittens',
-			mostRecentSearch: ''
-		};
+			const desiredOutput = {
+				searchResults: {},
+				searchQueryInput: 'kittens',
+				mostRecentSearch: ''
+			};
 
-		expect(searchComponentFunctionality(preState, incomingAction)).toEqual(desiredOutput);
-	};
+			expect(searchComponentFunctionality(preState, incomingAction)).toEqual(desiredOutput);
+		});
 });

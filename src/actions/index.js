@@ -46,7 +46,7 @@ export function receiveSearch(articles,query){
 
 export const fetchSearch = query =>{
 	return function(dispatch){
-		return fetch(`http://localhost:3000/api/search/${query}`)
+		return fetch(`/api/search/${query}`)
 			.then(response => response.json())
 			.then(results => dispatch(receiveSearch(results.articles, query)));
 	};
@@ -55,5 +55,29 @@ export const fetchSearch = query =>{
 export const searchRequest = query => {
 	return(dispatch) => {
 		return dispatch(fetchSearch(query));
+	};
+};
+
+export const updateCheckboxValue = (category)=> {
+	return{
+		type: 'CHANGE_CHECKBOX_VALUE',
+		category: category
+	};
+};
+
+export const savePreferencesToLocalStorage = (preferencesObject) => {
+	let preferencesJSON = JSON.stringify(preferencesObject);
+	localStorage.setItem('news preferences', preferencesJSON);
+	return {
+		type: 'SAVE_PREFERENCES',
+		preferences: preferencesObject
+	};
+};
+
+export const updateTextboxValue = (textBoxName, textBoxInput) => {
+	return {
+		type: 'UPDATE_TEXTBOX_VALUE',
+		name: textBoxName,
+		input: textBoxInput
 	};
 };
