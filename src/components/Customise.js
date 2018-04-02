@@ -2,7 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
 
-const Customise = ({toggleCheckbox, categoryPicker}) => {
+const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox}) => {
+
+	console.log(textBox);
+
+	const textInputsArray = ['Interests', 'Ignore'];
+
+	const textInputs = textInputsArray.map(type => {
+		return (
+			<div key={type}>
+				<label>
+					{type}
+					<input
+						onChange={(event) => {
+							event.preventDefault();
+							updateTextbox(event.target.name , event.target.value);
+						}}
+						type='text'
+						name={type}
+						value={textBox[type]}
+					/>
+				</label>
+			</div>
+		);
+	});
 
 	const categorySelector = categories.map(category => {
 		console.log(categoryPicker, categoryPicker[category]);
@@ -13,11 +36,9 @@ const Customise = ({toggleCheckbox, categoryPicker}) => {
 						type="checkbox"
 						id={category}
 						name={category}
-						// value={true}
 						checked={categoryPicker[category]}
 						value={categoryPicker[category]}
 						onChange={event => {
-							// event.preventDefault();
 							console.log(event.target.name);
 							toggleCheckbox(event.target.name);
 						}}
@@ -29,8 +50,18 @@ const Customise = ({toggleCheckbox, categoryPicker}) => {
 
 	return (
 		<div>
-			<form>
+			<form
+				onSubmit={(event) => {
+					event.preventDefault();
+					let preferecesObject = {
+						categoryPicker,
+						textBox
+					};
+					console.log(preferecesObject);
+					savePreferences(preferecesObject);
+				}}>
 				{categorySelector}
+				{textInputs}
 				<button type="submit">Save preferences</button>
 			</form>
 		</div>);
