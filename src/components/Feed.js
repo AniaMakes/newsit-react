@@ -24,8 +24,6 @@ class Feed extends React.Component {
 			});
 		}
 
-		console.log('pref Cat ', preferredCategories);
-
 		if (preferredCategories.length > 0) {
 			preferredCategories.forEach((category) => {
 				this.props.getNews(category);
