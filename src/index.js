@@ -11,8 +11,6 @@ import reducers from './reducers';
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
-console.log('There is the test PR');
-
 ReactDOM.render(
 	<Provider store={store}>
 		<AppRouter />
