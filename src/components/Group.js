@@ -6,8 +6,12 @@ import StoryMain from './StoryMain';
 const Group = (props) => {
 	const {category, data, searchResults, categoryCollapse, numberOfStories, history, view, activeCategory} = props;
 
+	let filteredData = data.filter((story) => {
+		return data.indexOf(story) <= (numberOfStories-1);
+	});
+
 	const viewToRender = <div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
-		{data.map((storyData, i) => {
+		{filteredData.map((storyData, i) => {
 			if (view === 'default' && category == 'general') {
 				return <StoryMain 
 					storyData={storyData}
