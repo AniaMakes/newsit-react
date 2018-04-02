@@ -64,4 +64,12 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 		</div>);
 };
 
+Customise.propTypes = {
+	toggleCheckbox: PropTypes.func,
+	categoryPicker: PropTypes.object,
+	savePreferences: PropTypes.func,
+	updateTextbox: PropTypes.func,
+	textBox: PropTypes.object
+};
+
 export default Customise;

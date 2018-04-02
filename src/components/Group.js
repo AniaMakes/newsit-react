@@ -66,7 +66,13 @@ const Group = (props) => {
 
 Group.propTypes = {
 	category: PropTypes.string,
-	data: PropTypes.array
+	data: PropTypes.array, 
+	history: PropTypes.object,
+	searchResults: PropTypes.func,
+	categoryCollapse: PropTypes.bool,
+	view: PropTypes.string,
+	activeCategory: PropTypes.string,
+	numberOfStories: PropTypes.number
 };
 
 export default Group;
