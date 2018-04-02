@@ -35,7 +35,16 @@ class Feed extends React.Component {
 }
 
 Feed.propTypes = {
-	getNews: PropTypes.func
+	getNews: PropTypes.func,
+	category: PropTypes.string,
+	data: PropTypes.array, 
+	history: PropTypes.object,
+	searchResults: PropTypes.func,
+	categoryCollapse: PropTypes.bool,
+	view: PropTypes.string,
+	activeCategory: PropTypes.string,
+	numberOfStories: PropTypes.number,
+	news: PropTypes. object
 };
 
 export default Feed;

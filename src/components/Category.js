@@ -1,6 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import FeedContainer from '../containers/FeedContainer';
+import PropTypes from 'prop-types';
 
 const Category = (props) => (
 	<div>
@@ -16,5 +17,8 @@ const Category = (props) => (
 	</div>
 );
 
+Category.propTypes = {
+	match: PropTypes.object
+};
 
 export default Category;

@@ -21,7 +21,7 @@ const SearchResults = (props) => {
 
 SearchResults.propTypes = {
 	articles: PropTypes.array,
-	getResults: PropTypes.func
+	props: PropTypes.object
 };
 
 export default SearchResults;

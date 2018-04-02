@@ -29,7 +29,8 @@ const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 SearchBar.propTypes = {
 	query: PropTypes.string,
 	updateQuery: PropTypes.func.isRequired,
-	searchRequest: PropTypes.func.isRequired
+	searchRequest: PropTypes.func.isRequired,
+	history: PropTypes.object
 };
 
 export default SearchBar;
