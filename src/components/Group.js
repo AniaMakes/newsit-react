@@ -22,7 +22,6 @@ const Group = (props) => {
 		})}	
 		<button className={(category === activeCategory) ? 'hidden' : 'stories-show'} // change the class css
 			onClick={event => {
-				console.log(category);
 				history.push(`/category/${category}`);
 			}}
 		> More </button>
@@ -30,7 +29,11 @@ const Group = (props) => {
 
 	return (
 		<section className={'group-' + category}>
-			<h2> Category: {category} </h2>
+			<h2 onClick={event => {
+				history.push(`/category/${category}`);
+			}}
+			> Category: {category} </h2>
+			
 			{viewToRender}
 		</section>
 	);
