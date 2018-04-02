@@ -5,11 +5,12 @@ import PropTypes from 'prop-types';
 const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 	return (
 		<form
-			onSubmit={event =>{
+			onSubmit={event => {
 				event.preventDefault();
 				if (query.length>1){
-					searchRequest(query);}
-				history.push('/found');
+					searchRequest(query);
+					history.push('/found');
+				}
 			}}
 		>
 			<input

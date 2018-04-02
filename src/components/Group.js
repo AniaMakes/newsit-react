@@ -53,7 +53,7 @@ const Group = (props) => {
 	return (
 		<section className={'group-' + category}>
 			<h2 
-				className={(category === 'general') ? 'hidden' : 'category-heading'}
+				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
 				onClick={event => {
 					history.push(`/category/${category}`);
 				}}
