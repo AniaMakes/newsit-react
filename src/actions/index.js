@@ -59,7 +59,6 @@ export const searchRequest = query => {
 };
 
 export const updateCheckboxValue = (category)=> {
-	console.log('I made it into updateCheckboxValue action');
 	return{
 		type: 'CHANGE_CHECKBOX_VALUE',
 		category: category
@@ -76,7 +75,6 @@ export const savePreferencesToLocalStorage = (preferencesObject) => {
 };
 
 export const updateTextboxValue = (textBoxName, textBoxInput) => {
-	console.log('I made it into action');
 	return {
 		type: 'UPDATE_TEXTBOX_VALUE',
 		name: textBoxName,

@@ -4,7 +4,6 @@ import {updateCheckboxValue, savePreferencesToLocalStorage, updateTextboxValue} 
 
 const checkAndFetchLocalStorage = () => {
 	let preferencesFromMemory = localStorage.getItem('news preferences');
-	console.log(JSON.parse(preferencesFromMemory));
 	return JSON.parse(preferencesFromMemory);
 };
 
@@ -13,8 +12,6 @@ const getCheckboxState = state => {
 };
 
 const getTextBoxState = state =>{
-	console.log('getTextBoxState ', state);
-	console.log(state.updatePreferences.textBox);
 	return state.updatePreferences.textBox;
 };
 

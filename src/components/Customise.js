@@ -4,9 +4,9 @@ import categories from '../constants/categories';
 
 const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox}) => {
 
-	console.log(textBox);
-
+	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
 	const textInputsArray = ['Interests', 'Ignore'];
+
 
 	const textInputs = textInputsArray.map(type => {
 		return (
@@ -28,7 +28,6 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 	});
 
 	const categorySelector = categories.map(category => {
-		console.log(categoryPicker, categoryPicker[category]);
 		return (
 			<div key={category}>
 				<label>
@@ -39,7 +38,6 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						checked={categoryPicker[category]}
 						value={categoryPicker[category]}
 						onChange={event => {
-							console.log(event.target.name);
 							toggleCheckbox(event.target.name);
 						}}
 					/> {category}
@@ -57,7 +55,6 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						categoryPicker,
 						textBox
 					};
-					console.log(preferecesObject);
 					savePreferences(preferecesObject);
 				}}>
 				{categorySelector}
