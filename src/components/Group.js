@@ -4,32 +4,33 @@ import Story from './Story';
 import StoryMain from './StoryMain';
 
 const Group = (props) => {
-	const {category, data} = props;
+	const {category, data, searchResults, categoryCollapse, numberOfStories, history, view} = props;
 
-	let headline;
-
-	if (category != 'general') {
-		headline = <h2> Category: {category} </h2>;
-	};
-
+	const viewToRender = <div className={categoryCollapse ? 'hidden' : 'stories-show' }>
+		{data.map((storyData, i) => {
+			if (view === 'default' && category == 'general') {
+				return <StoryMain 
+					storyData={storyData}
+					key={i}
+				/>;
+			} else {
+				return <Story
+					storyData={storyData}
+					key={i}
+				/>;
+			}
+		})}	
+		<button
+			onClick={event => {
+				history.push('/category');
+			}}
+		> More </button>
+	</div>;
 
 	return (
 		<section className={'group-' + category}>
-			{headline}
-
-			{data.map((storyData, i) => {
-				if (category == 'general') {
-					return <StoryMain 
-						storyData={storyData}
-						key={i}
-					/>;
-				} else {
-					return <Story
-						storyData={storyData}
-						key={i}
-					/>;
-				}
-			})}
+			<h2> Category: {category} </h2>
+			{viewToRender}
 		</section>
 	);
 };

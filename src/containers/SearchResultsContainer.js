@@ -7,8 +7,9 @@ const getResults = state => {
 	return searchResults[mostRecentSearch] || [];
 };
 
-const mapStateToProps = state => ({
-	articles: getResults(state)
+const mapStateToProps = (state, ownProps) => ({
+	articles: getResults(state),
+	ownProps
 });
 
 export default connect(
