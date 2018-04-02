@@ -5,17 +5,20 @@ import Category from './Category';
 import Found from './Found';
 import CustomiseContainer from '../containers/CustomiseContainer';
 import NavBar from './NavBar';
+import ScrollToTop from './ScrollToTop';
 
 
 const AppRouter = () => (
 	<Router>
-		<div>
-			<NavBar />
-			<Route exact path='/' component={Default} />
-			<Route path='/category/:category' component={Category} />
-			<Route path='/found' component={Found} />
-			<Route path='/customise' component={CustomiseContainer} />
-		</div>
+		<ScrollToTop>
+			<div>
+				<NavBar />
+				<Route exact path='/' component={Default} />
+				<Route path='/category/:category' component={Category} />
+				<Route path='/found' component={Found} />
+				<Route path='/customise' component={CustomiseContainer} />
+			</div>
+		</ScrollToTop>
 	</Router>
 
 );
