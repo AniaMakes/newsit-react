@@ -18,7 +18,7 @@ const AppRouter = () => (
 			<hr/>
 
 			<Route exact path='/' component={Default} />
-			<Route path='/category' component={Category} />
+			<Route path='/category/:category' component={Category} />
 			<Route path='/found' component={Found} />
 			<Route path='/customize' component={Customize} />
 		</div>	

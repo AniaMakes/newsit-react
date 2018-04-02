@@ -23,6 +23,7 @@ class Feed extends React.Component {
 				numberOfStories={this.props.numberOfStories}
 				history={this.props.history}
 				view={this.props.view}
+				activeCategory={this.props.activeCategory}
 			/>;
 		});
 		return (

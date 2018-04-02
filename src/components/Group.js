@@ -4,9 +4,9 @@ import Story from './Story';
 import StoryMain from './StoryMain';
 
 const Group = (props) => {
-	const {category, data, searchResults, categoryCollapse, numberOfStories, history, view} = props;
+	const {category, data, searchResults, categoryCollapse, numberOfStories, history, view, activeCategory} = props;
 
-	const viewToRender = <div className={categoryCollapse ? 'hidden' : 'stories-show' }>
+	const viewToRender = <div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
 		{data.map((storyData, i) => {
 			if (view === 'default' && category == 'general') {
 				return <StoryMain 
@@ -20,9 +20,10 @@ const Group = (props) => {
 				/>;
 			}
 		})}	
-		<button
+		<button className={(category === activeCategory) ? 'hidden' : 'stories-show'} // change the class css
 			onClick={event => {
-				history.push('/category');
+				console.log(category);
+				history.push(`/category/${category}`);
 			}}
 		> More </button>
 	</div>;
