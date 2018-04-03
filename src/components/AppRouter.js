@@ -21,40 +21,31 @@ class AppRouter extends React.Component {
 
 
 	render(){
-		const defaultView =	<div>
-			<NavBar />
-			<Route exact path='/' component={Default} />
-			<Route path='/category/:category' component={Category} />
-			<Route path='/found' component={Found} />
-			<Route path='/customise' component={CustomiseContainer} />
-			<Route path='/personalised' component={PersonalView} />
-		</div>;
-
-		const personalView = 	<div>
-			<NavBar />
-			<Route exact path='/' component={PersonalView} />
-			<Route path='/category/:category' component={Category} />
-			<Route path='/found' component={Found} />
-			<Route path='/customise' component={CustomiseContainer} />
-			<Route path='/personalised' component={PersonalView} />
-		</div>;
-
 		const JSONfromLocalStorage = localStorage.getItem('news preferences');
 
 		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
 
-		let displayed;
+		let routeOnLoad;
 
 		if(objectFromLocalStorage != null){
-			displayed = personalView;
+			routeOnLoad = <Route exact path='/' component={PersonalView} />
+			;
 		} else {
-			displayed = defaultView;
+			routeOnLoad = <Route exact path='/' component={Default} />
+			;
 		}
 
 		return (
 			<Router>
 				<ScrollToTop>
-					{displayed}
+					<div>
+						<NavBar />
+						{routeOnLoad}
+						<Route path='/category/:category' component={Category} />
+						<Route path='/found' component={Found} />
+						<Route path='/customise' component={CustomiseContainer} />
+						<Route path='/personalised' component={PersonalView} />
+					</div>;
 				</ScrollToTop>
 			</Router>
 
