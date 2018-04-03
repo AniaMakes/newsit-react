@@ -13,7 +13,6 @@ const getCheckboxState = state => {
 };
 
 const getTextBoxState = state =>{
-	console.log(state);
 	return state.updatePreferences.textBox;
 };
 

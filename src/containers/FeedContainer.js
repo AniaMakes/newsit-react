@@ -8,14 +8,23 @@ const getNews = (state) => {
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
-	console.log(workingState);
 	return workingState;
+};
+
+const getPreferences = (state) => {
+	let returning;
+
+	if (state.savePreferences.hasOwnProperty('preferences')){
+		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
+	}
+
+	return returning;
 };
 
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
-		savedPreferences: state.savePreferences.preferences.preferencesObject,
+		savedPreferences: getPreferences(state),
 		ownProps
 	};
 };
