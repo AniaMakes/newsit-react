@@ -12,10 +12,21 @@ const getNews = (state) => {
 	return workingState;
 };
 
+const getPreferences = (state) => {
+	let returning;
+
+	console.log(state);
+	if (state.savePreferences.hasOwnProperty('preferences')){
+		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
+	}
+
+	return returning;
+};
+
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
-		savedPreferences: state.savePreferences.preferences.preferencesObject,
+		savedPreferences: getPreferences(state),
 		ownProps
 	};
 };
