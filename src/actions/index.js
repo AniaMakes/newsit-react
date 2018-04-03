@@ -11,6 +11,7 @@ export function receiveNews(news,category) {
 };
 
 export function receiveError(error) {
+	console.log('I received an error ' + error);
 	return {
 		type: 'RECEIVE_ERROR',
 		error
@@ -20,11 +21,16 @@ export function receiveError(error) {
 function fetchNews(category) {
 	return function(dispatch) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
-			.then(response => response.json())
+			.then(response => {
+				const returnedResponse = response.json();
+				console.log(returnedResponse);
+				return returnedResponse;
+			})
 			.then(news => {
 				return dispatch(receiveNews(news.articles, category));
 			})
 			.catch(error => {
+				console.log(error);
 				return dispatch(receiveError(error));
 			});
 	};
