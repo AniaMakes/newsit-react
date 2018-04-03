@@ -35,7 +35,6 @@ const updatePreferences = (state = {
 		break;
 	case 'RESTORE_CUSTOMISED_SETTINGS':
 		let outputObject3 =  Object.assign({}, state);
-		console.log(action);
 		outputObject3.categoryPicker = Object.assign({}, action.savedInLocalStorage.preferencesObject.categoryPicker);
 		outputObject3.textBox = Object.assign({}, action.savedInLocalStorage.preferencesObject.textBox);
 		return outputObject3;

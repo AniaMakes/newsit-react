@@ -9,10 +9,7 @@ class Feed extends React.Component {
     	super(props);
  	}
 	componentDidMount() {
-		console.log(categoriesForRender, this.props);
 		let preferredCategories = categoriesForRender(this.props.view, this.props);
-
-		console.log(preferredCategories);
 
 		preferredCategories.forEach((category) => {
 			this.props.getNews(category);
@@ -21,8 +18,6 @@ class Feed extends React.Component {
 
 	render() {
 		let categoriesToRender = categoriesForRender(this.props.view, this.props);
-
-		console.log(categoriesToRender);
 
 		const groups = categoriesToRender.map((category, i) => {
 			return <Group

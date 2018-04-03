@@ -8,14 +8,12 @@ const getNews = (state) => {
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
-	console.log(workingState);
 	return workingState;
 };
 
 const getPreferences = (state) => {
 	let returning;
 
-	console.log(state);
 	if (state.savePreferences.hasOwnProperty('preferences')){
 		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
 	}
