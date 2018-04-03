@@ -4,6 +4,7 @@ import Default from './Default';
 import Category from './Category';
 import Found from './Found';
 import CustomiseContainer from '../containers/CustomiseContainer';
+import ErrorWrapper from './ErrorWrapper';
 
 
 const AppRouter = () => (
@@ -21,6 +22,7 @@ const AppRouter = () => (
 			<Route path='/category/:category' component={Category} />
 			<Route path='/found' component={Found} />
 			<Route path='/customise' component={CustomiseContainer} />
+			<Route path='/error' component={ErrorWrapper} />
 		</div>
 	</Router>
 
