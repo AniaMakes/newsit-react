@@ -8,45 +8,57 @@ import NavBar from './NavBar';
 import ScrollToTop from './ScrollToTop';
 import PersonalView from './PersonalView';
 
+import { loadState } from '../helpers/localStorage';
 
-const AppRouter = () => {
 
-	const defaultView =	<div>
-		<NavBar />
-		<Route exact path='/' component={Default} />
-		<Route path='/category/:category' component={Category} />
-		<Route path='/found' component={Found} />
-		<Route path='/customise' component={CustomiseContainer} />
-	</div>;
+class AppRouter extends React.Component {
 
-	const personalView = 	<div>
-		<NavBar />
-		<Route exact path='/' component={PersonalView} />
-		<Route path='/category/:category' component={Category} />
-		<Route path='/found' component={Found} />
-		<Route path='/customise' component={CustomiseContainer} />
-	</div>;
 
-	const JSONfromLocalStorage = localStorage.getItem('news preferences');
 
-	const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
+	// componentDidMount(){
+	// 	loadState('news preferences');
+	// };
 
-	let displayed;
 
-	if(objectFromLocalStorage != null){
-		displayed = personalView;
-	} else {
-		displayed = defaultView;
+	render(){
+		const defaultView =	<div>
+			<NavBar />
+			<Route exact path='/' component={Default} />
+			<Route path='/category/:category' component={Category} />
+			<Route path='/found' component={Found} />
+			<Route path='/customise' component={CustomiseContainer} />
+		</div>;
+
+		const personalView = 	<div>
+			<NavBar />
+			<Route exact path='/' component={PersonalView} />
+			<Route path='/category/:category' component={Category} />
+			<Route path='/found' component={Found} />
+			<Route path='/customise' component={CustomiseContainer} />
+		</div>;
+
+		const JSONfromLocalStorage = localStorage.getItem('news preferences');
+
+		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
+
+		let displayed;
+
+		if(objectFromLocalStorage != null){
+			displayed = personalView;
+		} else {
+			displayed = defaultView;
+		}
+
+		return (
+			<Router>
+				<ScrollToTop>
+					{displayed}
+				</ScrollToTop>
+			</Router>
+
+		);
 	}
 
-	return (
-		<Router>
-			<ScrollToTop>
-				{displayed}
-			</ScrollToTop>
-		</Router>
-
-	);
 };
 
 

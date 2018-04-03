@@ -9,6 +9,7 @@ class Feed extends React.Component {
  	}
 	componentDidMount() {
 
+
 		const JSONfromLocalStorage = localStorage.getItem('news preferences');
 
 		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
@@ -17,8 +18,8 @@ class Feed extends React.Component {
 
 		if(objectFromLocalStorage != null){
 
-			Object.keys(objectFromLocalStorage.preferecesObject.categoryPicker).forEach(key => {
-				if(objectFromLocalStorage.preferecesObject.categoryPicker[key]){
+			Object.keys(objectFromLocalStorage.preferencesObject.categoryPicker).forEach(key => {
+				if(objectFromLocalStorage.preferencesObject.categoryPicker[key]){
 					preferredCategories.push(key);
 				}
 			});
@@ -47,8 +48,8 @@ class Feed extends React.Component {
 
 		if(objectFromLocalStorage != null){
 
-			Object.keys(objectFromLocalStorage.preferecesObject.categoryPicker).forEach(key => {
-				if(objectFromLocalStorage.preferecesObject.categoryPicker[key]){
+			Object.keys(objectFromLocalStorage.preferencesObject.categoryPicker).forEach(key => {
+				if(objectFromLocalStorage.preferencesObject.categoryPicker[key]){
 					preferredCategories.push(key);
 				}
 			});
@@ -86,7 +87,7 @@ class Feed extends React.Component {
 Feed.propTypes = {
 	getNews: PropTypes.func,
 	category: PropTypes.string,
-	data: PropTypes.array, 
+	data: PropTypes.array,
 	history: PropTypes.object,
 	searchResults: PropTypes.func,
 	categoryCollapse: PropTypes.bool,

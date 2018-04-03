@@ -51,11 +51,11 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
-					let preferecesObject = {
+					let preferencesObject = {
 						categoryPicker,
 						textBox
 					};
-					savePreferences(preferecesObject);
+					savePreferences(preferencesObject);
 				}}>
 				{categorySelector}
 				{textInputs}

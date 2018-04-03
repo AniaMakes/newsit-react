@@ -11,6 +11,7 @@ const news = (state = initialState, action) => {
 		return Object.assign({}, state, {
 			[action.category]: action.news
 		});
+		break;
 	default:
 		return state;
 	};

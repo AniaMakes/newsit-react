@@ -8,6 +8,7 @@ const getNews = (state) => {
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
+	console.log(workingState);
 	return workingState;
 };
 
