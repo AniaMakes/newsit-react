@@ -61,17 +61,5 @@ class AppRouter extends React.Component {
 
 
 
-<<<<<<< HEAD
-=======
-			<Route exact path='/' component={Default} />
-			<Route path='/category/:category' component={Category} />
-			<Route path='/found' component={Found} />
-			<Route path='/customise' component={CustomiseContainer} />
-			<Route path='/error' component={ErrorWrapper} />
-		</div>
-	</Router>
->>>>>>> 3dd90342f06526d5b5692d855ad5eaed70ac2c7b
-
-
 
 export default AppRouter;
