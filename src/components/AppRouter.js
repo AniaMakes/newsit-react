@@ -12,25 +12,55 @@ import { loadState } from '../helpers/localStorage';
 
 
 class AppRouter extends React.Component {
-	render(){
 
+
+
+	// componentDidMount(){
+	// 	loadState('news preferences');
+	// };
+
+
+	render(){
+		const defaultView =	<div>
+			<NavBar />
+			<Route exact path='/' component={Default} />
+			<Route path='/category/:category' component={Category} />
+			<Route path='/found' component={Found} />
+			<Route path='/customise' component={CustomiseContainer} />
+			<Route path='/personalised' component={PersonalView} />
+		</div>;
+
+		const personalView = 	<div>
+			<NavBar />
+			<Route exact path='/' component={PersonalView} />
+			<Route path='/category/:category' component={Category} />
+			<Route path='/found' component={Found} />
+			<Route path='/customise' component={CustomiseContainer} />
+			<Route path='/personalised' component={PersonalView} />
+		</div>;
+
+		const JSONfromLocalStorage = localStorage.getItem('news preferences');
+
+		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
+
+		let displayed;
+
+		if(objectFromLocalStorage != null){
+			displayed = personalView;
+		} else {
+			displayed = defaultView;
+		}
 
 		return (
 			<Router>
 				<ScrollToTop>
-					<div>
-						<button><Link to='/personalised'>Personalised view </Link></button>
-						<NavBar />
-						<Route exact path='/' component={Default} />
-						<Route path='/category/:category' component={Category} />
-						<Route path='/found' component={Found} />
-						<Route path='/customise' component={CustomiseContainer} />
-						<Route path='/personalised' component={PersonalView} />
-					</div>
+					{displayed}
 				</ScrollToTop>
 			</Router>
+
 		);
 	}
+
 };
 
 
