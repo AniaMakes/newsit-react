@@ -16,8 +16,6 @@ const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 const userPreferences = loadState('news preferences');
 
 if(userPreferences){
-	console.log('should only be here once prefs have been set');
-	console.log(userPreferences);
 	store.dispatch(savePreferencesToStateOnReload(userPreferences));
 	store.dispatch(restoreCustomisedSettings(userPreferences));
 };

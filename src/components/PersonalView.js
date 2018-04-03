@@ -9,7 +9,7 @@ const PersonalView = () => (
 			searchResults={false}
 		/>
 		<FeedContainer
-			view='default'
+			view='personalised'
 			categoryCollapse={false}
 			numberOfStories={5}
 		/>

@@ -2,69 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Group from './Group';
 import categories from '../constants/categories';
+import {categoriesForRender} from '../helpers/categoriesForRender';
 
 class Feed extends React.Component {
 	constructor(props) {
     	super(props);
  	}
 	componentDidMount() {
+		console.log(categoriesForRender, this.props);
+		let preferredCategories = categoriesForRender(this.props.view, this.props);
 
+		console.log(preferredCategories);
 
-		const JSONfromLocalStorage = localStorage.getItem('news preferences');
-
-		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
-
-		let preferredCategories = [];
-
-		if(objectFromLocalStorage != null){
-
-			Object.keys(objectFromLocalStorage.preferencesObject.categoryPicker).forEach(key => {
-				if(objectFromLocalStorage.preferencesObject.categoryPicker[key]){
-					preferredCategories.push(key);
-				}
-			});
-		}
-
-		if (preferredCategories.length > 0) {
-			preferredCategories.forEach((category) => {
-				this.props.getNews(category);
-			}, this);
-
-		} else {
-			categories.forEach((category) => {
-				this.props.getNews(category);
-			}, this);
-		}
-
+		preferredCategories.forEach((category) => {
+			this.props.getNews(category);
+		}, this);
 	};
 
 	render() {
+		let categoriesToRender = categoriesForRender(this.props.view, this.props);
 
-		const JSONfromLocalStorage = localStorage.getItem('news preferences');
+		console.log(categoriesToRender);
 
-		const objectFromLocalStorage =  JSON.parse(JSONfromLocalStorage);
-
-		let preferredCategories = [];
-
-		if(objectFromLocalStorage != null){
-
-			Object.keys(objectFromLocalStorage.preferencesObject.categoryPicker).forEach(key => {
-				if(objectFromLocalStorage.preferencesObject.categoryPicker[key]){
-					preferredCategories.push(key);
-				}
-			});
-		}
-
-		let categoriesShown;
-
-		if(preferredCategories.length > 0){
-			categoriesShown = preferredCategories;
-		} else {
-			categoriesShown = categories;
-		}
-		// this doesn't account for those who deliberately don't check any categories in preferences!
-
-		const groups = categoriesShown.map((category, i) => {
+		const groups = categoriesToRender.map((category, i) => {
 			return <Group
 				category={category}
 				data={this.props.news.news[category]}

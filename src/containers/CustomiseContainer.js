@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Customise from '../components/Customise';
 import {updateCheckboxValue, savePreferencesToLocalStorage, updateTextboxValue} from '../actions';
+import { withRouter } from 'react-router';
 
 const checkAndFetchLocalStorage = () => {
 	let preferencesFromMemory = localStorage.getItem('news preferences');
@@ -16,10 +17,11 @@ const getTextBoxState = state =>{
 	return state.updatePreferences.textBox;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	return {
 		categoryPicker : getCheckboxState(state),
-		textBox: getTextBoxState(state)
+		textBox: getTextBoxState(state),
+		ownProps
 	};
 };
 
@@ -29,7 +31,7 @@ const mapDispatchToProps = dispatch => ({
 	savePreferences: (preferencesObject) => dispatch(savePreferencesToLocalStorage({preferencesObject}))
 });
 
-export default connect(
+export default withRouter(connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(Customise);
+)(Customise));

@@ -15,6 +15,7 @@ const getNews = (state) => {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
+		savedPreferences: state.savePreferences.preferences.preferencesObject,
 		ownProps
 	};
 };
