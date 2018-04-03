@@ -15,6 +15,7 @@ const searchComponentFunctionality = (state = {
 			searchQueryInput: '',
 			mostRecentSearch: action.query
 		});
+		break;
 	default:
 		return state;
 	}

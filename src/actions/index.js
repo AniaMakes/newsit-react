@@ -81,3 +81,17 @@ export const updateTextboxValue = (textBoxName, textBoxInput) => {
 		input: textBoxInput
 	};
 };
+
+export const savePreferencesToStateOnReload = (savedInLocalStorage) => {
+	return {
+		type: 'SAVE_PREFERENCES_FROM_LOCAL_STORAGE',
+		savedInLocalStorage
+	};
+};
+
+export const restoreCustomisedSettings = (savedInLocalStorage) => {
+	return {
+		type: 'RESTORE_CUSTOMISED_SETTINGS',
+		savedInLocalStorage
+	};
+};
