@@ -108,4 +108,28 @@ export const clearSavePreferences = () => {
 	};
 };
 
+// ================ SEARCH INTEREST
+
+export function getInterest(articles,query){
+	return {
+		type: 'RECEIVE_INTEREST',
+		results: articles,
+		interest: query
+	};
+};
+
+export const fetchInterest = query =>{
+	return function(dispatch){
+		return fetch(`/api/search/${query}`)
+			.then(response => response.json())
+			.then(results => dispatch(getInterest(results.articles, query)));
+	};
+};
+
+export const searchInterest = query => {
+	return(dispatch) => {
+		return dispatch(fetchInterest(query));
+	};
+};
+
 

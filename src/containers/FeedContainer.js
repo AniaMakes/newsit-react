@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Feed from '../components/Feed';
-import { requestNews } from '../actions/';
+import { requestNews, searchInterest } from '../actions/';
 import { withRouter } from 'react-router';
 
 const getNews = (state) => {
@@ -13,6 +13,7 @@ const getNews = (state) => {
 
 const getPreferences = (state) => {
 	let returning;
+	// console.log(state.receiveInterest);
 	if (state.savePreferences.hasOwnProperty('preferences')){
 		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
 	}
@@ -29,7 +30,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-	getNews: (category) => dispatch(requestNews(category))
+	getNews: (category) => dispatch(requestNews(category)),
+	searchInterest: (query) => dispatch(searchInterest(query))
 });
 
 export default withRouter(connect(

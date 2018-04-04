@@ -3,7 +3,9 @@ import SearchResults from '../components/SearchResults';
 
 const getResults = state => {
 	const {searchComponentFunctionality} = state;
+
 	const {mostRecentSearch, searchResults} = searchComponentFunctionality;
+	console.log(searchResults[mostRecentSearch]);
 	return searchResults[mostRecentSearch] || [];
 };
 
