@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
-import Interests from '../components/Interests';
+import InterestsAll from '../components/InterestsAll';
 
 const getResults = state => {
-	return state.receiveInterest.results;
+	return state.receiveInterest;
 };
 
-const mapStateToProps = (state, ownProps) => ({
-	articles: getResults(state),
-	ownProps
+const mapStateToProps = (state) => ({
+	allInterests: getResults(state)
 });
 
 export default connect(
 	mapStateToProps
-)(Interests);
+)(InterestsAll);

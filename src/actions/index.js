@@ -111,6 +111,7 @@ export const clearSavePreferences = () => {
 // ================ SEARCH INTEREST
 
 export function getInterest(articles,query){
+	
 	return {
 		type: 'RECEIVE_INTEREST',
 		results: articles,
@@ -129,6 +130,12 @@ export const fetchInterest = query =>{
 export const searchInterest = query => {
 	return(dispatch) => {
 		return dispatch(fetchInterest(query));
+	};
+};
+
+export const clearInterests = () => {
+	return {
+		type: 'CLEAR_INTERESTS'
 	};
 };
 

@@ -9,15 +9,16 @@ class Feed extends React.Component {
     	super(props);
  	}
 	componentDidMount() {
-		console.log('props',this.props);
 		let preferredCategories = categoriesForRender(this.props.view, this.props);
 
 		preferredCategories.forEach((category) => {
 			this.props.getNews(category);
 		}, this);
-		// console.log(this.props.savedPreferences.textBox.Interests);
 		if (this.props.savedPreferences != undefined) {
-			this.props.searchInterest(this.props.savedPreferences.textBox.Interests);
+			let interestsString = this.props.savedPreferences.textBox.Interests;
+			let interestsArray = interestsString.replace(/\s/g, '').split(',');
+			console.log(interestsArray);
+			interestsArray.forEach(interest => {this.props.searchInterest(interest);});
 		};
 	};
 
