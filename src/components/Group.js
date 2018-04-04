@@ -6,7 +6,7 @@ import StoryMain from './StoryMain';
 const Group = (props) => {
 	const {
 		category,
-	 		data, 
+	 		data,
 	 		searchResults,
 	 		categoryCollapse,
 	 		numberOfStories,
@@ -16,6 +16,7 @@ const Group = (props) => {
 	} = props;
 
 	let filteredData;
+
 	if (view === 'default' && category == 'general') {
 		filteredData = data.filter((story) => {
 			return data.indexOf(story) <= 2;
@@ -26,11 +27,13 @@ const Group = (props) => {
 		});
 	}
 
-	const viewToRender = 
+	const viewToRender =
 	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
+
+		{/*  cannot do the if statement here :-/ */}
 		{filteredData.map((storyData, i) => {
 			if (view === 'default' && category == 'general') {
-				return <StoryMain 
+				return <StoryMain
 					storyData={storyData}
 					key={i}
 				/>;
@@ -40,24 +43,24 @@ const Group = (props) => {
 					key={i}
 				/>;
 			}
-		})}	
-		<button 
+		})}
+		<button
 			className={(category === activeCategory) ? 'hidden' : 'stories-show'} // change the class css
 			onClick={event => {
 				history.push(`/category/${category}`);
 			}}
-		> More 
+		> More
 		</button>
 	</div>;
 
 	return (
 		<section className={'group-' + category}>
-			<h2 
+			<h2
 				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
 				onClick={event => {
 					history.push(`/category/${category}`);
 				}}
-			> Category: {category} 
+			> Category: {category}
 			</h2>
 			{viewToRender}
 		</section>
@@ -66,7 +69,7 @@ const Group = (props) => {
 
 Group.propTypes = {
 	category: PropTypes.string,
-	data: PropTypes.array, 
+	data: PropTypes.array,
 	history: PropTypes.object,
 	searchResults: PropTypes.func,
 	categoryCollapse: PropTypes.bool,

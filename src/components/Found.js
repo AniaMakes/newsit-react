@@ -3,8 +3,8 @@ import Search from './Search';
 import FeedContainer from '../containers/FeedContainer';
 
 const Found = () => (
-	<div>
-		<Search 
+	<div className='found-component'>
+		<Search
 			searchResults={true}
 		/>
 		<FeedContainer

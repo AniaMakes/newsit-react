@@ -8,7 +8,7 @@ const getNews = (state) => {
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
-	return workingState;
+	return workingState.news;
 };
 
 const getPreferences = (state) => {
@@ -24,6 +24,8 @@ const getPreferences = (state) => {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
+
+		// error : getError(state),
 		savedPreferences: getPreferences(state),
 		ownProps
 	};

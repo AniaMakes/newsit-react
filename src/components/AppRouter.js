@@ -4,6 +4,7 @@ import Default from './Default';
 import Category from './Category';
 import Found from './Found';
 import CustomiseContainer from '../containers/CustomiseContainer';
+
 import NavBar from './NavBar';
 import ScrollToTop from './ScrollToTop';
 import PersonalView from './PersonalView';
@@ -12,8 +13,6 @@ import { loadState } from '../helpers/localStorage';
 
 
 class AppRouter extends React.Component {
-
-
 
 	// componentDidMount(){
 	// 	loadState('news preferences');
@@ -45,7 +44,7 @@ class AppRouter extends React.Component {
 						<Route path='/found' component={Found} />
 						<Route path='/customise' component={CustomiseContainer} />
 						<Route path='/personalised' component={PersonalView} />
-					</div>;
+					</div>
 				</ScrollToTop>
 			</Router>
 
@@ -53,10 +52,5 @@ class AppRouter extends React.Component {
 	}
 
 };
-
-
-
-
-
 
 export default AppRouter;

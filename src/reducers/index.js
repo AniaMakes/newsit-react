@@ -8,5 +8,5 @@ export default combineReducers({
 	news,
 	searchComponentFunctionality,
 	updatePreferences,
-	savePreferences
+	savePreferences,
 });
