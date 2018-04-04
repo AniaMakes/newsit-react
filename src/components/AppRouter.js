@@ -45,7 +45,7 @@ class AppRouter extends React.Component {
 						<Route path='/found' component={Found} />
 						<Route path='/customise' component={CustomiseContainer} />
 						<Route path='/personalised' component={PersonalView} />
-					</div>;
+					</div>
 				</ScrollToTop>
 			</Router>
 

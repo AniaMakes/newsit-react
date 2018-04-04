@@ -16,7 +16,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 					<input
 						onChange={(event) => {
 							event.preventDefault();
-							updateTextbox(event.target.name , event.target.value);
+							updateTextbox(event.target.name, event.target.value);
 						}}
 						type='text'
 						name={type}
@@ -55,8 +55,11 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						categoryPicker,
 						textBox
 					};
-					savePreferences(preferencesObject);
-					history.push('/personalised');
+					for (let cat in preferencesObject.categoryPicker) {
+						if ((preferencesObject.categoryPicker[cat] === true) || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '')  {
+							savePreferences(preferencesObject);
+							history.push('/personalised');
+						}};	
 				}}>
 				{categorySelector}
 				{textInputs}
