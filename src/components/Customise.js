@@ -69,7 +69,8 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 				localStorage.clear();
 				clearUpdatePreferences();
 				clearSavePreferences();
-				history.push('/');
+				history.push('/default');
+				// window.location.reload();
 			}}>
 				Clear preferences 
 			</button>
