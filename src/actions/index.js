@@ -10,11 +10,11 @@ export function receiveNews(news,category) {
 	};
 };
 
-export function receiveError(error) {
-	console.log('I received an error ' + error);
+export function receiveError(error, category) {
 	return {
 		type: 'RECEIVE_ERROR',
-		error
+		errorText: error,
+		category: category
 	};
 };
 
@@ -23,19 +23,16 @@ function fetchNews(category) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
 			.then(response => {
 				const returnedResponse = response.json();
-				console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 				return returnedResponse;
 			})
 			.then(news => {
 				if (!news.articles){
-					console.log('failed news length check');
 					return Promise.reject('No news to display. Try again later');
 				}
 				return dispatch(receiveNews(news.articles, category));
 			})
 			.catch(error => {
-				console.log(error);
-				return dispatch(receiveError(error));
+				return dispatch(receiveError(error, category));
 			});
 	};
 };

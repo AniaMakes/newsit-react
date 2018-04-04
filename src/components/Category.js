@@ -4,8 +4,8 @@ import FeedContainer from '../containers/FeedContainer';
 import PropTypes from 'prop-types';
 
 const Category = (props) => (
-	<div>
-		<Search 
+	<div className='category-component'>
+		<Search
 			searchResults={false}
 		/>
 		<FeedContainer

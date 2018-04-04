@@ -7,12 +7,11 @@ const getError = state => {
 	return state.error;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
 	return {
-		error: getError(state)
+		error: props.error
 	};
 };
-
 
 export default withRouter(connect(
 	mapStateToProps,

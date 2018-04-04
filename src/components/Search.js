@@ -4,7 +4,7 @@ import SearchResultsContainer from '../containers/SearchResultsContainer';
 
 const Search = (props) => {
 	return (
-		<div>
+		<div className='search-component'>
 			<SearchBarContainer />
 			<SearchResultsContainer props={props}/>
 		</div>

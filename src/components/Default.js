@@ -3,8 +3,8 @@ import Search from './Search';
 import FeedContainer from '../containers/FeedContainer';
 
 const Default = () => (
-	<div>
-		<Search 
+	<div className='default-component'>
+		<Search
 			searchResults={false}
 		/>
 		<FeedContainer

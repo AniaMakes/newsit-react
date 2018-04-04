@@ -4,15 +4,12 @@ import { requestNews } from '../actions/';
 import { withRouter } from 'react-router';
 
 const getNews = (state) => {
-	// console.log(state);
 	let workingState = Object.assign({}, state);
 	Object.keys(workingState.news).forEach(item => {
 		workingState.news[item] = state.news[item];
 	});
-	return workingState;
+	return workingState.news;
 };
-
-
 
 const getPreferences = (state) => {
 	let returning;
@@ -24,15 +21,11 @@ const getPreferences = (state) => {
 	return returning;
 };
 
-const getError = ({error}) => error;
-
-
-
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
 
-		error : getError(state),
+		// error : getError(state),
 		savedPreferences: getPreferences(state),
 		ownProps
 	};

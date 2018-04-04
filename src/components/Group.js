@@ -15,29 +15,17 @@ const Group = (props) => {
 	 		activeCategory
 	} = props;
 
-	// at this point data is an array (default state), and must be kept as such to match state
-
-	console.log(category);
-	console.log(data);
-	console.log('======================================');
-
 	let filteredData;
 
-	if(data != undefined){
-
-		if (view === 'default' && category == 'general') {
-			filteredData = data.filter((story) => {
-				return data.indexOf(story) <= 2;
-			});
-		} else {
-			filteredData = data.filter((story) => {
-				return data.indexOf(story) <= (numberOfStories-1);
-			});
-		}
+	if (view === 'default' && category == 'general') {
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= 2;
+		});
 	} else {
-		filteredData = [];
+		filteredData = data.filter((story) => {
+			return data.indexOf(story) <= (numberOfStories-1);
+		});
 	}
-
 
 	const viewToRender =
 	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>

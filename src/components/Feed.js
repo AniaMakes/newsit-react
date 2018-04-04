@@ -4,7 +4,7 @@ import Group from './Group';
 import categories from '../constants/categories';
 
 import {categoriesForRender} from '../helpers/categoriesForRender';
-import Error from './Error';
+import ErrorContainer from '../containers/ErrorContainer';
 
 
 
@@ -27,14 +27,12 @@ class Feed extends React.Component {
 	render() {
 		let categoriesToRender = categoriesForRender(this.props.view, this.props);
 
-		const groups = categories.map((category, i) => {
-			console.log(category);
-			console.log(this.props);
-			console.log('=============================');
-			if(this.props.news.news[category] != undefined){
+		const groups = categoriesToRender.map((category, i) => {
+
+			if(Array.isArray(this.props.news[category])) {
 				return <Group
 					category={category}
-					data={this.props.news.news[category]}
+					data={this.props.news[category]}
 					key={i}
 					categoryCollapse={this.props.categoryCollapse}
 					numberOfStories={this.props.numberOfStories}
@@ -43,9 +41,9 @@ class Feed extends React.Component {
 					activeCategory={this.props.activeCategory}
 				/>;
 			} else {
-				return <Error
+				return <ErrorContainer
 					category={category}
-					error={this.props.news.news.error}
+					error='sorry, something went wrong :('
 				 />;
 			}
 		});
