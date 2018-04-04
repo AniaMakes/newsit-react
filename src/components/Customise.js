@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
 
-const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history}) => {
+const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences}) => {
 
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
 	const textInputsArray = ['Interests', 'Ignore'];
@@ -62,6 +62,14 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 				{textInputs}
 				<button type="submit">Save preferences</button>
 			</form>
+			<button onClick={(event) => {
+				localStorage.clear();
+				clearUpdatePreferences();
+				clearSavePreferences();
+				history.push('/');
+			}}>
+				Clear preferences 
+			</button>
 		</div>);
 };
 

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Customise from '../components/Customise';
-import {updateCheckboxValue, savePreferencesToLocalStorage, updateTextboxValue} from '../actions';
+import {updateCheckboxValue, savePreferencesToLocalStorage, updateTextboxValue, clearUpdatePreferences, clearSavePreferences} from '../actions';
 import { withRouter } from 'react-router';
 
 const checkAndFetchLocalStorage = () => {
@@ -27,7 +27,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
 	toggleCheckbox : (category) => dispatch(updateCheckboxValue(category)),
 	updateTextbox : (textBoxName, texBoxInput) => dispatch(updateTextboxValue(textBoxName, texBoxInput)),
-	savePreferences: (preferencesObject) => dispatch(savePreferencesToLocalStorage({preferencesObject}))
+	savePreferences: (preferencesObject) => dispatch(savePreferencesToLocalStorage({preferencesObject})),
+	clearUpdatePreferences: () => dispatch(clearUpdatePreferences()),
+	clearSavePreferences: () => dispatch(clearSavePreferences())
+
 });
 
 export default withRouter(connect(

@@ -95,3 +95,17 @@ export const restoreCustomisedSettings = (savedInLocalStorage) => {
 		savedInLocalStorage
 	};
 };
+
+export const clearUpdatePreferences = () => {
+	return {
+		type: 'CLEAR_UPDATE_PREFERENCES'
+	};
+};
+
+export const clearSavePreferences = () => {
+	return {
+		type: 'CLEAR_SAVE_PREFERENCES'
+	};
+};
+
+

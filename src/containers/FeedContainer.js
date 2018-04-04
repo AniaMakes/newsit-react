@@ -13,7 +13,7 @@ const getNews = (state) => {
 
 const getPreferences = (state) => {
 	let returning;
-
+	console.log(state);
 	if (state.savePreferences.hasOwnProperty('preferences')){
 		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
 	}
