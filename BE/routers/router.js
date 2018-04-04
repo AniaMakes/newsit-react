@@ -15,7 +15,9 @@ router.get('/topheadlines/:category', (req, res, next) => {
 		country: queryLang,
 		pageSize: 20,
 	}).then((response) => {
-		if (response.status === 'ok') {
+		console.log('==============================================');
+		console.log(response);
+		if (response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
 		} else {
 			res.status(404).json({error: 'something went wrong'});

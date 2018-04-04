@@ -23,10 +23,14 @@ function fetchNews(category) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
 			.then(response => {
 				const returnedResponse = response.json();
-				console.log(returnedResponse);
+				console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 				return returnedResponse;
 			})
 			.then(news => {
+				if (!news.articles){
+					console.log('failed news length check');
+					return Promise.reject('No news to display. Try again later');
+				}
 				return dispatch(receiveNews(news.articles, category));
 			})
 			.catch(error => {

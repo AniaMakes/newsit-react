@@ -27,9 +27,11 @@ class Feed extends React.Component {
 	render() {
 		let categoriesToRender = categoriesForRender(this.props.view, this.props);
 
-		let groups;
-		if (this.props.news && this.props.news.news) {
-			groups = categoriesToRender.map((category, i) => {
+		const groups = categories.map((category, i) => {
+			console.log(category);
+			console.log(this.props);
+			console.log('=============================');
+			if(this.props.news.news[category] != undefined){
 				return <Group
 					category={category}
 					data={this.props.news.news[category]}
@@ -40,11 +42,13 @@ class Feed extends React.Component {
 					view={this.props.view}
 					activeCategory={this.props.activeCategory}
 				/>;
-			});
-
-		} else {
-			groups = <Error />;
-		}
+			} else {
+				return <Error
+					category={category}
+					error={this.props.news.news.error}
+				 />;
+			}
+		});
 
 
 		return (
