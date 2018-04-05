@@ -21,6 +21,12 @@ class Feed extends React.Component {
 		preferredCategories.forEach((category) => {
 			this.props.getNews(category);
 		}, this);
+		if (this.props.savedPreferences != undefined) {
+			let interestsString = this.props.savedPreferences.textBox.Interests;
+			let interestsArray = interestsString.replace(/\s/g, '').split(',');
+			console.log(interestsArray);
+			interestsArray.forEach(interest => {this.props.searchInterest(interest);});
+		};
 	};
 
 

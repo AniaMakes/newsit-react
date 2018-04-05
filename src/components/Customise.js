@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
 
-const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history}) => {
+const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences, searchInterest, clearInterests}) => {
 
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
 	const textInputsArray = ['Interests', 'Ignore'];
@@ -16,7 +16,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 					<input
 						onChange={(event) => {
 							event.preventDefault();
-							updateTextbox(event.target.name , event.target.value);
+							updateTextbox(event.target.name, event.target.value);
 						}}
 						type='text'
 						name={type}
@@ -55,13 +55,33 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						categoryPicker,
 						textBox
 					};
-					savePreferences(preferencesObject);
-					history.push('/personalised');
+					for (let cat in preferencesObject.categoryPicker) {
+						if ((preferencesObject.categoryPicker[cat] === true) || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '')  {
+							savePreferences(preferencesObject);
+							history.push('/personalised');
+						};
+					};	
+					if (preferencesObject.textBox.Interests != '') {
+						let interestsString = preferencesObject.textBox.Interests;
+						let interestsArray = interestsString.replace(/\s/g, '').split(',');
+						console.log(interestsArray);
+						interestsArray.forEach(interest => {searchInterest(interest);});
+					};
 				}}>
 				{categorySelector}
 				{textInputs}
 				<button type="submit">Save preferences</button>
 			</form>
+			<button onClick={(event) => {
+				localStorage.clear();
+				clearUpdatePreferences();
+				clearSavePreferences();
+				clearInterests();
+				history.push('/default');
+				// window.location.reload();
+			}}>
+				Clear preferences 
+			</button>
 		</div>);
 };
 

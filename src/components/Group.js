@@ -43,11 +43,13 @@ const Group = (props) => {
 					key={i}
 				/>;
 			}
-		})}
-		<button
-			className={(category === activeCategory) ? 'hidden' : 'stories-show'} // change the class css
+		})}	
+		<button 
+			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'stories-show'} // change the class css
 			onClick={event => {
-				history.push(`/category/${category}`);
+				if (view != 'personalised') {
+					history.push(`/category/${category}`);
+				}
 			}}
 		> More
 		</button>
@@ -58,7 +60,9 @@ const Group = (props) => {
 			<h2
 				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
 				onClick={event => {
-					history.push(`/category/${category}`);
+					if (view != 'personalised') {
+						history.push(`/category/${category}`);
+					}
 				}}
 			> Category: {category}
 			</h2>

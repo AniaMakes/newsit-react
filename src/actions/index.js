@@ -112,3 +112,48 @@ export const restoreCustomisedSettings = (savedInLocalStorage) => {
 		savedInLocalStorage
 	};
 };
+
+export const clearUpdatePreferences = () => {
+	return {
+		type: 'CLEAR_UPDATE_PREFERENCES'
+	};
+};
+
+export const clearSavePreferences = () => {
+	return {
+		type: 'CLEAR_SAVE_PREFERENCES'
+	};
+};
+
+// ================ SEARCH INTEREST
+
+export function getInterest(articles,query){
+	
+	return {
+		type: 'RECEIVE_INTEREST',
+		results: articles,
+		interest: query
+	};
+};
+
+export const fetchInterest = query =>{
+	return function(dispatch){
+		return fetch(`/api/search/${query}`)
+			.then(response => response.json())
+			.then(results => dispatch(getInterest(results.articles, query)));
+	};
+};
+
+export const searchInterest = query => {
+	return(dispatch) => {
+		return dispatch(fetchInterest(query));
+	};
+};
+
+export const clearInterests = () => {
+	return {
+		type: 'CLEAR_INTERESTS'
+	};
+};
+
+

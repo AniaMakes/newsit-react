@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from './Search';
 import FeedContainer from '../containers/FeedContainer';
-import Interests from './Interests';
+import InterestContainer from '../containers/InterestContainer';
 
 const PersonalView = () => (
 	<div className='personal-view-component'>
@@ -11,9 +11,9 @@ const PersonalView = () => (
 		<FeedContainer
 			view='personalised'
 			categoryCollapse={false}
-			numberOfStories={5}
+			numberOfStories={20}
 		/>
-		<Interests />
+		<InterestContainer />
 	</div>
 );
 
