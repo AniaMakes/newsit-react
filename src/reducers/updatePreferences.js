@@ -6,8 +6,6 @@ categories.forEach(category => {
 	categoryPickerInitial[category] = false;
 });
 
-
-
 const updatePreferences = (state = {
 	categoryPicker: categoryPickerInitial,
 	textBox: {
