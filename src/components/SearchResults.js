@@ -1,22 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './Story';
+import ErrorContainer from '../containers/ErrorContainer';
 
 const SearchResults = (props) => {
 	const {articles} = props;
 	const {searchResults} = props.props;
-
-	return (
-		<section className={searchResults ? 'stories-show' : 'hidden'}>
-			<h3> Found: </h3>		
-			{articles.map((storyData, i) => {
-				return <Story
-					storyData={storyData}
-					key={i}
-				/>;
-			})}
-		</section>
-	);
+	if(Array.isArray(articles)) {
+		return (
+			<section className={searchResults ? 'stories-show' : 'hidden'}>
+				<h3> Found: </h3>		
+				{articles.map((storyData, i) => {
+					return <Story
+						storyData={storyData}
+						key={i}
+					/>;
+				})}
+			</section>
+		);
+	} else {
+		return <ErrorContainer
+			category='Found'
+			error='sorry, nothing found'
+		/>;
+	}
 };
 
 SearchResults.propTypes = {

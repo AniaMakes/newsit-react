@@ -3,7 +3,6 @@ import SearchResults from '../components/SearchResults';
 
 const getResults = state => {
 	const {searchComponentFunctionality} = state;
-
 	const {mostRecentSearch, searchResults} = searchComponentFunctionality;
 	return searchResults[mostRecentSearch] || [];
 };
