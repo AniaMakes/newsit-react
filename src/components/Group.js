@@ -4,6 +4,7 @@ import Story from './Story';
 import StoryMain from './StoryMain';
 
 import classnames from 'classnames';
+import '../../styles/Group.scss';
 
 const Group = (props) => {
 	const {
@@ -61,7 +62,9 @@ const Group = (props) => {
 	</div>;
 
 	return (
-		<section className={'group-' + category}>
+		<section className={classnames('group', {
+			'group-active': (category === activeCategory)
+		})}>
 			<h2
 				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
 				onClick={event => {

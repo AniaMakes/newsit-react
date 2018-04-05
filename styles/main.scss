@@ -18,3 +18,20 @@ h3 {
 	color: $text-color;
 	font-family: $story-titles;
 }
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.category-heading {
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
+}
+
+.stories-show {
+	display: block;
+}

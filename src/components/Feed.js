@@ -5,6 +5,9 @@ import categories from '../constants/categories';
 import {categoriesForRender} from '../helpers/categoriesForRender';
 import ErrorContainer from '../containers/ErrorContainer';
 
+import classnames from 'classnames';
+import '../../styles/Feed.scss';
+
 class Feed extends React.Component {
 	constructor(props) {
     	super(props);
