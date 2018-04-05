@@ -40,9 +40,9 @@ const AppRouter = () => {
 					<Route path='/customise' component={CustomiseContainer} />
 					<Route path='/personalised' component={PersonalView} />
 					<Route path='/default' component={Default} />
-					<div className='footer'>
+					<footer>
 						<p>This page uses the <a href="https://newsapi.org/">News API</a> to let you know what's happening around the world right now.</p>
-					</div>
+					</footer>
 				</div>
 			</ScrollToTop>
 		</Router>
