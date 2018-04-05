@@ -16,15 +16,6 @@ const searchComponentFunctionality = (state = {
 			mostRecentSearch: action.query
 		});
 		break;
-	case 'RECEIVE_SEARCH_ERROR':
-		return Object.assign({}, state, {
-			searchResults: {
-				[action.query]: action.errorText
-			},
-			searchQueryInput: '',
-			mostRecentSearch: action.query
-		});
-		break;
 	default:
 		return state;
 	}
