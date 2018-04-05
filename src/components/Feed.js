@@ -2,39 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Group from './Group';
 import categories from '../constants/categories';
-
 import {categoriesForRender} from '../helpers/categoriesForRender';
 import ErrorContainer from '../containers/ErrorContainer';
-
-
-
-
 
 class Feed extends React.Component {
 	constructor(props) {
     	super(props);
 	 }
-
 	componentDidMount() {
 		let preferredCategories = categoriesForRender(this.props.view, this.props);
-
 		preferredCategories.forEach((category) => {
 			this.props.getNews(category);
 		}, this);
 		if (this.props.savedPreferences != undefined) {
-			let interestsString = this.props.savedPreferences.textBox.Interests;
-			let interestsArray = interestsString.replace(/\s/g, '').split(',');
-			console.log(interestsArray);
-			interestsArray.forEach(interest => {this.props.searchInterest(interest);});
+			if (this.props.savedPreferences.textBox.Interests != '') {
+				let interestsString = this.props.savedPreferences.textBox.Interests;
+				let interestsArray = interestsString.replace(/\s/g, '').split(',');
+				interestsArray.forEach(interest => {this.props.searchInterest(interest);});
+			};
 		};
 	};
 
-
 	render() {
 		let categoriesToRender = categoriesForRender(this.props.view, this.props);
-
 		const groups = categoriesToRender.map((category, i) => {
-
 			if(Array.isArray(this.props.news[category])) {
 				return <Group
 					category={category}
@@ -54,11 +45,9 @@ class Feed extends React.Component {
 			}
 		});
 
-
 		return (
 			<section className="feed">
 				{groups}
-				{/* {error} */}
 			</section>
     	);
   	}
@@ -74,7 +63,9 @@ Feed.propTypes = {
 	view: PropTypes.string,
 	activeCategory: PropTypes.string,
 	numberOfStories: PropTypes.number,
-	news: PropTypes. object
+	news: PropTypes. object,
+	savedPreferences: PropTypes.object,
+	searchInterest: PropTypes.func
 };
 
 export default Feed;

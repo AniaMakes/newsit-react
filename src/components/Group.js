@@ -69,7 +69,7 @@ const Group = (props) => {
 						history.push(`/category/${category}`);
 					}
 				}}
-			> Category: {category}
+			> {category}
 			</h2>
 			{viewToRender}
 		</section>
