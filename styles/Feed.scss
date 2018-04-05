@@ -5,3 +5,8 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.feed-row {
+	flex-direction: row;
+	flex-wrap: wrap;
+}

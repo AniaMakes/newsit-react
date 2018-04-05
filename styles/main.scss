@@ -2,13 +2,16 @@
 @import 'fonts';
 
 
+body {
+	min-width: 320px;
+	font-size: 18px;
+	background-color: $background-color;
+
+}
 button {
 	color: $button-text;
 }
 
-body {
-	background-color: $background-color;
-}
 
 .category-group {
 	background-color: $category-background-color;
@@ -22,10 +25,6 @@ h3 {
 a {
 	text-decoration: none;
 	color: #000;
-}
-
-.category-heading {
-	cursor: pointer;
 }
 
 .hidden {

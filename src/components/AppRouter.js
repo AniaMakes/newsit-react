@@ -13,7 +13,6 @@ import { loadState } from '../helpers/localStorage';
 
 import '../../styles/main.scss';
 
-
 const AppRouter = () => {
 	const JSONfromLocalStorage = localStorage.getItem('news preferences');
 

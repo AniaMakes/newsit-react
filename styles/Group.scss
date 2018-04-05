@@ -1,7 +1,29 @@
 @import 'colours';
 @import 'fonts';
 
+.category-heading {
+	cursor: pointer;
+	text-align: center;
+}
+
+.column-width {
+	width: 49%
+}
 
 .group-active {
 	order: -1;
+	width: 100%
 }
+
+@media screen and (min-width: 768px) { 
+	.column-width {
+		width: 30%;
+	}
+
+	.group-active {
+		order: -1;
+		width: 100%
+	}
+}
+
+

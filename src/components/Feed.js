@@ -49,7 +49,9 @@ class Feed extends React.Component {
 		});
 
 		return (
-			<section className="feed">
+			<section className={classnames('feed', {
+				'feed-row': (this.props.view === 'category')
+			})}>
 				{groups}
 			</section>
     	);

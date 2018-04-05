@@ -63,10 +63,14 @@ const Group = (props) => {
 
 	return (
 		<section className={classnames('group', {
-			'group-active': (category === activeCategory)
+			'group-active': (category === activeCategory),
+			'column-width': (view === 'category')
 		})}>
 			<h2
-				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
+				className={classnames({
+					'hidden': (category === 'general' && view === 'default'),
+					'category-heading': !(category === 'general' && view === 'default')
+				})}
 				onClick={event => {
 					if (view != 'personalised') {
 						history.push(`/category/${category}`);
