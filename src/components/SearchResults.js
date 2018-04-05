@@ -20,7 +20,7 @@ const SearchResults = (props) => {
 		);
 	} else {
 		return <ErrorContainer
-			category='Found'
+			category='Search failed'
 			error='sorry, nothing found'
 		/>;
 	}
