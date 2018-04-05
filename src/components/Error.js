@@ -5,6 +5,10 @@ const Error = ({category, error}) => (
 	<div className='error-component'>
 		<h2>{category}</h2>
 		<p>Error: {error}</p>
+		<button onClick={event => {
+			window.location.reload();
+		}}
+		> Try again </button>
 	</div>
 );
 
