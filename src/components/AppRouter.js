@@ -32,7 +32,10 @@ const AppRouter = () => {
 		<Router>
 			<ScrollToTop>
 				<div>
-					<NavBar />
+					<header>
+						<h1 className='logo'>NewsIt</h1>
+						<NavBar />
+					</header>
 					{routeOnLoad}
 					<Route path='/category/:category' component={Category} />
 					<Route path='/found' component={Found} />

@@ -51,7 +51,7 @@ const Group = (props) => {
 			}
 		})}
 		<button
-			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'stories-show'} // change the class css
+			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'btn-more'}
 			onClick={event => {
 				if (view != 'personalised') {
 					history.push(`/category/${category}`);

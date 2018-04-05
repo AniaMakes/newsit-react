@@ -6,12 +6,12 @@ body {
 	min-width: 320px;
 	font-size: 18px;
 	background-color: $background-color;
-
-}
-button {
-	color: $button-text;
+	font-family: $main-font;
 }
 
+.logo {
+	font-size: 3rem;
+}
 
 .category-group {
 	background-color: $category-background-color;

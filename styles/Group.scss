@@ -14,6 +14,16 @@
 	order: -1;
 	width: 100%
 }
+.btn-more {
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	border: none;
+	font-size: 1.2rem;
+	color: $button-text;
+	font-weight: bold;
+	background-color: inherit;	
+}
 
 @media screen and (min-width: 768px) { 
 	.column-width {
