@@ -19,7 +19,7 @@ const Interest = (props) => {
 
 Interest.propTypes = {
 	articles: PropTypes.array,
-	props: PropTypes.object
+	interest: PropTypes.string
 };
 
 export default Interest;

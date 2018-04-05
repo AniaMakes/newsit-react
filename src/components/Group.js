@@ -29,7 +29,6 @@ const Group = (props) => {
 
 	const viewToRender =
 	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
-
 		{/*  cannot do the if statement here :-/ */}
 		{filteredData.map((storyData, i) => {
 			if (view === 'default' && category == 'general') {
@@ -64,7 +63,7 @@ const Group = (props) => {
 						history.push(`/category/${category}`);
 					}
 				}}
-			> Category: {category}
+			> {category}
 			</h2>
 			{viewToRender}
 		</section>

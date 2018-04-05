@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import categories from '../constants/categories';
 
 const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences, searchInterest, clearInterests}) => {
-
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
+	// DELETE IGNORE EVERYWHERE IF NOT IMPLEMENTED
 	const textInputsArray = ['Interests', 'Ignore'];
-
-
 	const textInputs = textInputsArray.map(type => {
 		return (
 			<div key={type}>
@@ -55,17 +53,21 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						categoryPicker,
 						textBox
 					};
+					let ticked = 0;
 					for (let cat in preferencesObject.categoryPicker) {
-						if ((preferencesObject.categoryPicker[cat] === true) || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '')  {
-							savePreferences(preferencesObject);
-							history.push('/personalised');
+						if (preferencesObject.categoryPicker[cat] === true) {
+							ticked += 1;
 						};
-					};	
+					};
+					if (ticked > 0 || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '') {
+						savePreferences(preferencesObject);
+						history.push('/personalised');
+
+					};
 					if (preferencesObject.textBox.Interests != '') {
 						clearInterests();
 						let interestsString = preferencesObject.textBox.Interests;
 						let interestsArray = interestsString.replace(/\s/g, '').split(',');
-						console.log(interestsArray);
 						interestsArray.forEach(interest => {searchInterest(interest);});
 					};
 				}}>
@@ -79,7 +81,6 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 				clearSavePreferences();
 				clearInterests();
 				history.push('/default');
-				// window.location.reload();
 			}}>
 				Clear preferences 
 			</button>
@@ -91,7 +92,12 @@ Customise.propTypes = {
 	categoryPicker: PropTypes.object,
 	savePreferences: PropTypes.func,
 	updateTextbox: PropTypes.func,
-	textBox: PropTypes.object
+	textBox: PropTypes.object,
+	history: PropTypes.object,
+	clearSavePreferences: PropTypes.func,
+	clearUpdatePreferences: PropTypes.func,
+	searchInterest: PropTypes.func,
+	clearInterests: PropTypes.func
 };
 
 export default Customise;
