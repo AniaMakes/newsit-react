@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import '../../styles/main.scss';
+
+
 
 const Story = ({storyData}) => {
 	const {url, title, description} = storyData;
@@ -15,7 +18,7 @@ const Story = ({storyData}) => {
 				{description}
 			</p>
 		</article>
-		
+
 	);
 };
 

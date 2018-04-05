@@ -11,6 +11,8 @@ import PersonalView from './PersonalView';
 
 import { loadState } from '../helpers/localStorage';
 
+import '../../styles/main.scss';
+
 
 class AppRouter extends React.Component {
 
