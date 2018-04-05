@@ -13,7 +13,6 @@ const getNews = (state) => {
 
 const getPreferences = (state) => {
 	let returning;
-	// console.log(state.receiveInterest);
 	if (state.savePreferences.hasOwnProperty('preferences')){
 		returning = Object.assign({}, state.savePreferences.preferences.preferencesObject);
 	}
@@ -24,8 +23,6 @@ const getPreferences = (state) => {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		news : getNews(state),
-
-		// error : getError(state),
 		savedPreferences: getPreferences(state),
 		ownProps
 	};

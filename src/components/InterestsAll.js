@@ -18,7 +18,7 @@ const InterestsAll = (props) => {
 };
 
 InterestsAll.propTypes = {
-	props: PropTypes.object
+	allInterests: PropTypes.object
 };
 
 export default InterestsAll;
