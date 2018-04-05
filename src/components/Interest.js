@@ -21,6 +21,7 @@ const Interest = (props) => {
 		return <ErrorContainer
 			category='Search failed'
 			error='sorry, nothing found'
+			route='/customise'
 		/>;
 	}
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Error = ({category, error, history}) => {
+const Error = ({category, error, history,route}) => {
 	return (
 		<div className='error-component'>
 			<h2>{category}</h2>
 			<p>Error: {error}</p>
 			<button onClick={event => {
-				history.push('/customise');
+				history.push(route);
 			}}
 			> Try again </button>
 		</div>
@@ -17,7 +17,8 @@ const Error = ({category, error, history}) => {
 Error.propTypes = {
 	category: PropTypes.string,
 	error: PropTypes.string,
-	history: PropTypes.object
+	history: PropTypes.object,
+	route: PropTypes.string
 };
 
 

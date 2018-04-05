@@ -22,6 +22,7 @@ const SearchResults = (props) => {
 		return <ErrorContainer
 			category='Search failed'
 			error='sorry, nothing found'
+			route='/default'
 		/>;
 	}
 };
