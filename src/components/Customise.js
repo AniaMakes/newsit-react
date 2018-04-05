@@ -62,6 +62,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						};
 					};	
 					if (preferencesObject.textBox.Interests != '') {
+						clearInterests();
 						let interestsString = preferencesObject.textBox.Interests;
 						let interestsArray = interestsString.replace(/\s/g, '').split(',');
 						console.log(interestsArray);
