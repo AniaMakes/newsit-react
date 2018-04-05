@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Story from './Story';
 import StoryMain from './StoryMain';
 
+import classnames from 'classnames';
+
 const Group = (props) => {
 	const {
 		category,
@@ -28,7 +30,11 @@ const Group = (props) => {
 	}
 
 	const viewToRender =
-	<div className={(categoryCollapse && (category != activeCategory)) ? 'hidden' : 'stories-show' }>
+	<div className={classnames('category-group', {
+		'hidden' : (categoryCollapse && (category != activeCategory)),
+		'stories-show' : !(categoryCollapse && (category != activeCategory))
+	})}>
+
 		{/*  cannot do the if statement here :-/ */}
 		{filteredData.map((storyData, i) => {
 			if (view === 'default' && category == 'general') {
@@ -42,8 +48,8 @@ const Group = (props) => {
 					key={i}
 				/>;
 			}
-		})}	
-		<button 
+		})}
+		<button
 			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'stories-show'} // change the class css
 			onClick={event => {
 				if (view != 'personalised') {

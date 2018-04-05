@@ -1,0 +1,20 @@
+@import 'colours';
+@import 'fonts';
+
+
+button {
+	color: $button-text;
+}
+
+body {
+	background-color: $background-color;
+}
+
+.category-group {
+	background-color: $category-background-color;
+}
+
+h3 {
+	color: $text-color;
+	font-family: $story-titles;
+}
