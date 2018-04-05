@@ -10,14 +10,30 @@ export function receiveNews(news,category) {
 	};
 };
 
+export function receiveError(error, category) {
+	return {
+		type: 'RECEIVE_ERROR',
+		errorText: error,
+		category: category
+	};
+};
+
 function fetchNews(category) {
 	return function(dispatch) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
-			.then(response => response.json())
+			.then(response => {
+				const returnedResponse = response.json();
+				return returnedResponse;
+			})
 			.then(news => {
+				if (!news.articles){
+					return Promise.reject('No news to display. Try again later');
+				}
 				return dispatch(receiveNews(news.articles, category));
 			})
-			.catch(error => console.log(error)); // TO DO ADD ERROR MESSAGE HERE
+			.catch(error => {
+				return dispatch(receiveError(error, category));
+			});
 	};
 };
 
@@ -48,7 +64,8 @@ export const fetchSearch = query =>{
 	return function(dispatch){
 		return fetch(`/api/search/${query}`)
 			.then(response => response.json())
-			.then(results => dispatch(receiveSearch(results.articles, query)));
+			.then(results => dispatch(receiveSearch(results.articles, query)))
+			.catch(error => dispatch(receiveError(results)));
 	};
 };
 

@@ -4,7 +4,7 @@ import FeedContainer from '../containers/FeedContainer';
 import InterestContainer from '../containers/InterestContainer';
 
 const PersonalView = () => (
-	<div>
+	<div className='personal-view-component'>
 		<Search
 			searchResults={false}
 		/>

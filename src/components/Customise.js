@@ -47,7 +47,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 	});
 
 	return (
-		<div>
+		<div className='customise-component'>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();

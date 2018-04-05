@@ -15,8 +15,11 @@ router.get('/topheadlines/:category', (req, res, next) => {
 		country: queryLang,
 		pageSize: 20,
 	}).then((response) => {
-		// console.log(response);
-		res.status(200).json(response);
+		if (response.status === 'ok' && response.totalResults !== 0) {
+			res.status(200).json(response);
+		} else {
+			res.status(404).json({error: 'something went wrong'});
+		}
 	}).catch((err) => {
 		next(err);
 	});
@@ -28,7 +31,6 @@ router.get('/search/:query', (req,res, next) => {
 		q: query,
 		sortBy: 'popularity'
 	}).then((response) => {
-		// console.log(response);
 		res.status(200).json(response);
 	}).catch((err) => {
 		next(err);
