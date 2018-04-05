@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { processLangFromBrowser } = require('../helpers/processLangFromBrowser');
-
+const { processLangForEverythingSearch } = require('../helpers/processLangForEverythingSearch');
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI(process.env.API_KEY);
 
@@ -26,10 +26,14 @@ router.get('/topheadlines/:category', (req, res, next) => {
 });
 
 router.get('/search/:query', (req,res, next) => {
+	const acceptLang = req.headers['accept-language'];
+	const queryLang = processLangForEverythingSearch(acceptLang);
+
 	const query = req.params.query;
 	newsapi.v2.everything({
 		q: query,
-		sortBy: 'popularity'
+		sortBy: 'popularity',
+		language: queryLang,
 	}).then((response) => {
 		res.status(200).json(response);
 	}).catch((err) => {
