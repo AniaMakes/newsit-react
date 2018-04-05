@@ -46,6 +46,12 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 
 	return (
 		<div className='customise-component'>
+			<h3>On this page you can customise the news that will display by default when you visit.</h3>
+			<p>Your choices will be stored in your browser. By saving your preferences, you agree for this to happen. You can clear your preferences any time using the "Clear preferences" button.</p>
+
+			<p>You can select any (or none) categories. Each category will display news relevant to that category.</p>
+			<p>Furthermore, you can add any number of interests. Please use a comma to separate interests.</p>
+			<p>Note: if you add interests, but no categories, only your interests will be displayed.</p>
 			<form
 				onSubmit={(event) => {
 					event.preventDefault();
@@ -82,7 +88,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 				clearInterests();
 				history.push('/default');
 			}}>
-				Clear preferences 
+				Clear preferences
 			</button>
 		</div>);
 };
