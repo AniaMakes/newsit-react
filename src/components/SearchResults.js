@@ -5,18 +5,27 @@ import Story from './Story';
 const SearchResults = (props) => {
 	const {articles} = props;
 	const {searchResults} = props.props;
-
-	return (
-		<section className={searchResults ? 'stories-show' : 'hidden'}>
-			<h3> Found: </h3>		
-			{articles.map((storyData, i) => {
-				return <Story
-					storyData={storyData}
-					key={i}
-				/>;
-			})}
-		</section>
-	);
+	if(Array.isArray(articles)) {
+		return (
+			<section className={searchResults ? 'stories-show' : 'hidden'}>
+				<h3> Found: </h3>		
+				{articles.map((storyData, i) => {
+					return <Story
+						storyData={storyData}
+						key={i}
+					/>;
+				})}
+			</section>
+		);
+	} else {
+		return <section className={searchResults ? 'stories-show' : 'hidden'}>
+			<ErrorContainer
+				category='Search failed'
+				error='sorry, nothing found'
+				route='/default'
+			/>
+		</section>;
+	}
 };
 
 SearchResults.propTypes = {
