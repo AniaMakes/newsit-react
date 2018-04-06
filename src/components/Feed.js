@@ -41,6 +41,7 @@ class Feed extends React.Component {
 				return <ErrorContainer
 					category={category}
 					error='sorry, something went wrong :('
+					route='/default'
 				 />;
 			}
 		});
