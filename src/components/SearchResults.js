@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './Story';
-import ErrorContainer from '../containers/ErrorContainer';
 
 const SearchResults = (props) => {
 	const {articles} = props;

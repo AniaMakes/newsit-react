@@ -60,14 +60,6 @@ export function receiveSearch(articles,query){
 	};
 };
 
-export function receiveSearchError(error, query){
-	return {
-		type: 'RECEIVE_SEARCH_ERROR',
-		errorText: error,
-		query: query
-	};
-}
-
 export const fetchSearch = query =>{
 	return function(dispatch){
 		return fetch(`/api/search/${query}`)
