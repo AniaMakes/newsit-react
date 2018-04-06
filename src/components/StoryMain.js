@@ -7,7 +7,6 @@ const StoryMain = ({ storyData, order}) => {
 	const {
 		url, urlToImage, title, description,
 	} = storyData;
-	console.log(typeof(order));
 	return (
 		<article className={classnames('story-main-item', 
 			'story-main-' + order
