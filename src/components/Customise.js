@@ -86,7 +86,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 				clearUpdatePreferences();
 				clearSavePreferences();
 				clearInterests();
-				history.push('/default'); //idea: route='/customise'
+				history.push('/default');
 			}}>
 				Clear preferences
 			</button>

@@ -3,10 +3,10 @@ import Customise from '../components/Customise';
 import {updateCheckboxValue, savePreferencesToLocalStorage, updateTextboxValue, clearUpdatePreferences, clearSavePreferences, searchInterest, clearInterests} from '../actions';
 import { withRouter } from 'react-router';
 
-// const checkAndFetchLocalStorage = () => {
-// 	let preferencesFromMemory = localStorage.getItem('news preferences');
-// 	return JSON.parse(preferencesFromMemory);
-// };
+const checkAndFetchLocalStorage = () => {
+	let preferencesFromMemory = localStorage.getItem('news preferences');
+	return JSON.parse(preferencesFromMemory);
+};
 
 const getCheckboxState = state => {
 	return state.updatePreferences.categoryPicker;

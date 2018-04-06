@@ -63,17 +63,9 @@ export function receiveSearch(articles,query){
 export const fetchSearch = query =>{
 	return function(dispatch){
 		return fetch(`/api/search/${query}`)
-			.then(response => {
-				const returnedResponse = response.json();
-				return returnedResponse;
-			})
-			.then(results => {
-				if (!results.articles) {
-					return Promise.reject('No search results. Try again');
-				}
-				return dispatch(receiveSearch(results.articles, query));
-			})
-			.catch(error => dispatch(receiveSearchError(error, query)));
+			.then(response => response.json())
+			.then(results => dispatch(receiveSearch(results.articles, query)))
+			.catch(error => dispatch(receiveError(results)));
 	};
 };
 
