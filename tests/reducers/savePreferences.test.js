@@ -5,7 +5,7 @@ describe('savePreferences reducer', () => {
 		expect(savePreferences(undefined, {type: 'REMOVE_BUGS'})).toEqual({});
 	});
 
-	it('should handle saving preferences', () => {
+	it('handles saving preferences', () => {
 		const preState = {};
 
 		const incomingAction = {
@@ -89,6 +89,46 @@ describe('savePreferences reducer', () => {
 
 	});
 
+	it('handles clearing saved preferences', () => {
+		const preState = {
+			preferences: {	categoryPicker: {
+				'general': false,
+				'business' : true,
+				'entertainment': false,
+				'health' : false,
+				'science': true,
+				'sports': false,
+				'technology': false
+			},
+			textBox: {
+				'Interests' : 'tesla, apple, bill gates',
+				'Ignore' : ''
+			}}
+		};
 
+		const incomingAction = {
+			type: 'CLEAR_SAVE_PREFERENCES'
+		};
+
+		const desiredOutput = {};
+
+		expect(savePreferences(preState, incomingAction)).toEqual(desiredOutput);
+		expect(preState).toEqual({
+			preferences: {	categoryPicker: {
+				'general': false,
+				'business' : true,
+				'entertainment': false,
+				'health' : false,
+				'science': true,
+				'sports': false,
+				'technology': false
+			},
+			textBox: {
+				'Interests' : 'tesla, apple, bill gates',
+				'Ignore' : ''
+			}}
+		});
+
+	});
 
 });
