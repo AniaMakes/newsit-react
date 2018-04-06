@@ -20,7 +20,8 @@ const Interest = (props) => {
 	} else {
 		return <ErrorContainer
 			category='Search failed'
-			error='sorry, nothing found'
+			error='Sorry, no results for this search. Try changing your search terms'
+			buttonText='Try again'
 			route='/customise'
 		/>;
 	}

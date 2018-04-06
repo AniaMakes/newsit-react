@@ -40,7 +40,9 @@ class Feed extends React.Component {
 			} else {
 				return <ErrorContainer
 					category={category}
-					error='sorry, something went wrong :('
+					key={i}
+					error='Sorry, something went wrong'
+					buttonText='Try again'
 					route='/default'
 				 />;
 			}
