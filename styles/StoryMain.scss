@@ -60,3 +60,23 @@
 	outline: none;
 	color: $link-color-active;
 }
+
+@media screen and (min-width: 500px) { 
+	.story-main-0 .story-main-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.story-main-1 .story-main-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+	.story-main-2 .story-main-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+}
