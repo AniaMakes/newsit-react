@@ -15,14 +15,16 @@ const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 					}
 				}}
 			>
-				<input
-					type="text"
-					name="query"
-					placeholder="Search news ..."
-					onChange={event => updateQuery(event.target.value)}
-					value={query}
-				/>
-				<button type='submit' className='submit-search'><i className="fas fa-search"></i></button>
+				<div className='bar-wrapper'>
+					<input
+						type="text"
+						name="query"
+						placeholder="Search news ..."
+						onChange={event => updateQuery(event.target.value)}
+						value={query}
+					/>
+					<button type='submit' className='submit-search'><i className="fas fa-search"></i></button>
+				</div>
 			</form>
 		</section>
 	);

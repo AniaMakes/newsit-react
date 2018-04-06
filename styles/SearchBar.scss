@@ -8,6 +8,24 @@
 	border-bottom: 1px solid #dae2e6;
 }
 
+.bar-wrapper {
+	display: flex;
+}
+
 .search-bar .submit-search {
-	border-radius: 0px;
+	background: none repeat scroll 0 0 transparent;
+}
+
+.search-bar .submit-search:hover,
+.search-bar .submit-search:focus {
+	outline: none;
+	border: none;
+	background-color: $button-more-hover;
+	color: #fff;
+}
+
+.search-bar .submit-search:active {
+	outline: none;
+	background-color: $category-hover;
+	color: #fff;
 }
