@@ -1,5 +1,5 @@
 import * as actions from '../../src/actions';
-
+import fetchMock from 'fetch-mock';
 
 // ============ DEFAULT CATEGORIES BLOCK
 
@@ -36,6 +36,68 @@ describe('receiveError action', () => {
 
 // TODO: fetchNews, requestNews
 
+describe('fetchNews action, receiving news works', () => {
+
+	beforeEach(() => {
+		fetchMock.get('*', {
+			articles: ['alpha', 'bravo']
+		});
+	});
+
+	it('fetchNews ...', (done) => {
+		const attempt = actions.fetchNews('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[
+				{
+					type: 'RECEIVE_NEWS',
+					news: ['alpha', 'bravo'],
+					category:'testing'
+				}
+			]]);
+			done();
+		}, 0);
+
+	});
+
+	afterEach(() => {
+		fetchMock.restore();
+	});
+});
+
+describe('fetchNews action, receiving news fails', () => {
+	beforeEach(() => {
+		fetchMock.get('*', {
+			errorText : 'Error. Sad times'
+		});
+	});
+
+	it('fetcheNews ...', (done) => {
+		const attempt = actions.fetchNews('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[
+				{
+					type:'RECEIVE_ERROR',
+					errorText: 'No news to display. Try again later',
+					category: 'testing'
+				}
+			]]);
+			done();
+		},0);
+
+		afterEach(() => {
+			fetchMock.restore();
+		});
+	});
+
+});
 // ============= SEARCH BLOCK
 
 

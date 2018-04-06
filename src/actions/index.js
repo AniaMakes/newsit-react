@@ -18,7 +18,7 @@ export function receiveError(error, category) {
 	};
 };
 
-function fetchNews(category) {
+export function fetchNews(category) {
 	return function(dispatch) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
 			.then(response => {
