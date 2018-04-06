@@ -1,0 +1,76 @@
+@import 'colours';
+@import 'fonts';
+
+.category-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.group-general {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.category-heading {
+	cursor: pointer;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.category-heading:hover,
+.category-heading:focus {
+	outline: none;
+	color: $category-hover;
+}
+
+.category-heading:active {
+	outline: none;
+	color: $link-color-active;
+}
+
+.column-width {
+	width: 49%
+}
+
+.group-active {
+	order: -1;
+	width: 100%
+}
+.btn-more {
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	border: none;
+	font-size: 1rem;
+	color: $button-text;
+	font-weight: bold;
+	background-color: inherit;	
+}
+
+.btn-more:hover,
+.btn-more:focus {
+	outline: none;
+	color: $button-more-hover;
+}
+
+.btn-more:active {
+	outline: none;
+	color: $link-color-active;
+}
+
+
+
+@media screen and (min-width: 768px) { 
+	.column-width {
+		width: 30%;
+	}
+
+	.group-active {
+		order: -1;
+		width: 100%
+	}
+}
+
+

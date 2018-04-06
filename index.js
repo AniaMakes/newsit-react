@@ -10,12 +10,9 @@ app.use('/api', router);
 app.use(express.static('BE/public'));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-	res.status.sendFile('index.html');
+app.get('/*', (req, res) => {
+	res.status(200).sendFile('/BE/public/index.html');
 });
-
-
-
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../styles/Error.scss';
 
 const Error = ({category, error, history, route, buttonText}) => (
 	<div className='error-component'>
-		<h2>{category}</h2>
-		<p>{error}</p>
-		<button onClick={event => {
-			history.push(route);
-		}}
+		<h2 className='error-category'>{category}</h2>
+		<p>Error: {error}</p>
+		<button className='btn-try-again'
+			onClick={event => {
+				history.push(route);
+			}}
 		> {buttonText} </button>
 	</div>
 );

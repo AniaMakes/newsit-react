@@ -1,0 +1,17 @@
+@import 'colours';
+@import 'fonts';
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.feed{
+	display: flex;
+	flex-direction: column;
+}
+
+.feed-row {
+	flex-direction: row;
+	flex-wrap: wrap;
+}
