@@ -31,9 +31,9 @@ const Group = (props) => {
 	}
 
 	const viewToRender =
-	<div className={classnames('category-group', {
+	<div className={classnames({
 		'hidden' : (categoryCollapse && (category != activeCategory)),
-		'stories-show' : !(categoryCollapse && (category != activeCategory))
+		'category-group' : !(categoryCollapse && (category != activeCategory))
 	})}>
 
 		{/*  cannot do the if statement here :-/ */}

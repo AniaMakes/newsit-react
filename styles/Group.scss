@@ -1,6 +1,10 @@
 @import 'colours';
 @import 'fonts';
 
+.category-group {
+	display: flex;
+	flex-direction: column;
+}
 .category-heading {
 	cursor: pointer;
 	text-align: center;
