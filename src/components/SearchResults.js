@@ -22,7 +22,8 @@ const SearchResults = (props) => {
 		return <section className={searchResults ? 'stories-show' : 'hidden'}>
 			<ErrorContainer
 				category='Search failed'
-				error='sorry, nothing found'
+				error='Sorry, no results for this search. Try searching for something else'
+				buttonText='Refresh the page'
 				route='/default'
 			/>
 		</section>;

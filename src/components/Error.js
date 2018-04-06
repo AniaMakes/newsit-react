@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../../styles/Error.scss';
 
-const Error = ({category, error, history, route}) => (
+const Error = ({category, error, history, route, buttonText}) => (
 	<div className='error-component'>
 		<h2 className='error-category'>{category}</h2>
 		<p>Error: {error}</p>
@@ -10,7 +10,7 @@ const Error = ({category, error, history, route}) => (
 			onClick={event => {
 				history.push(route);
 			}}
-		> Try again </button>
+		> {buttonText} </button>
 	</div>
 );
 
@@ -18,7 +18,8 @@ Error.propTypes = {
 	category: PropTypes.string,
 	error: PropTypes.string,
 	history: PropTypes.object,
-	route: PropTypes.string
+	route: PropTypes.string,
+	buttonText: PropTypes.string
 };
 
 
