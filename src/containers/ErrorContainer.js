@@ -7,9 +7,10 @@ const getError = state => {
 	return state.error;
 };
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state, props, ownProps) => {
 	return {
-		error: props.error
+		error: props.error,
+		ownProps
 	};
 };
 

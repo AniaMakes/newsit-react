@@ -35,7 +35,7 @@ router.get('/search/:query', (req,res, next) => {
 		sortBy: 'popularity',
 		language: queryLang,
 	}).then((response) => {
-		if (response.status === 'ok' && response.totalResults !== 0) {
+		if(response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
 		} else {
 			res.status(404).json({error: 'something went wrong'});

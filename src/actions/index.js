@@ -66,18 +66,16 @@ export function receiveSearchError(error, query){
 		errorText: error,
 		query: query
 	};
-}
+};
 
 export const fetchSearch = query =>{
 	return function(dispatch){
 		return fetch(`/api/search/${query}`)
 			.then(response => {
 				const returnedResponse = response.json();
-				console.log('fetchSearch response: ', returnedResponse);
 				return returnedResponse;
 			})
 			.then(results => {
-				console.log('fetchSearch results: ', results);
 				if (!results.articles) {
 					return Promise.reject('No search results. Try again');
 				}

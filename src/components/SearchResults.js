@@ -19,10 +19,13 @@ const SearchResults = (props) => {
 			</section>
 		);
 	} else {
-		return <ErrorContainer
-			category='Search failed'
-			error='sorry, nothing found'
-		/>;
+		return <section className={searchResults ? 'stories-show' : 'hidden'}>
+			<ErrorContainer
+				category='Search failed'
+				error='sorry, nothing found'
+				route='/default'
+			/>
+		</section>;
 	}
 };
 
