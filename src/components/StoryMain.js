@@ -3,15 +3,16 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import '../../styles/StoryMain.scss';
 
-const StoryMain = ({ storyData }) => {
+const StoryMain = ({ storyData,order}) => {
 	const {
 		url, urlToImage, title, description,
 	} = storyData;
+	console.log(order);
 	return (
 		<article className='story-main-item'>
 			<a href={url} target='_blank'>
 				<h3 className="story-main-title">
-					{title}
+					{title} {order}
 				</h3>
 			</a>
 			{/*			<p className='story-main-description'>

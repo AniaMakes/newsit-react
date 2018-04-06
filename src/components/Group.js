@@ -41,6 +41,7 @@ const Group = (props) => {
 			if (view === 'default' && category == 'general') {
 				return <StoryMain
 					storyData={storyData}
+					order={i}
 					key={i}
 				/>;
 			} else {

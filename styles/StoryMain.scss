@@ -1,6 +1,8 @@
 @import 'colours';
 @import 'fonts';
 
+.story-main-item
+
 .story-main-title {
 	font-weight: bold;
 	text-align: center;
@@ -10,4 +12,22 @@
 	width: 150px;
 	height: 150px;
 	object-fit: cover;
+}
+
+.story-main-title {
+	margin: 0;
+	margin-top: 0.1rem;
+	color: $text-color;
+	font-family: $story-titles;
+}
+
+.story-main-title:hover,
+.story-main-title:focus {
+	outline: none;
+	color: $title-color-hover;
+}
+
+.story-main-title:active {
+	outline: none;
+	color: $link-color-active;
 }

@@ -33,7 +33,10 @@ const AppRouter = () => {
 			<ScrollToTop>
 				<div className='container'>
 					<header>
-						<h1 className='logo'>NewsIt</h1>
+						<div className='logo-block'>
+							<h1 className='logo'>NewsIt</h1>
+							<img className='logo-pic' src='/images/newsitlogo.png' />
+						</div>
 						<NavBar />
 					</header>
 					{routeOnLoad}
