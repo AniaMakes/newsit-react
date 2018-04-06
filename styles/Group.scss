@@ -5,6 +5,14 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.group-general {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
 .category-heading {
 	cursor: pointer;
 	text-align: center;
