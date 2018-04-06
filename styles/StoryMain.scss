@@ -1,7 +1,13 @@
 @import 'colours';
 @import 'fonts';
 
-.story-main-title,
-.story-main-description {
+.story-main-title {
+	font-weight: bold;
 	text-align: center;
+}
+
+.story-main-img {
+	width: 150px;
+	height: 150px;
+	object-fit: cover;
 }

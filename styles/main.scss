@@ -1,30 +1,21 @@
 @import 'colours';
 @import 'fonts';
 
-
 body {
 	min-width: 320px;
-	font-size: 18px;
+	font-size: 13px;
+	line-height: 1.05rem;
 	background-color: $background-color;
 	font-family: $main-font;
 }
 
+.container {
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
+}
+
 .logo {
 	font-size: 3rem;
-}
-
-.category-group {
-	background-color: $category-background-color;
-}
-
-h3 {
-	color: $text-color;
-	font-family: $story-titles;
-}
-
-a {
-	text-decoration: none;
-	color: #000;
 }
 
 .hidden {
@@ -33,4 +24,9 @@ a {
 
 .stories-show {
 	display: block;
+}
+
+.footer {
+	font-size: 0.6rem;
+	text-align: center;
 }

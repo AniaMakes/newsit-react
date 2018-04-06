@@ -57,7 +57,7 @@ const Group = (props) => {
 					history.push(`/category/${category}`);
 				}
 			}}
-		> More
+		> ~ More ~
 		</button>
 	</div>;
 

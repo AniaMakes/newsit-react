@@ -4,6 +4,11 @@
 .category-heading {
 	cursor: pointer;
 	text-align: center;
+	text-transform: capitalize;
+}
+
+.category-heading:hover {
+	color: $category-hover;
 }
 
 .column-width {
@@ -19,11 +24,27 @@
 	text-align: center;
 	display: block;
 	border: none;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	color: $button-text;
 	font-weight: bold;
 	background-color: inherit;	
 }
+
+.btn-more:hover {
+	color: $button-more-hover;
+}
+
+.btn-more:focus {
+	outline: none;
+	color: $button-more-hover;
+}
+
+.btn-more:active {
+	outline: none;
+	color: $link-color-active;
+}
+
+
 
 @media screen and (min-width: 768px) { 
 	.column-width {

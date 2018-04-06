@@ -14,10 +14,10 @@ const StoryMain = ({ storyData }) => {
 					{title}
 				</h3>
 			</a>
-			<p className='story-main-description'>
+			{/*			<p className='story-main-description'>
 				{description}
-			</p>
-			<img width='150' height='150' className='story-main-img' src={urlToImage} alt={`image for${title}`}/>
+			</p>*/}
+			<img className='story-main-img' src={urlToImage} alt={`image for${title}`}/>
 		</article>	
 	);
 };

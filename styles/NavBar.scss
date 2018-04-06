@@ -1,0 +1,20 @@
+@import 'colours';
+@import 'fonts';
+
+.navbar-component {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	display: flex;
+	justify-content: space-around;
+}
+.navbar-component .btn-nav {
+	text-align: center;
+	display: block;
+	border: none;
+	font-size: 1rem;
+	background-color: inherit;
+}
+
+.btn-nav a {
+	color: $button-text;
+}
