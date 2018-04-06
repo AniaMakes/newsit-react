@@ -1,0 +1,28 @@
+@import 'colours';
+@import 'fonts';
+
+.navbar-component {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	display: flex;
+}
+.navbar-component .btn-nav {
+	text-align: center;
+	display: block;
+	border: none;
+	font-size: 1rem;
+}
+
+.btn-nav a {
+	color: $button-text;
+}
+
+.btn-nav a:hover,
+.btn-nav a:focus {
+	border-bottom: 2px solid $button-text;
+}
+
+.btn-nav a:active {
+	border-bottom: 2px solid $link-color-active;
+	color: $link-color-active;
+}

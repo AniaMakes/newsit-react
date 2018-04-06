@@ -5,6 +5,9 @@ import categories from '../constants/categories';
 import {categoriesForRender} from '../helpers/categoriesForRender';
 import ErrorContainer from '../containers/ErrorContainer';
 
+import classnames from 'classnames';
+import '../../styles/Feed.scss';
+
 class Feed extends React.Component {
 	constructor(props) {
     	super(props);
@@ -47,7 +50,9 @@ class Feed extends React.Component {
 		});
 
 		return (
-			<section className="feed">
+			<section className={classnames('feed', {
+				'feed-row': (this.props.view === 'category')
+			})}>
 				{groups}
 			</section>
     	);
