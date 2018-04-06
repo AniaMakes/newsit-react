@@ -27,6 +27,7 @@ const StoryMain = ({ storyData, order}) => {
 
 StoryMain.propTypes = {
 	storyData: PropTypes.object,
+	order: PropTypes.number
 };
 
 export default StoryMain;
