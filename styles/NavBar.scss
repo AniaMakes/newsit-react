@@ -5,7 +5,6 @@
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	display: flex;
-	justify-content: space-around;
 }
 .navbar-component .btn-nav {
 	text-align: center;
@@ -17,4 +16,14 @@
 
 .btn-nav a {
 	color: $button-text;
+}
+
+.btn-nav a:hover,
+.btn-nav a:focus {
+	border-bottom: 2px solid $button-text;
+}
+
+.btn-nav a:active {
+	border-bottom: 2px solid $link-color-active;
+	color: $link-color-active;
 }

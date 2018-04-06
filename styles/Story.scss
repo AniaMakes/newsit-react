@@ -14,6 +14,7 @@
 
 .story-title:hover,
 .story-title:focus {
+	outline: none;
 	color: $title-color-hover;
 }
 

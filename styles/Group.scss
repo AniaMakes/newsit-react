@@ -7,8 +7,15 @@
 	text-transform: capitalize;
 }
 
-.category-heading:hover {
+.category-heading:hover,
+.category-heading:focus {
+	outline: none;
 	color: $category-hover;
+}
+
+.category-heading:active {
+	outline: none;
+	color: $link-color-active;
 }
 
 .column-width {
@@ -30,10 +37,7 @@
 	background-color: inherit;	
 }
 
-.btn-more:hover {
-	color: $button-more-hover;
-}
-
+.btn-more:hover,
 .btn-more:focus {
 	outline: none;
 	color: $button-more-hover;
