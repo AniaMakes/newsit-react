@@ -91,10 +91,21 @@ export const searchRequest = query => {
 	};
 };
 
+// ============= PREFERENCES BLOCK
+
 export const updateCheckboxValue = (category)=> {
 	return{
 		type: 'CHANGE_CHECKBOX_VALUE',
 		category: category
+	};
+};
+
+
+export const updateTextboxValue = (textBoxName, textBoxInput) => {
+	return {
+		type: 'UPDATE_TEXTBOX_VALUE',
+		name: textBoxName,
+		input: textBoxInput
 	};
 };
 
@@ -104,14 +115,6 @@ export const savePreferencesToLocalStorage = (preferencesObject) => {
 	return {
 		type: 'SAVE_PREFERENCES',
 		preferences: preferencesObject
-	};
-};
-
-export const updateTextboxValue = (textBoxName, textBoxInput) => {
-	return {
-		type: 'UPDATE_TEXTBOX_VALUE',
-		name: textBoxName,
-		input: textBoxInput
 	};
 };
 
@@ -144,7 +147,7 @@ export const clearSavePreferences = () => {
 // ================ SEARCH INTEREST
 
 export function getInterest(articles,query){
-	
+
 	return {
 		type: 'RECEIVE_INTEREST',
 		results: articles,
@@ -171,5 +174,3 @@ export const clearInterests = () => {
 		type: 'CLEAR_INTERESTS'
 	};
 };
-
-

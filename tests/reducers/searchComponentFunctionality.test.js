@@ -1,6 +1,6 @@
 import searchComponentFunctionality from '../../src/reducers/searchComponentFunctionality';
 
-describe('searchComponentFunctionality', () => {
+describe('searchComponentFunctionality reducer', () => {
 	it('should return the initial state', () => {
 		expect(searchComponentFunctionality(undefined, {type: 'REMOVE_BUGS'})).toEqual({searchResults: {}, searchQueryInput: '', mostRecentSearch: ''});
 	});
@@ -26,6 +26,11 @@ describe('searchComponentFunctionality', () => {
 		};
 
 		expect(searchComponentFunctionality(preState, action)).toEqual(desiredOutput);
+		expect(preState).toEqual({
+			searchResults: {},
+			searchQueryInput: 'kittens',
+			mostRecentSearch: ''
+		});
 	});
 
 	it('should handle update query input ',
@@ -48,5 +53,39 @@ describe('searchComponentFunctionality', () => {
 			};
 
 			expect(searchComponentFunctionality(preState, incomingAction)).toEqual(desiredOutput);
+			expect(preState).toEqual({
+				searchResults: {},
+				searchQueryInput: '',
+				mostRecentSearch: ''
+			});
 		});
+
+	it('should handle receiving an error', () => {
+		const preState = {
+			searchResults: {},
+			searchQueryInput: '',
+			mostRecentSearch: ''
+		};
+
+		const incomingAction = {
+			type: 'RECEIVE_SEARCH_ERROR',
+			errorText: 'this is an error',
+			query: 'bunny'
+		};
+
+		const desiredOutput = {
+			searchResults: {
+				'bunny': 'this is an error'
+			},
+			searchQueryInput: '',
+			mostRecentSearch: 'bunny'
+		};
+
+		expect(searchComponentFunctionality(preState, incomingAction)).toEqual(desiredOutput);
+		expect(preState).toEqual({
+			searchResults: {},
+			searchQueryInput: '',
+			mostRecentSearch: ''
+		});
+	});
 });
