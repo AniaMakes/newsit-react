@@ -35,7 +35,9 @@ const Group = (props) => {
 		'hidden' : (categoryCollapse && (category != activeCategory)),
 		'category-group' : !(categoryCollapse && (category != activeCategory))
 	})}>
-		<div className={classnames('group-wrapper','group-'+category)}>
+		<div className={classnames('group-wrapper','group-'+category, {
+			'group-general-row': (category === 'general' && view === 'category')
+		})}>
 			{/*  cannot do the if statement here :-/ */}
 			{filteredData.map((storyData, i) => {
 				if (view === 'default' && category == 'general') {
