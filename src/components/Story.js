@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles/Story.scss';
 
 const Story = ({storyData}) => {
-	const {url, title, description, publishedAt} = storyData;
+	const {url, title, description,publishedAt} = storyData;
 	const temp = new Date(publishedAt);
 	const date = temp.toDateString();
 	const tempTimeString = temp.toTimeString();
