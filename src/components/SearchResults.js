@@ -15,7 +15,7 @@ const SearchResults = (props) => {
 				'stories-show': (searchResults === true),
 				'hidden': (searchResults === false)
 			})}>
-				<h3> Found: </h3>	
+				<h3 className='found-title'> Found: </h3>	
 				<div className='results-wrapper'>
 					{articles.map((storyData, i) => {
 						return <Story
