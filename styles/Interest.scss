@@ -1,0 +1,21 @@
+@import 'colours';
+@import 'fonts';
+
+.results-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.interests-block-header {
+	font-size: 1.4rem;
+	margin-top: 1rem;
+}
+
+@media screen and (min-width: 768px) { 
+	 .results-wrapper {
+	 	flex-direction: row;
+	 	justify-content: space-around;
+	 	flex-wrap: wrap;
+	}
+}

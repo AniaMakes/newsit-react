@@ -2,19 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Story from './Story';
 import ErrorContainer from '../containers/ErrorContainer';
+import '../../styles/Interest.scss';
 
 const Interest = (props) => {
 	const {articles, interest} = props;
 	if(Array.isArray(articles)) {
 		return (
 			<section>
-				<h3 className='interests-block-header'> News related to your interest in "{interest}"</h3>		
-				{articles.map((storyData, i) => {
-					return <Story
-						storyData={storyData}
-						key={i}
-					/>;
-				})}
+				<h3 className='interests-block-header'> News related to your interest in "{interest}"</h3>
+				<div className='results-wrapper'>		
+					{articles.map((storyData, i) => {
+						return <Story
+							storyData={storyData}
+							key={i}
+						/>;
+					})}
+				</div>
 			</section>
 		);
 	} else {
