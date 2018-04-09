@@ -47,6 +47,7 @@ class Feed extends React.Component {
 					error='Sorry, something went wrong'
 					buttonText='Try again'
 					route='/default'
+					view={this.props.view}
 				 />;
 			}
 		});

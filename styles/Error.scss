@@ -6,7 +6,6 @@
 }
 
 .btn-try-again {
-	// background: none repeat scroll 0 0 transparent;
 	border-spacing: 0;
 	list-style: none outside none;
 	margin: 0;
@@ -25,4 +24,20 @@
 	outline: none;
 	background-color: $category-hover;
 	color: #fff;
+}
+
+.cat-err {
+	text-align: center;
+	text-transform: capitalize;
+	color: rgba(0,0,0,0.4);
+}
+
+.column-width {
+	width: 49%
+}
+
+@media screen and (min-width: 768px) { 
+	.column-width {
+		width: 30%;
+	}
 }
