@@ -4,9 +4,11 @@ import classnames from 'classnames';
 import '../../styles/StoryMain.scss';
 
 const StoryMain = ({ storyData, order}) => {
-	const {
-		url, urlToImage, title, description,
-	} = storyData;
+	const {url, urlToImage, title, description, publishedAt} = storyData;
+	const temp = new Date(publishedAt);
+	const tempString = temp.toTimeString();
+	const tempTime = tempString.split(' ');
+	const time = tempTime[0].slice(0,5);
 	return (
 		<article className={classnames('story-main-item', 
 			'story-main-' + order
@@ -17,6 +19,9 @@ const StoryMain = ({ storyData, order}) => {
 					{title}
 				</h3>
 			</a>
+			<p className='story--main-time'>
+				{time}
+			</p>
 			{/*			<p className='story-main-description'>
 				{description}
 			</p>*/}
