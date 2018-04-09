@@ -78,6 +78,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						interestsArray.forEach(interest => {searchInterest(interest);});
 					};
 				}}>
+				<CountrySelector />
 				{categorySelector}
 				{textInputs}
 				<button type="submit">Save preferences</button>
