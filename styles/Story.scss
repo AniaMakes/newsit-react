@@ -4,6 +4,7 @@
 .story {
 	border-top: 2px solid $story-border;
 	background-color: $story-background-color;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

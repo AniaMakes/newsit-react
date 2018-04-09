@@ -68,7 +68,7 @@ const Group = (props) => {
 	return (
 		<section className={classnames('group', {
 			'group-active': (category === activeCategory),
-			'column-width': (view === 'category')
+			'column-width': (view === 'category' || view === 'found')
 		})}>
 			<h2
 				className={classnames({

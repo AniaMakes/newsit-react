@@ -66,8 +66,6 @@
 	color: $link-color-active;
 }
 
-
-
 @media screen and (min-width: 768px) { 
 	.group-wrapper {
 		display: flex;
@@ -85,6 +83,14 @@
 		flex-wrap: wrap;
 	}
 
+	.column-width {
+		width: 30%
+	}
+
+	.group-active {
+		order: -1;
+		width: 100%
+	}
 }
 
 
