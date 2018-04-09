@@ -4,8 +4,7 @@ import categories from '../constants/categories';
 
 const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences, searchInterest, clearInterests}) => {
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
-	// DELETE IGNORE EVERYWHERE IF NOT IMPLEMENTED
-	const textInputsArray = ['Interests', 'Ignore'];
+	const textInputsArray = ['Interests'];
 	const textInputs = textInputsArray.map(type => {
 		return (
 			<div key={type}>
@@ -65,7 +64,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 							ticked += 1;
 						};
 					};
-					if (ticked > 0 || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '') {
+					if (ticked > 0 || preferencesObject.textBox.Interests != '') {
 						savePreferences(preferencesObject);
 						history.push('/personalised');
 
