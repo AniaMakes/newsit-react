@@ -32,7 +32,7 @@ const AppRouter = () => {
 		<Router>
 			<ScrollToTop>
 				<div className='container'>
-					<header>
+					<header className='main-header'>
 						<div className='logo-block'>
 							<h1 className='logo'>NewsIt</h1>
 							<img className='logo-pic' src='/images/newsitlogo.png' />
