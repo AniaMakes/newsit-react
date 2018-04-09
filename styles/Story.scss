@@ -4,12 +4,16 @@
 .story {
 	border-top: 2px solid $story-border;
 	background-color: $story-background-color;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .story-title {
 	margin: 0;
 	margin-top: 0.1rem;
 	color: $text-color;
 	font-family: $story-titles;
+	align-self: flex-start;
 }
 
 .story-title:hover,
@@ -27,3 +31,10 @@
 	font-size: 0.65rem;
 }
 
+
+@media screen and (min-width: 768px) { 
+	 .story {
+	 	width: 48%;
+	 	margin-bottom: 0.8rem;
+	}
+}

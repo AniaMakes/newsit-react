@@ -25,6 +25,7 @@ const StoryMain = ({ storyData, order}) => {
 			'story-main-' + order
 		)}>
 			<img className='story-main-img' src={imageToRender} alt={`image for${title}`}/>
+			{/*<div className='story-text-wrapper'>*/}
 			<a href={url} target='_blank'>
 				<h3 className="story-main-title">
 					{title}
@@ -33,6 +34,7 @@ const StoryMain = ({ storyData, order}) => {
 			<p className='story-time'>
 				{timeDate}
 			</p>
+			{/*</div>*/}
 			{/*			<p className='story-main-description'>
 				{description}
 			</p>*/}
