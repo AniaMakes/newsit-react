@@ -15,7 +15,7 @@ const StoryMain = ({ storyData, order}) => {
 	const timeDate = time + ', ' + date;
 	let imageToRender;
 	if (urlToImage === null) {
-		imageToRender = 'http://www.quelltech.de/wp-content/uploads/2017/09/placeholder-2.jpg';
+		imageToRender = '/images/placeholder.png';
 	} else {
 		imageToRender = urlToImage;
 	}
@@ -25,7 +25,6 @@ const StoryMain = ({ storyData, order}) => {
 			'story-main-' + order
 		)}>
 			<img className='story-main-img' src={imageToRender} alt={`image for${title}`}/>
-			{/*<div className='story-text-wrapper'>*/}
 			<a href={url} target='_blank'>
 				<h3 className="story-main-title">
 					{title}
@@ -34,10 +33,6 @@ const StoryMain = ({ storyData, order}) => {
 			<p className='story-time'>
 				{timeDate}
 			</p>
-			{/*</div>*/}
-			{/*			<p className='story-main-description'>
-				{description}
-			</p>*/}
 		</article>	
 	);
 };
