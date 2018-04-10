@@ -1,5 +1,5 @@
 import * as actions from '../../src/actions';
-
+import fetchMock from 'fetch-mock';
 
 // ============ DEFAULT CATEGORIES BLOCK
 
@@ -35,6 +35,69 @@ describe('receiveError action', () => {
 });
 
 // TODO: fetchNews, requestNews
+
+describe('fetchNews action, receiving news works', () => {
+
+	beforeEach(() => {
+		fetchMock.get('*', {
+			articles: ['alpha', 'bravo']
+		});
+	});
+
+	it('fetches Headlines', (done) => {
+		const attempt = actions.fetchNews('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[
+				{
+					type: 'RECEIVE_NEWS',
+					news: ['alpha', 'bravo'],
+					category:'testing'
+				}
+			]]);
+			done();
+		}, 0);
+
+	});
+
+	afterEach(() => {
+		fetchMock.restore();
+	});
+});
+
+describe('fetchNews action, receiving news fails', () => {
+	beforeEach(() => {
+		fetchMock.get('*', {
+			errorText : 'Error. Sad times'
+		});
+	});
+
+	it('fetchNews ...', (done) => {
+		const attempt = actions.fetchNews('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[
+				{
+					type:'RECEIVE_ERROR',
+					errorText: 'No news to display. Try again later',
+					category: 'testing'
+				}
+			]]);
+			done();
+		},0);
+
+		afterEach(() => {
+			fetchMock.restore();
+		});
+	});
+
+});
 
 // ============= SEARCH BLOCK
 
@@ -81,7 +144,60 @@ describe('receiveSearchError action', () => {
 	expect(attempt).toEqual(expectedOutput);
 });
 
+describe('fetchSearch action, receiving news works', () => {
+	beforeEach(() => {
+		fetchMock.get('*', {
+			articles: ['alpha', 'bravo']
+		});
+	});
+
+	it('fetches Everything', (done) => {
+		const attempt = actions.fetchSearch('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[{
+				type: 'RECEIVE_SEARCH',
+				results: ['alpha', 'bravo'],
+				query:'testing'
+			}]]);
+			done();
+		}, 0);
+	});
+});
+
+describe('fetchSearch action, receiving news fails', () => {
+	beforeEach( () => {
+		fetchMock.get('*', {
+			errorText: 'Error. Sad times'
+		});
+	});
+
+	it('fetchSearch fails', (done) => {
+		const attempt = actions.fetchSearch('testing');
+		const dispatch = jest.fn();
+
+		attempt(dispatch);
+
+		setTimeout( () => {
+			expect(dispatch.mock.calls).toEqual([[
+				{
+					type: 'RECEIVE_SEARCH_ERROR',
+					errorText: 'No search results. Try again',
+					query: 'testing'
+				}
+			]]);
+			done();
+		}, 0);
+	});
+});
+
 //TODO: fetchSearch, searchRequest
+
+
+
 
 // ============= PREFERENCES BLOCK
 
