@@ -9,7 +9,7 @@ const Interest = (props) => {
 	if(Array.isArray(articles)) {
 		return (
 			<section>
-				<h3 className='interests-block-header'> News related to your interest in "{interest}"</h3>
+				<h3 className='interests-block-header'> News related to your interest in "<b className='interest-bold'>{interest}</b>"</h3>
 				<div className='results-wrapper'>		
 					{articles.map((storyData, i) => {
 						return <Story

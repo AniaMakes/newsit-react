@@ -2,6 +2,7 @@
 @import 'fonts';
 
 .results-wrapper {
+	padding: 0rem 0.7rem;
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
@@ -10,10 +11,12 @@
 .found-title {
 	font-size: 1.3rem;
 	margin-top: 1rem;
+	margin-left: 1.5rem;
 }
 
 @media screen and (min-width: 768px) { 
 	 .results-wrapper {
+	 	padding: 0rem;
 	 	flex-direction: row;
 	 	justify-content: space-around;
 	 	flex-wrap: wrap;

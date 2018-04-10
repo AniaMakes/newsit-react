@@ -10,7 +10,7 @@ const Found = () => (
 		<FeedContainer
 			view='found'
 			categoryCollapse={true}
-			numberOfStories={20}
+			numberOfStories={18}
 		/>
 	</div>
 );

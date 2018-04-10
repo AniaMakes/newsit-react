@@ -43,6 +43,8 @@ body {
 .footer {
 	font-size: 0.6rem;
 	text-align: center;
+	border-top: 1px solid #dae2e6;
+	background-color: $footer-background-color;
 }
 
 @media screen and (min-width: 768px) { 
