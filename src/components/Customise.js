@@ -57,77 +57,82 @@ const Customise = ({
 	});
 
 	return (
-		<div className="customise-component">
-			<h3>
-				On this page you can customise the news that will display by default
-				when you visit.
-			</h3>
-			<p>
-				Your choices will be stored in your browser. By saving your preferences,
-				you agree for this to happen. You can clear your preferences any time
-				using the <strong>"Clear preferences"</strong> button.
-			</p>
+		<div className="container">
+			<div className="customise-component">
+				<h3>
+					On this page you can customise the news that will display by default
+					when you visit.
+				</h3>
+				<p>
+					Your choices will be stored in your browser. By saving your
+					preferences, you agree for this to happen. You can clear your
+					preferences any time using the <strong>"Clear preferences"</strong>{' '}
+					button.
+				</p>
 
-			<p>
-				You can select any (or none) categories. Each category will display news
-				relevant to that category.
-			</p>
-			<p>
-				Furthermore, you can add any number of interests. Please use a comma to
-				separate interests.
-			</p>
-			<p>
-				Note: if you add interests, but no categories, only your interests will
-				be displayed.
-			</p>
-			<form
-				className="category-form"
-				onSubmit={event => {
-					event.preventDefault();
-					let preferencesObject = {
-						categoryPicker,
-						textBox
-					};
-					let ticked = 0;
-					for (let cat in preferencesObject.categoryPicker) {
-						if (preferencesObject.categoryPicker[cat] === true) {
-							ticked += 1;
+				<p>
+					You can select any (or none) categories. Each category will display
+					news relevant to that category.
+				</p>
+				<p>
+					Furthermore, you can add any number of interests. Please use a comma
+					to separate interests.
+				</p>
+				<p>
+					Note: if you add interests, but no categories, only your interests
+					will be displayed.
+				</p>
+				<form
+					className="category-form"
+					onSubmit={event => {
+						event.preventDefault();
+						let preferencesObject = {
+							categoryPicker,
+							textBox
+						};
+						let ticked = 0;
+						for (let cat in preferencesObject.categoryPicker) {
+							if (preferencesObject.categoryPicker[cat] === true) {
+								ticked += 1;
+							}
 						}
-					}
-					if (ticked > 0 || preferencesObject.textBox.Interests != '') {
-						savePreferences(preferencesObject);
-						history.push('/personalised');
-					}
-					if (preferencesObject.textBox.Interests != '') {
-						clearInterests();
-						let interestsString = preferencesObject.textBox.Interests;
-						let interestsArray = interestsString.replace(/\s/g, '').split(',');
-						interestsArray.forEach(interest => {
-							searchInterest(interest);
-						});
-					}
-				}}
-			>
-				<div className="cat-checkboxes">{categorySelector}</div>
-				<div className="interests-input">{textInputs}</div>
-				<div className="buttons-wrap">
-					<button className="interests-btn" type="submit">
-						Save preferences
-					</button>
-					<button
-						className="interests-btn"
-						onClick={event => {
-							localStorage.clear();
-							clearUpdatePreferences();
-							clearSavePreferences();
+						if (ticked > 0 || preferencesObject.textBox.Interests != '') {
+							savePreferences(preferencesObject);
+							history.push('/personalised');
+						}
+						if (preferencesObject.textBox.Interests != '') {
 							clearInterests();
-							history.push('/customise');
-						}}
-					>
-						Clear preferences
-					</button>
-				</div>
-			</form>
+							let interestsString = preferencesObject.textBox.Interests;
+							let interestsArray = interestsString
+								.replace(/\s/g, '')
+								.split(',');
+							interestsArray.forEach(interest => {
+								searchInterest(interest);
+							});
+						}
+					}}
+				>
+					<div className="cat-checkboxes">{categorySelector}</div>
+					<div className="interests-input">{textInputs}</div>
+					<div className="buttons-wrap">
+						<button className="interests-btn" type="submit">
+							Save preferences
+						</button>
+						<button
+							className="interests-btn"
+							onClick={event => {
+								localStorage.clear();
+								clearUpdatePreferences();
+								clearSavePreferences();
+								clearInterests();
+								history.push('/customise');
+							}}
+						>
+							Clear preferences
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

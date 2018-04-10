@@ -13,11 +13,18 @@ const StoryMain = ({ storyData, order}) => {
 	const tempTime = tempTimeString.split(' ');
 	const time = tempTime[0].slice(0,5);
 	const timeDate = time + ', ' + date;
+	let imageToRender;
+	if (urlToImage === null) {
+		imageToRender = '/images/placeholder.png';
+	} else {
+		imageToRender = urlToImage;
+	}
+
 	return (
 		<article className={classnames('story-main-item', 
 			'story-main-' + order
 		)}>
-			<img className='story-main-img' src={urlToImage} alt={`image for${title}`}/>
+			<img className='story-main-img' src={imageToRender} alt={`image for${title}`}/>
 			<a href={url} target='_blank'>
 				<h3 className="story-main-title">
 					{title}
@@ -26,10 +33,6 @@ const StoryMain = ({ storyData, order}) => {
 			<p className='story-time'>
 				{timeDate}
 			</p>
-			{/*			<p className='story-main-description'>
-				{description}
-			</p>*/}
-
 		</article>	
 	);
 };

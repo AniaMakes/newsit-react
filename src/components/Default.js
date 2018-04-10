@@ -10,7 +10,7 @@ const Default = () => (
 		<FeedContainer
 			view='default'
 			categoryCollapse={false}
-			numberOfStories={5}
+			numberOfStories={6}
 		/>
 	</div>
 );

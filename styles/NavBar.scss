@@ -26,3 +26,9 @@
 	border-bottom: 2px solid $link-color-active;
 	color: $link-color-active;
 }
+
+@media screen and (min-width: 768px) { 
+	.navbar-component {
+		margin-right: 2rem;
+	}
+}
