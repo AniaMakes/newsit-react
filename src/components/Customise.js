@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import categories from '../constants/categories';
-import CountrySelector from './CountrySelector';
+import WorldNews from './WorldNews';
 
 const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences, searchInterest, clearInterests}) => {
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
@@ -45,6 +45,8 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 		);
 	});
 
+	
+
 	return (
 		<div className='customise-component'>
 			<h3>On this page you can customise the news that will display by default when you visit.</h3>
@@ -78,7 +80,6 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 						interestsArray.forEach(interest => {searchInterest(interest);});
 					};
 				}}>
-				<CountrySelector />
 				{categorySelector}
 				{textInputs}
 				<button type="submit">Save preferences</button>
@@ -92,6 +93,7 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 			}}>
 				Clear preferences
 			</button>
+			{/* <WorldNews /> */}
 		</div>);
 };
 

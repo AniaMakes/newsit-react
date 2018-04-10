@@ -4,7 +4,7 @@ import Default from './Default';
 import Category from './Category';
 import Found from './Found';
 import CustomiseContainer from '../containers/CustomiseContainer';
-
+import WorldNews from './WorldNews';
 import NavBar from './NavBar';
 import ScrollToTop from './ScrollToTop';
 import PersonalView from './PersonalView';
@@ -45,6 +45,7 @@ const AppRouter = () => {
 					<Route path='/customise' component={CustomiseContainer} />
 					<Route path='/personalised' component={PersonalView} />
 					<Route path='/default' component={Default} />
+					<Route path='/world-news' component={WorldNews} />
 					<footer className='footer'>
 						<p>This page uses the <a href="https://newsapi.org/">News API</a> to let you know what's happening around the world right now.</p>
 					</footer>

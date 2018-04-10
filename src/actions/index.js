@@ -91,6 +91,52 @@ export const searchRequest = query => {
 	};
 };
 
+// ============= COUNTRY NEWS BLOCK
+
+// export const updateCountryCheckboxValue = (country) => {
+// 	//only used in checkbox solution
+// 	return {
+// 		type: 'CHANGE_COUNTRY_CHECKBOX_VALUE',
+// 		country: country
+// 	};
+// };
+
+export function receiveCountryNews(news,country) {
+	return {
+		type: 'RECEIVE_COUNTRY_NEWS',
+		news: news,
+		country: country
+	};
+};
+
+export const fetchCountryNews = country => {
+	return function(dispatch){
+		return fetch(`api/countryNews/${country}`)
+			.then(response => {
+				const returnedResponse = response.json();
+				return returnedResponse;
+			})
+			.then(news => {
+				if (!news.articles){
+					return Promise.reject('No news to display. Try again later');
+				}
+				return dispatch(receiveCountryNews(news.articles, country));
+			})
+			.catch(error => {
+				return ({error: 'something went wrong'});
+			});
+	};
+};
+
+export const countryNewsRequest = country => {
+	console.log(country);
+	return(dispatch) => {
+		return dispatch(fetchCountryNews(country));
+	};
+};
+
+
+
 // ============= PREFERENCES BLOCK
 
 export const updateCheckboxValue = (category)=> {
