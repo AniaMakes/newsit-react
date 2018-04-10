@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Feed from '../components/Feed';
-import { requestNews, searchInterest } from '../actions/';
+import { fetchNews, searchInterest } from '../actions/';
 import { withRouter } from 'react-router';
 
 const getNews = (state) => {
@@ -29,7 +29,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-	getNews: (category) => dispatch(requestNews(category)),
+	getNews: (category) => dispatch(fetchNews(category)),
 	searchInterest: (query) => dispatch(searchInterest(query))
 });
 
