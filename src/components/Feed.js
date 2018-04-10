@@ -53,11 +53,13 @@ class Feed extends React.Component {
 		});
 
 		return (
+
 			<section className={classnames('feed', {
-				'feed-row': (this.props.view === 'category')
+				'feed-row': (this.props.view === 'category' || this.props.view === 'found')
 			})}>
 				{groups}
 			</section>
+
     	);
   	}
 }

@@ -32,23 +32,23 @@ const AppRouter = () => {
 		<Router>
 			<ScrollToTop>
 				<div className='container'>
-					<header>
+					<header className='main-header'>
 						<div className='logo-block'>
 							<h1 className='logo'>NewsIt</h1>
 							<img className='logo-pic' src='/images/newsitlogo.png' />
 						</div>
 						<NavBar />
 					</header>
-					{routeOnLoad}
-					<Route path='/category/:category' component={Category} />
-					<Route path='/found' component={Found} />
-					<Route path='/customise' component={CustomiseContainer} />
-					<Route path='/personalised' component={PersonalView} />
-					<Route path='/default' component={Default} />
-					<footer className='footer'>
-						<p>This page uses the <a href="https://newsapi.org/">News API</a> to let you know what's happening around the world right now.</p>
-					</footer>
 				</div>
+				{routeOnLoad}
+				<Route path='/category/:category' component={Category} />
+				<Route path='/found' component={Found} />
+				<Route path='/customise' component={CustomiseContainer} />
+				<Route path='/personalised' component={PersonalView} />
+				<Route path='/default' component={Default} />
+				<footer className='footer'>
+					<p>This page uses the <a href="https://newsapi.org/">News API</a> to let you know what's happening around the world right now.</p>
+				</footer>	
 			</ScrollToTop>
 		</Router>
 

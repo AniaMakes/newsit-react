@@ -1,6 +1,16 @@
 @import 'colours';
 @import 'fonts';
 
+.story-main-item {
+	display: flex;
+	flex-direction: column;
+}
+
+.story-main-img {
+	width: 100%;
+	object-fit: cover;
+}
+
 .story-main-0 {
 	order: -1;
 	width: 100%;
@@ -8,39 +18,22 @@
 }
 
 .story-main-0 .story-main-img {
-	width: 100%;
-	height: 150px;
-	object-fit: cover;
+	height: 170px;
 }
 
-.story-main-1 {
-	width: 48%	
-}
-
-.story-main-1 .story-main-img {
-	width: 100%;
-	height: 100px;
-	object-fit: cover;
-}
-
+.story-main-1,
 .story-main-2 {
-	width: 48%
+	width: 48%;
 }
 
+.story-main-1 .story-main-img,
 .story-main-2 .story-main-img {
-	width: 100%;
 	height: 100px;
 	object-fit: cover;
 }
 
 .story-main-title {
 	font-weight: bold;
-}
-
-.story-main-img {
-	width: 150px;
-	height: 150px;
-	object-fit: cover;
 }
 
 .story-main-title {
@@ -61,22 +54,44 @@
 	color: $link-color-active;
 }
 
-@media screen and (min-width: 500px) { 
-	.story-main-0 .story-main-img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
+.story-time {
+	font-size: 0.65rem;
+}
+
+@media screen and (min-width: 768px) { 
+	.story-main-0 {
+		width: 30%;
+	}
+	.story-main-1,
+	.story-main-2 {
+		width: 30%;
 	}
 
-	.story-main-1 .story-main-img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
+	.story-main-item .story-main-img {
+		height: 170px;
+	}
+}
+
+@media screen and (min-width: 1280px) { 
+	.story-main-0,
+	.story-main-1,
+	.story-main-2 {
+		width: 25%;
 	}
 
-	.story-main-2 .story-main-img {
-		width: 100%;
-		height: auto;
-		object-fit: cover;
+	.story-main-item .story-main-img {
+		height: 220px;
+	}
+}
+
+@media screen and (min-width: 1440px) { 
+	.story-main-0,
+	.story-main-1,
+	.story-main-2 {
+		width: 23%;
+	}
+
+	.story-main-item .story-main-img {
+		height: 270px;
 	}
 }
