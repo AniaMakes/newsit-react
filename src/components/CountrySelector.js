@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { countryObject } from '../constants/countries';
+import '../../styles/CountrySelector.scss';
 
 const CountrySelector = ({countryNewsRequest, props}) => {  
 	const countryCodes = Object.keys(countryObject);

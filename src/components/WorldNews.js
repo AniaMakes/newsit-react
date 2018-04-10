@@ -2,14 +2,17 @@ import React from 'react';
 import CountrySelector from './CountrySelector';
 import CountrySelectorContainer from '../containers/CountrySelectorContainer';
 import CountryNewsContainer from '../containers/CountryNewsContainer';
+import '../../styles/WorldNews.scss';
 
 const WorldNews = (props) => {
 	return (
-		<div className='world-news-component'>
-			<h2>World News</h2>
-			<CountryNewsContainer />
+		<section className='world-news-component'>
+			<div className='world-header'>
+				<h2 className='world-page-title'>World News</h2>
+			</div>
 			<CountrySelectorContainer />
-		</div>
+			<CountryNewsContainer />
+		</section>
 	);
 };
 

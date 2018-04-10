@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../../styles/Error.scss';
 
 const Error = ({category, error, history, route, buttonText, view}) => {
-	if (view === 'category') {
+	if (view === 'category' || view === 'found') {
 		return <h2 className='cat-err column-width'> {category} </h2>;
 	} else {
 		return (

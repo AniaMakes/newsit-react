@@ -1,0 +1,36 @@
+@import 'colours';
+@import 'fonts';
+
+.country-selector-component {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.country-name {
+	cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    margin-right: 1.2rem;
+}
+
+.country-name:hover,
+.country-name:focus {
+	outline: none;
+	color: $title-color-hover;
+}
+
+@media screen and (min-width: 768px) { 
+	
+	.country-selector-component {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+    }
+
+    .country-name {
+        
+    }
+}
