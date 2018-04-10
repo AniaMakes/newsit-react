@@ -4,8 +4,6 @@ import CountryNews from '../components/CountryNews';
 const getCountryNews = state => {
 	const {receiveCountryNews} = state;
 	const {country, countryNews} = receiveCountryNews;
-	console.log('I made it into CountryNewsContainer ', countryNews[country]);
-	//return receiveCountryNews[state.country];
 	return countryNews[country];
 };
 

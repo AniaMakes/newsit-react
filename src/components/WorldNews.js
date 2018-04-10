@@ -6,9 +6,9 @@ import CountryNewsContainer from '../containers/CountryNewsContainer';
 const WorldNews = (props) => {
 	return (
 		<div className='world-news-component'>
-            Here are all the countries:
-			<CountrySelectorContainer />
+			<h2>World News</h2>
 			<CountryNewsContainer />
+			<CountrySelectorContainer />
 		</div>
 	);
 };

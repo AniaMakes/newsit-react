@@ -10,7 +10,7 @@ const CountryNews = (props) => {
 	if(Array.isArray(country)) {
 		return (
 			<section className={country ? 'stories-show' : 'hidden'}>
-				<h3> News From {countryName} </h3>		
+				<h3> {countryName} </h3>		
 				{country.map((storyData, i) => {
 					return <Story
 						storyData={storyData}

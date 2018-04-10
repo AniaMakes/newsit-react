@@ -9,7 +9,6 @@ const newsapi = new NewsAPI(process.env.API_KEY);
 router.get('/topheadlines/:category', (req, res, next) => {
 	const acceptLang = req.headers['accept-language'];
 	const queryLang = processLangFromBrowser(req.headers['accept-language']);
-	console.log('Router getCategories :',req.params.category);
 	newsapi.v2.topHeadlines({
 		category: req.params.category,
 		country: queryLang,

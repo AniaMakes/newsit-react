@@ -93,14 +93,6 @@ export const searchRequest = query => {
 
 // ============= COUNTRY NEWS BLOCK
 
-// export const updateCountryCheckboxValue = (country) => {
-// 	//only used in checkbox solution
-// 	return {
-// 		type: 'CHANGE_COUNTRY_CHECKBOX_VALUE',
-// 		country: country
-// 	};
-// };
-
 export function receiveCountryNews(news,country) {
 	return {
 		type: 'RECEIVE_COUNTRY_NEWS',
@@ -129,7 +121,6 @@ export const fetchCountryNews = country => {
 };
 
 export const countryNewsRequest = country => {
-	console.log(country);
 	return(dispatch) => {
 		return dispatch(fetchCountryNews(country));
 	};
