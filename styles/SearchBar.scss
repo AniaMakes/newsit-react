@@ -6,6 +6,7 @@
 	padding-bottom: 1rem;
 	border-top: 1px solid #dae2e6;
 	border-bottom: 1px solid #dae2e6;
+	background-color: $story-background-color;
 }
 
 .bar-wrapper {
@@ -13,7 +14,9 @@
 }
 
 .search-bar .submit-search {
+	font-size: 1.1rem;
 	background: none repeat scroll 0 0 transparent;
+	background-color: #f1a1b0;
 }
 
 .search-bar .submit-search:hover,
@@ -28,4 +31,11 @@
 	outline: none;
 	background-color: $category-hover;
 	color: #fff;
+}
+
+.input-search {
+	margin-left: 1rem;
+	padding-left: 1rem;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
 }

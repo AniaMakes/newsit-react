@@ -22,6 +22,7 @@ const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 						placeholder="Search news ..."
 						onChange={event => updateQuery(event.target.value)}
 						value={query}
+						className='input-search'
 					/>
 					<button type='submit' className='submit-search'><i className="fas fa-search"></i></button>
 				</div>
