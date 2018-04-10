@@ -1,0 +1,43 @@
+@import 'colours';
+@import 'fonts';
+
+.error-category {
+	text-transform: capitalize;
+}
+
+.btn-try-again {
+	border-spacing: 0;
+	list-style: none outside none;
+	margin: 0;
+	padding: 0.3rem;
+	text-decoration: none;
+}
+
+.btn-try-again:hover,
+.btn-try-again:focus {
+	outline: none;
+	background-color: $button-more-hover;
+	color: #fff;
+}
+
+.btn-try-again:active {
+	outline: none;
+	background-color: $category-hover;
+	color: #fff;
+}
+
+.cat-err {
+	text-align: center;
+	text-transform: capitalize;
+	color: rgba(0,0,0,0.4);
+}
+
+.column-width {
+	width: 49%
+}
+
+@media screen and (min-width: 768px) { 
+	.column-width {
+		width: 30%;
+	}
+}

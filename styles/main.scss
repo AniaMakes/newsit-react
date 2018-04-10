@@ -1,20 +1,57 @@
 @import 'colours';
 @import 'fonts';
 
-
-button {
-	color: $button-text;
-}
-
 body {
+	min-width: 320px;
+	font-size: 13px;
+	line-height: 1.05rem;
 	background-color: $background-color;
+	font-family: $main-font;
 }
 
-.category-group {
-	background-color: $category-background-color;
+.container {
+	padding-left: 0.7rem;
+	padding-right: 0.7rem;
+}
+.logo-block {
+	display: flex;
 }
 
-h3 {
-	color: $text-color;
-	font-family: $story-titles;
+.logo {
+	margin: 0;
+	padding: 0;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
+	font-size: 3rem;
+	line-height: 2rem;
 }
+
+.logo-pic {
+	align-self: center;
+	width: 70px;
+	height: 70px;
+}
+
+.hidden {
+	display: none;
+}
+
+.stories-show {
+	display: block;
+}
+
+.footer {
+	font-size: 0.6rem;
+	text-align: center;
+	border-top: 1px solid #dae2e6;
+	background-color: $footer-background-color;
+}
+
+@media screen and (min-width: 768px) { 
+	.main-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+

@@ -11,7 +11,7 @@ const Category = (props) => (
 		<FeedContainer
 			categoryCollapse={true}
 			view='category'
-			numberOfStories={20}
+			numberOfStories={18}
 			activeCategory={props.match.params.category}
 		/>
 	</div>

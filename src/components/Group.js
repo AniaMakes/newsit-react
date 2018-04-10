@@ -4,6 +4,7 @@ import Story from './Story';
 import StoryMain from './StoryMain';
 
 import classnames from 'classnames';
+import '../../styles/Group.scss';
 
 const Group = (props) => {
 	const {
@@ -30,40 +31,50 @@ const Group = (props) => {
 	}
 
 	const viewToRender =
-	<div className={classnames('category-group', {
+	<div className={classnames({
 		'hidden' : (categoryCollapse && (category != activeCategory)),
-		'stories-show' : !(categoryCollapse && (category != activeCategory))
+		'category-group' : !(categoryCollapse && (category != activeCategory))
 	})}>
-
-		{/*  cannot do the if statement here :-/ */}
-		{filteredData.map((storyData, i) => {
-			if (view === 'default' && category == 'general') {
-				return <StoryMain
-					storyData={storyData}
-					key={i}
-				/>;
-			} else {
-				return <Story
-					storyData={storyData}
-					key={i}
-				/>;
-			}
-		})}
+		<div className={classnames('group-wrapper','group-'+category, {
+			'group-general-row': (category === 'general' && view === 'category')
+		})}>
+			{/*  cannot do the if statement here :-/ */}
+			{filteredData.map((storyData, i) => {
+				if (view === 'default' && category == 'general') {
+					return <StoryMain
+						storyData={storyData}
+						order={i}
+						key={i}
+					/>;
+				} else {
+					return <Story
+						storyData={storyData}
+						key={i}
+					/>;
+				}
+			})}
+		</div>
 		<button
-			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'stories-show'} // change the class css
+			className={(category === activeCategory) || (view === 'personalised') ? 'hidden' : 'btn-more'}
 			onClick={event => {
 				if (view != 'personalised') {
 					history.push(`/category/${category}`);
 				}
 			}}
-		> More
+		> ~ More ~
 		</button>
 	</div>;
 
 	return (
-		<section className={'group-' + category}>
+		<section className={classnames('group', {
+			'group-active': (category === activeCategory),
+			'column-width': (view === 'category' || view === 'found')
+		})}>
 			<h2
-				className={(category === 'general' && view === 'default') ? 'hidden' : 'category-heading'}
+				className={classnames({
+					'hidden': (category === 'general' && view === 'default'),
+					'category-heading': !(category === 'general' && view === 'default')
+				})}
 				onClick={event => {
 					if (view != 'personalised') {
 						history.push(`/category/${category}`);

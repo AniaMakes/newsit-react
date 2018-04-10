@@ -5,6 +5,9 @@ import categories from '../constants/categories';
 import {categoriesForRender} from '../helpers/categoriesForRender';
 import ErrorContainer from '../containers/ErrorContainer';
 
+import classnames from 'classnames';
+import '../../styles/Feed.scss';
+
 class Feed extends React.Component {
 	constructor(props) {
     	super(props);
@@ -40,16 +43,23 @@ class Feed extends React.Component {
 			} else {
 				return <ErrorContainer
 					category={category}
-					error='sorry, something went wrong :('
+					key={i}
+					error='Sorry, something went wrong'
+					buttonText='Try again'
 					route='/default'
+					view={this.props.view}
 				 />;
 			}
 		});
 
 		return (
-			<section className="feed">
+
+			<section className={classnames('feed', {
+				'feed-row': (this.props.view === 'category' || this.props.view === 'found')
+			})}>
 				{groups}
 			</section>
+
     	);
   	}
 }

@@ -18,9 +18,10 @@ router.get('/topheadlines/:category', (req, res, next) => {
 		if (response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
 		} else {
-			res.status(404).json({error: 'something went wrong'});
+			res.status(404).json({error: 'something went wrong in topheadlines fetch'});
 		}
 	}).catch((err) => {
+		console.log('I come from the router:headline fetch: ', err);
 		next(err);
 	});
 });
@@ -38,9 +39,10 @@ router.get('/search/:query', (req,res, next) => {
 		if(response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
 		} else {
-			res.status(404).json({error: 'something went wrong'});
+			res.status(404).json({error: 'something went wrong in search fetch'});
 		}
 	}).catch((err) => {
+		console.log('I come from the router:search fetch: ', err);
 		next(err);
 	});
 });

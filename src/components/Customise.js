@@ -4,8 +4,7 @@ import categories from '../constants/categories';
 
 const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextbox, textBox, history, clearSavePreferences, clearUpdatePreferences, searchInterest, clearInterests}) => {
 	// do NOT change words inside textInputsArray, as they are used as hooks for naming when setting state in reducer (see textBox object in updatePreferences reducer - the keys in that object and the words in textInputsArray need to match)
-	// DELETE IGNORE EVERYWHERE IF NOT IMPLEMENTED
-	const textInputsArray = ['Interests', 'Ignore'];
+	const textInputsArray = ['Interests'];
 	const textInputs = textInputsArray.map(type => {
 		return (
 			<div key={type}>
@@ -45,51 +44,53 @@ const Customise = ({toggleCheckbox, categoryPicker, savePreferences, updateTextb
 	});
 
 	return (
-		<div className='customise-component'>
-			<h3>On this page you can customise the news that will display by default when you visit.</h3>
-			<p>Your choices will be stored in your browser. By saving your preferences, you agree for this to happen. You can clear your preferences any time using the "Clear preferences" button.</p>
+		<div className='container'>
+			<div className='customise-component'>
+				<h3>On this page you can customise the news that will display by default when you visit.</h3>
+				<p>Your choices will be stored in your browser. By saving your preferences, you agree for this to happen. You can clear your preferences any time using the "Clear preferences" button.</p>
 
-			<p>You can select any (or none) categories. Each category will display news relevant to that category.</p>
-			<p>Furthermore, you can add any number of interests. Please use a comma to separate interests.</p>
-			<p>Note: if you add interests, but no categories, only your interests will be displayed.</p>
-			<form
-				onSubmit={(event) => {
-					event.preventDefault();
-					let preferencesObject = {
-						categoryPicker,
-						textBox
-					};
-					let ticked = 0;
-					for (let cat in preferencesObject.categoryPicker) {
-						if (preferencesObject.categoryPicker[cat] === true) {
-							ticked += 1;
+				<p>You can select any (or none) categories. Each category will display news relevant to that category.</p>
+				<p>Furthermore, you can add any number of interests. Please use a comma to separate interests.</p>
+				<p>Note: if you add interests, but no categories, only your interests will be displayed.</p>
+				<form
+					onSubmit={(event) => {
+						event.preventDefault();
+						let preferencesObject = {
+							categoryPicker,
+							textBox
 						};
-					};
-					if (ticked > 0 || preferencesObject.textBox.Interests != '' || preferencesObject.textBox.Ignore != '') {
-						savePreferences(preferencesObject);
-						history.push('/personalised');
+						let ticked = 0;
+						for (let cat in preferencesObject.categoryPicker) {
+							if (preferencesObject.categoryPicker[cat] === true) {
+								ticked += 1;
+							};
+						};
+						if (ticked > 0 || preferencesObject.textBox.Interests != '') {
+							savePreferences(preferencesObject);
+							history.push('/personalised');
 
-					};
-					if (preferencesObject.textBox.Interests != '') {
-						clearInterests();
-						let interestsString = preferencesObject.textBox.Interests;
-						let interestsArray = interestsString.replace(/\s/g, '').split(',');
-						interestsArray.forEach(interest => {searchInterest(interest);});
-					};
+						};
+						if (preferencesObject.textBox.Interests != '') {
+							clearInterests();
+							let interestsString = preferencesObject.textBox.Interests;
+							let interestsArray = interestsString.replace(/\s/g, '').split(',');
+							interestsArray.forEach(interest => {searchInterest(interest);});
+						};
+					}}>
+					{categorySelector}
+					{textInputs}
+					<button type="submit">Save preferences</button>
+				</form>
+				<button onClick={(event) => {
+					localStorage.clear();
+					clearUpdatePreferences();
+					clearSavePreferences();
+					clearInterests();
+					history.push('/customise');
 				}}>
-				{categorySelector}
-				{textInputs}
-				<button type="submit">Save preferences</button>
-			</form>
-			<button onClick={(event) => {
-				localStorage.clear();
-				clearUpdatePreferences();
-				clearSavePreferences();
-				clearInterests();
-				history.push('/default');
-			}}>
-				Clear preferences
-			</button>
+					Clear preferences
+				</button>
+			</div>
 		</div>);
 };
 

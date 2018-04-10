@@ -11,7 +11,7 @@ const PersonalView = () => (
 		<FeedContainer
 			view='personalised'
 			categoryCollapse={false}
-			numberOfStories={20}
+			numberOfStories={18}
 		/>
 		<InterestContainer />
 	</div>
