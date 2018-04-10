@@ -2,14 +2,20 @@
 @import 'fonts';
 
 .story {
+	margin-bottom: 0.6rem;
 	border-top: 2px solid $story-border;
 	background-color: $story-background-color;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .story-title {
 	margin: 0;
 	margin-top: 0.1rem;
 	color: $text-color;
 	font-family: $story-titles;
+	align-self: flex-start;
 }
 
 .story-title:hover,
@@ -23,3 +29,20 @@
 	color: $link-color-active;
 }
 
+.story-time {
+	font-size: 0.65rem;
+}
+
+
+@media screen and (min-width: 768px) { 
+	 .story {
+	 	width: 47%;
+	 	margin-bottom: 0.8rem;
+	}
+}
+
+@media screen and (min-width: 1280px) { 
+	 .story {
+	 	width: 30%;
+	}
+}

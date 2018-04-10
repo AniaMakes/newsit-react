@@ -47,16 +47,19 @@ class Feed extends React.Component {
 					error='Sorry, something went wrong'
 					buttonText='Try again'
 					route='/default'
+					view={this.props.view}
 				 />;
 			}
 		});
 
 		return (
+
 			<section className={classnames('feed', {
-				'feed-row': (this.props.view === 'category')
+				'feed-row': (this.props.view === 'category' || this.props.view === 'found')
 			})}>
 				{groups}
 			</section>
+
     	);
   	}
 }

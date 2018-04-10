@@ -1,0 +1,30 @@
+@import 'colours';
+@import 'fonts';
+
+.results-wrapper {
+	padding: 0rem 0.7rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.interests-block-header {
+	margin-top: 1rem;
+	text-align: center;
+	font-size: 1.1rem;
+	line-height: 1.45rem;
+}
+
+.interest-bold {
+	font-size: 1.3rem;
+	color: #172b64;
+}
+
+@media screen and (min-width: 768px) { 
+	 .results-wrapper {
+	 	padding: 0rem;
+	 	flex-direction: row;
+	 	justify-content: space-around;
+	 	flex-wrap: wrap;
+	}
+}

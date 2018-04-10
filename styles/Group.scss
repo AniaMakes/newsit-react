@@ -2,11 +2,19 @@
 @import 'fonts';
 
 .category-group {
+	padding: 0rem 0.7rem;
 	display: flex;
 	flex-direction: column;
 }
 
+.group-wrapper {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
 .group-general {
+	padding-top: 1rem;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
@@ -60,11 +68,29 @@
 	color: $link-color-active;
 }
 
-
-
 @media screen and (min-width: 768px) { 
+	.category-group {
+		padding: 0rem;
+	}
+	
+	.group-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+	.group-general {
+		padding-top: 1rem;
+		justify-content: space-around;
+		flex-wrap: nowrap;
+	}
+
+	.group-general-row {
+		flex-wrap: wrap;
+	}
+
 	.column-width {
-		width: 30%;
+		width: 30%
 	}
 
 	.group-active {
