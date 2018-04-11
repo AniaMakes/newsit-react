@@ -6,9 +6,6 @@
     margin-left: 1rem;
   }
   p {
-    // border-top: 2px solid #cc0000;
-    // background-color: #f6f6f6;
-    // width: 100%;
     margin: 1rem 0 0 1rem;
     line-height: 1.1rem;
 
@@ -81,17 +78,13 @@
       margin: 0 1rem 1rem 1rem;
 
       .interests-btn {
-        // background-color: white;
         color: black;
         margin-right: 2rem;
-        // background-color: #dddddd;
         border-radius: 0.2rem;
         display: inline-block;
         cursor: pointer;
-        // font-size: 0.8rem;
         padding: 0.5rem 1rem;
         text-decoration: none;
-        // text-shadow: 0px 1px 0px #a6a6a6;
         -webkit-transition-duration: 0.4s;
         transition-duration: 0.4s;
         background-color: $customise-btn-background;
@@ -99,9 +92,7 @@
       }
       .interests-btn:hover {
         background-color: $button-more-hover;
-        // border: 2px solid #1e3781;
         color: $background-color;
-        // color: $button-text;
       }
 
       .interests-btn-clear:hover {
