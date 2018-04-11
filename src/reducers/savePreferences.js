@@ -4,17 +4,14 @@ const savePreferences = (state = {}, action) => {
 		let outputObject = Object.assign({}, state);
 		outputObject.preferences = Object.assign({}, action.preferences);
 		return outputObject;
-		break;
 	case 'SAVE_PREFERENCES_FROM_LOCAL_STORAGE':
 		let outputObject2 =  Object.assign({}, state);
 		outputObject2.preferences = Object.assign({}, action.savedInLocalStorage);
 		return outputObject2;
-		break;
 	case 'CLEAR_SAVE_PREFERENCES':
 		let outputObject3 = Object.assign({}, state);
 		outputObject3 = {};
 		return outputObject3;
-		break;
 	default:
 		return state;
 	};

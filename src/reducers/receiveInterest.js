@@ -4,12 +4,10 @@ const receiveInterest = (state = {}, action) => {
 		return Object.assign({}, state, {
 			[action.interest]: action.results
 		});
-		break;
 	case 'CLEAR_INTERESTS':
 		let outputObject = Object.assign({}, state);
 		outputObject = {};
 		return outputObject;
-		break;
 	default:
 		return state;
 	}

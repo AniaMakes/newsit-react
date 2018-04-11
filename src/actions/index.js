@@ -37,12 +37,6 @@ export function fetchNews(category) {
 	};
 };
 
-export const requestNews = (category) => {
-	return(dispatch) => {
-		return dispatch(fetchNews(category));
-	};
-};
-
 // ============= SEARCH BLOCK
 
 export const updateQuery = query => {
@@ -82,12 +76,6 @@ export const fetchSearch = query =>{
 				return dispatch(receiveSearch(results.articles, query));
 			})
 			.catch(error => dispatch(receiveSearchError(error, query)));
-	};
-};
-
-export const searchRequest = query => {
-	return(dispatch) => {
-		return dispatch(fetchSearch(query));
 	};
 };
 
