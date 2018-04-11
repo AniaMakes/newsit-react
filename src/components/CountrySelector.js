@@ -8,7 +8,7 @@ const CountrySelector = ({countryNewsRequest, props}) => {
 
 	const countrySelector = countryCodes.map(countryCode => {
 		return (
-			<div key={countryCode}>
+			<div key={countryCode} className='country-container'>
 				<h4 
 					className='country-name'
 					id={countryCode}

@@ -3,8 +3,11 @@
 
 .country-selector-component {
     display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
+    flex-wrap: wrap;
+}
+
+.country-container {
+    width: 48%;
 }
 
 .country-name {
@@ -21,6 +24,11 @@
 	color: $title-color-hover;
 }
 
+.country-name:active {
+	outline: none;
+	color: $link-color-active;
+}
+
 @media screen and (min-width: 768px) { 
 	
 	.country-selector-component {
@@ -30,7 +38,7 @@
 		flex-wrap: wrap;
     }
 
-    .country-name {
-        
+    .country-container {
+        width: auto;
     }
 }
