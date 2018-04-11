@@ -34,19 +34,19 @@ We used Jest to test our code. We also set up a continuous integration server us
 * cartoon section
 
 ## the team
-Olena: [GitHub](https://github.com/OlenaKashuba)
-Eugene: [GitHub](https://github.com/yevhensydorov)
-Alex: [GitHub](https://github.com/AlexJRFox)
-Mathilde: [GitHub](https://github.com/mathildepind)
-Ania: [GitHub](https://github.com/AniaMakes) [Twitter](https://twitter.com/AniaMakes)
+* Olena: [GitHub](https://github.com/OlenaKashuba)
+* Eugene: [GitHub](https://github.com/yevhensydorov)
+* Alex: [GitHub](https://github.com/AlexJRFox)
+* Mathilde: [GitHub](https://github.com/mathildepind)
+* Ania: [GitHub](https://github.com/AniaMakes) [Twitter](https://twitter.com/AniaMakes)
 
 ## take it for a ride
 
 #### skills you need and technologies you need to have set up on your machine
-[Skill: Forking a repo and setting it up on your machine](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
-[Skill & tech: Using direvn and .envrc](https://direnv.net/)
-[Skill & tech: Using npm](https://docs.npmjs.com/)
-[Skill & tech: Using node](https://nodejs.org/en/)
+* [Skill: Forking a repo and setting it up on your machine](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/)
+* [Skill & tech: Using direvn and .envrc](https://direnv.net/)
+* [Skill & tech: Using npm](https://docs.npmjs.com/)
+* [Skill & tech: Using node](https://nodejs.org/en/)
 
 #### play with the code
 1. Fork the repo and set it up on your local machine. If you've never done it before.
