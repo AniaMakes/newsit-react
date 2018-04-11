@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { countryObject } from '../constants/countries';
+import { countryObject, countryNameObject } from '../constants/countries';
 import Story from './Story';
 import ErrorContainer from '../containers/ErrorContainer';
 import '../../styles/CountryNews.scss';
