@@ -8,6 +8,7 @@ const NavBar = ({}) => {
 		<div className='navbar-component'>
 			<button className='btn-nav btn-home'><Link to='/default'>Home</Link></button>
 			<button className='btn-nav btn-customise'><Link to='/customise'>Customise</Link></button>
+			<button className='btn-nav btn-world-news'><Link to='/world-news'>WorldNews</Link></button>
 		</div>);
 };
 

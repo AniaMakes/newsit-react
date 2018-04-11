@@ -1,4 +1,5 @@
 import categories from '../constants/categories';
+import countries from '../constants/countries';
 
 let categoryPickerInitial = {};
 
