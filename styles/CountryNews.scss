@@ -1,0 +1,18 @@
+@import 'colours';
+@import 'fonts';
+
+.world-news-component {
+    padding-left: 0.7rem;
+	padding-right: 0.7rem;
+}
+
+.world-page-title {
+    font-size: 1.5rem;
+}
+
+.results-wrapper {
+	padding: 0rem 0.7rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}

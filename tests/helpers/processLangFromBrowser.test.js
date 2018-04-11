@@ -20,4 +20,10 @@ describe('processLangFromBrowser', () => {
 		const expectedOutcome = 'gb';
 		expect(processLangFromBrowser(langFromBrowser)).toEqual(expectedOutcome);
 	});
+
+	it('accepts languages without regionals', () => {
+		const langFromBrowser = 'pl'; // Polish
+		const expectedOutcome = 'pl';
+		expect(processLangFromBrowser(langFromBrowser)).toEqual(expectedOutcome);
+	});
 });

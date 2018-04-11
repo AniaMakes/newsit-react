@@ -1,0 +1,30 @@
+@import 'colours';
+@import 'fonts';
+
+.world-news-component {
+    padding-left: 0.7rem;
+	padding-right: 0.7rem;
+}
+
+.world-header {
+	border-top: 1px solid #dae2e6;
+	border-bottom: 1px solid #dae2e6;
+	background-color: $footer-background-color;
+}
+
+.world-page-title {
+    font-size: 1.5rem;
+}
+
+.results-wrapper {
+	padding: 0rem 0.7rem;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.country-name-news {
+    font-size: 1rem;
+	margin-top: 1rem;
+    margin-left: 1.5rem;
+}
