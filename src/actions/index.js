@@ -20,7 +20,7 @@ export function receiveError(error, category) {
 
 export function fetchNews(category) {
 	return function(dispatch) {
-		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
+		return fetch(`/api/topheadlines/${category}`)
 			.then(response => {
 				const returnedResponse = response.json();
 				return returnedResponse;
