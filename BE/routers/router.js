@@ -8,12 +8,11 @@ const newsapi = new NewsAPI(process.env.API_KEY);
 // make get requests here. Account for 404 and 500 errors.
 router.get('/topheadlines/:category', (req, res, next) => {
 	const acceptLang = req.headers['accept-language'];
-	const queryLang = processLangFromBrowser(acceptLang);
-
+	const queryLang = processLangFromBrowser(req.headers['accept-language']);
 	newsapi.v2.topHeadlines({
 		category: req.params.category,
 		country: queryLang,
-		pageSize: 20,
+		pageSize: 18,
 	}).then((response) => {
 		if (response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
@@ -35,6 +34,7 @@ router.get('/search/:query', (req,res, next) => {
 		q: query,
 		sortBy: 'popularity',
 		language: queryLang,
+		pageSize: 18,
 	}).then((response) => {
 		if(response.status === 'ok' && response.totalResults !== 0) {
 			res.status(200).json(response);
@@ -43,6 +43,24 @@ router.get('/search/:query', (req,res, next) => {
 		}
 	}).catch((err) => {
 		console.log('I come from the router:search fetch: ', err);
+		next(err);
+	});
+});
+
+router.get('/countryNews/:country', (req, res, next) => {
+	const country = req.params.country;
+	newsapi.v2.topHeadlines({
+		category: 'general',
+		country: req.params.country,
+		pageSize: 18,
+	}).then((response) => {
+		if (response.status === 'ok' && response.totalResults !== 0) {
+			res.status(200).json(response);
+		} else {
+			res.status(404).json({error: 'something went wrong in country fetch'});
+		}
+	}).catch((err) => {
+		console.log('I come from the router:country fetch: ', err);
 		next(err);
 	});
 });

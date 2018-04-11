@@ -56,6 +56,8 @@ const Customise = ({
 		);
 	});
 
+	
+
 	return (
 		<div className="container stick-footer">
 			<div className="customise-component">
