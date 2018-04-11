@@ -3,10 +3,15 @@
 
 .customise-component {
   h3 {
-    margin-left: 1rem;
+    border-top: 1px solid #dae2e6;
+    border-bottom: 1px solid #dae2e6;
+    background-color: $footer-background-color;
+    padding: 1.2rem 0;
+    font-size: 1.5rem;
+    margin-top: 0;
   }
   p {
-    margin: 1rem 0 0 1rem;
+    margin-top: 1rem;
     line-height: 1.1rem;
 
     strong {
@@ -48,6 +53,7 @@
           vertical-align: middle;
           cursor: pointer;
           text-transform: capitalize;
+          font-size: 0.9rem;
         }
 
         input[type="checkbox"].category-checkbox:checked
@@ -66,9 +72,12 @@
 
       label {
         margin-right: 0.5rem;
+        font-size: 1.1rem;
       }
       input {
-        line-height: 1.3rem;
+        padding-left: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 1.5rem;
         font-family: inherit;
       }
     }
@@ -89,6 +98,7 @@
         transition-duration: 0.4s;
         background-color: $customise-btn-background;
         color: $text-color;
+        font-size: 0.9rem;
       }
       .interests-btn:hover {
         background-color: $button-more-hover;
