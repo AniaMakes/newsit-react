@@ -11,12 +11,10 @@ const news = (state = initialState, action) => {
 		return Object.assign({}, state, {
 			[action.category]: action.news
 		});
-		break;
 	case 'RECEIVE_ERROR':
 		return Object.assign({}, state, {
 			[action.category]: {errorText: action.errorText}
 		});
-		break;
 	default:
 		return state;
 	};

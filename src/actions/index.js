@@ -79,12 +79,6 @@ export const fetchSearch = query =>{
 	};
 };
 
-export const searchRequest = query => {
-	return(dispatch) => {
-		return dispatch(fetchSearch(query));
-	};
-};
-
 // ============= PREFERENCES BLOCK
 
 export const updateCheckboxValue = (category)=> {

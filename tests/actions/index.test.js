@@ -34,8 +34,6 @@ describe('receiveError action', () => {
 	});
 });
 
-// TODO: fetchNews, requestNews
-
 describe('fetchNews action, receiving news works', () => {
 
 	beforeEach(() => {
@@ -194,11 +192,6 @@ describe('fetchSearch action, receiving news fails', () => {
 	});
 });
 
-//TODO: fetchSearch, searchRequest
-
-
-
-
 // ============= PREFERENCES BLOCK
 
 describe('updateCheckboxValue action ', () => {
@@ -311,8 +304,6 @@ describe('getInterest action', () => {
 		expect(attempt).toEqual(expectedOutput);
 	});
 });
-
-//TODO fetchInterest, searchInterest
 
 describe('clearInterests action', () => {
 	it('should output clearInterests object ready for receiver', () => {
