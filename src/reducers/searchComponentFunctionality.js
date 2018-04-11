@@ -6,7 +6,6 @@ const searchComponentFunctionality = (state = {
 	switch (action.type) {
 	case 'UPDATE_QUERY':
 		return Object.assign({}, state, {searchQueryInput: action.query});
-		break;
 	case 'RECEIVE_SEARCH':
 		return Object.assign({}, state, {
 			searchResults: {
@@ -15,7 +14,6 @@ const searchComponentFunctionality = (state = {
 			searchQueryInput: '',
 			mostRecentSearch: action.query
 		});
-		break;
 	case 'RECEIVE_SEARCH_ERROR':
 		return Object.assign({}, state, {
 			searchResults: {
@@ -24,7 +22,6 @@ const searchComponentFunctionality = (state = {
 			searchQueryInput: '',
 			mostRecentSearch: action.query
 		});
-		break;
 	default:
 		return state;
 	}

@@ -18,7 +18,7 @@ export function receiveError(error, category) {
 	};
 };
 
-function fetchNews(category) {
+export function fetchNews(category) {
 	return function(dispatch) {
 		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
 			.then(response => {
@@ -34,12 +34,6 @@ function fetchNews(category) {
 			.catch(error => {
 				return dispatch(receiveError(error, category));
 			});
-	};
-};
-
-export const requestNews = (category) => {
-	return(dispatch) => {
-		return dispatch(fetchNews(category));
 	};
 };
 
@@ -85,6 +79,7 @@ export const fetchSearch = query =>{
 	};
 };
 
+<<<<<<< HEAD
 export const searchRequest = query => {
 	return(dispatch) => {
 		return dispatch(fetchSearch(query));
@@ -128,6 +123,8 @@ export const countryNewsRequest = country => {
 
 
 
+=======
+>>>>>>> master
 // ============= PREFERENCES BLOCK
 
 export const updateCheckboxValue = (category)=> {

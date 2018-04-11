@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../../styles/SearchBar.scss';
 
-const SearchBar = ({query, updateQuery, searchRequest, history}) => {
+const SearchBar = ({query, updateQuery, fetchSearch, history}) => {
 	return (
 		<section className='search-bar'>
 			<form
 				onSubmit={event => {
 					event.preventDefault();
 					if (query.length>1){
-						searchRequest(query);
+						fetchSearch(query);
 						history.push('/found');
 					}
 				}}
@@ -36,7 +36,7 @@ const SearchBar = ({query, updateQuery, searchRequest, history}) => {
 SearchBar.propTypes = {
 	query: PropTypes.string,
 	updateQuery: PropTypes.func.isRequired,
-	searchRequest: PropTypes.func.isRequired,
+	fetchSearch: PropTypes.func.isRequired,
 	history: PropTypes.object
 };
 
