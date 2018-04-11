@@ -188,6 +188,7 @@ export function getInterest(articles,query){
 
 export const fetchInterest = query =>{
 	return function(dispatch){
+		console.log(query);
 		return fetch(`/api/search/${query}`)
 			.then(response => response.json())
 			.then(results => dispatch(getInterest(results.articles, query)));

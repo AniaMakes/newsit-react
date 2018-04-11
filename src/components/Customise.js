@@ -102,10 +102,10 @@ const Customise = ({
 							clearInterests();
 							let interestsString = preferencesObject.textBox.Interests;
 							let interestsArray = interestsString
-								.replace(/\s/g, '')
 								.split(',');
 							interestsArray.forEach(interest => {
-								searchInterest(interest);
+								let interestTrimmed = interest.trim();
+								searchInterest(interestTrimmed);
 							});
 						}
 					}}
