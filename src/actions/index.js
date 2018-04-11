@@ -79,7 +79,6 @@ export const fetchSearch = query =>{
 	};
 };
 
-<<<<<<< HEAD
 export const searchRequest = query => {
 	return(dispatch) => {
 		return dispatch(fetchSearch(query));
@@ -123,8 +122,6 @@ export const countryNewsRequest = country => {
 
 
 
-=======
->>>>>>> master
 // ============= PREFERENCES BLOCK
 
 export const updateCheckboxValue = (category)=> {
