@@ -34,7 +34,7 @@ const AppRouter = () => {
 				<div className='container'>
 					<header className='main-header'>
 						<div className='logo-block'>
-							<h1 className='logo'>NewsIt</h1>
+							<Link to='/default'> <h1 className='logo'>NewsIt</h1> </Link>
 							<img className='logo-pic' src='/images/newsitlogo.png' />
 						</div>
 						<NavBar />
