@@ -1,57 +1,68 @@
-@import 'colours';
-@import 'fonts';
+@import "colours";
+@import "fonts";
 
 body {
-	min-width: 320px;
-	font-size: 13px;
-	line-height: 1.05rem;
-	background-color: $background-color;
-	font-family: $main-font;
+  margin: 0;
+  min-width: 320px;
+  font-size: 13px;
+  line-height: 1.05rem;
+  background-color: $background-color;
+  font-family: $main-font;
 }
 
 .container {
-	padding-left: 0.7rem;
-	padding-right: 0.7rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
 }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.stick-footer {
+  flex: 1;
+}
+
 .logo-block {
-	display: flex;
+  display: flex;
 }
 
 .logo {
-	margin: 0;
-	padding: 0;
-	margin-top: 1rem;
-	margin-bottom: 0.5rem;
-	font-size: 3rem;
-	line-height: 2rem;
+  margin: 0;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  line-height: 2rem;
 }
 
 .logo-pic {
-	align-self: center;
-	width: 70px;
-	height: 70px;
+  align-self: center;
+  width: 70px;
+  height: 70px;
 }
 
 .hidden {
-	display: none;
+  display: none;
 }
 
 .stories-show {
-	display: block;
+  display: block;
 }
 
 .footer {
-	font-size: 0.6rem;
-	text-align: center;
-	border-top: 1px solid #dae2e6;
-	background-color: $footer-background-color;
+  font-size: 0.6rem;
+  text-align: center;
+  border-top: 1px solid #dae2e6;
+  background-color: $footer-background-color;
 }
 
-@media screen and (min-width: 768px) { 
-	.main-header {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-	}
+@media screen and (min-width: 768px) {
+  .main-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
-
