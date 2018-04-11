@@ -57,7 +57,7 @@ const Customise = ({
 	});
 
 	return (
-		<div className="container">
+		<div className="container stick-footer">
 			<div className="customise-component">
 				<h3>
 					On this page you can customise the news that will display by default
@@ -66,7 +66,7 @@ const Customise = ({
 				<p>
 					Your choices will be stored in your browser. By saving your
 					preferences, you agree for this to happen. You can clear your
-					preferences any time using the <strong>"Clear preferences"</strong>{' '}
+					preferences any time using the <strong>"Clear preferences" </strong>
 					button.
 				</p>
 
@@ -75,8 +75,8 @@ const Customise = ({
 					news relevant to that category.
 				</p>
 				<p>
-					Furthermore, you can add any number of interests. Please use a comma
-					to separate interests.
+					You can add any number of interests. Please use a comma to separate
+					interests.
 				</p>
 				<p>
 					Note: if you add interests, but no categories, only your interests
@@ -119,7 +119,7 @@ const Customise = ({
 							Save preferences
 						</button>
 						<button
-							className="interests-btn"
+							className="interests-btn interests-btn-clear"
 							onClick={event => {
 								localStorage.clear();
 								clearUpdatePreferences();
