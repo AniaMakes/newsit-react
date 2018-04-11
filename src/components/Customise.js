@@ -22,6 +22,7 @@ const Customise = ({
 			<div key={type}>
 				<label htmlFor={type}>{type}</label>
 				<input
+					placeholder="Your interests"
 					onChange={event => {
 						event.preventDefault();
 						updateTextbox(event.target.name, event.target.value);
@@ -56,15 +57,10 @@ const Customise = ({
 		);
 	});
 
-	
-
 	return (
 		<div className="container stick-footer">
 			<div className="customise-component">
-				<h3>
-					On this page you can customise the news that will display by default
-					when you visit.
-				</h3>
+				<h3>Customise your interests</h3>
 				<p>
 					Your choices will be stored in your browser. By saving your
 					preferences, you agree for this to happen. You can clear your

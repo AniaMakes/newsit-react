@@ -4,12 +4,10 @@ import FeedContainer from '../containers/FeedContainer';
 import InterestContainer from '../containers/InterestContainer';
 
 const PersonalView = () => (
-	<div className='personal-view-component'>
-		<Search
-			searchResults={false}
-		/>
+	<div className="personal-view-component stick-footer">
+		<Search searchResults={false} />
 		<FeedContainer
-			view='personalised'
+			view="personalised"
 			categoryCollapse={false}
 			numberOfStories={18}
 		/>
