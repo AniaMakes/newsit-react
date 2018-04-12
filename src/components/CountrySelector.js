@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { countryObject } from '../constants/countries';
+import { countryObject, countryNameObject } from '../constants/countries';
 import '../../styles/CountrySelector.scss';
 
 const CountrySelector = ({countryNewsRequest, props}) => {  
-	const countryCodes = Object.keys(countryObject);
+	const countryNames = Object.keys(countryNameObject);
 
-	const countrySelector = countryCodes.map(countryCode => {
+	const countrySelector = countryNames.map(countryName => {
 		return (
-			<div key={countryCode} className='country-container'>
-				<h4 
+			<div key={countryNameObject[countryName]} className='country-container'>
+				<h4
 					className='country-name'
-					id={countryCode}
-					name={countryObject[countryCode]}
+					id={countryNameObject[countryName]}
+					name='countryName'
 					onClick={event=> {
 						return countryNewsRequest(event.target.id);
-					}}
+					}}	
 				>
-					{countryObject[countryCode]}
+					{countryName}
 				</h4>
 			</div>
 		);

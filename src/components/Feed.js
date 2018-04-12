@@ -20,8 +20,10 @@ class Feed extends React.Component {
 		if (this.props.savedPreferences != undefined) {
 			if (this.props.savedPreferences.textBox.Interests != '') {
 				let interestsString = this.props.savedPreferences.textBox.Interests;
-				let interestsArray = interestsString.replace(/\s/g, '').split(',');
-				interestsArray.forEach(interest => {this.props.searchInterest(interest);});
+				let interestsArray = interestsString.split(',');
+				interestsArray.forEach(interest => {
+					let interestTrimmed = interest.trim();
+					this.props.searchInterest(interestTrimmed);});
 			};
 		};
 	};

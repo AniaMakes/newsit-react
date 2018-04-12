@@ -20,7 +20,7 @@ export function receiveError(error, category) {
 
 export function fetchNews(category) {
 	return function(dispatch) {
-		return fetch(`http://localhost:3000/api/topheadlines/${category}`)
+		return fetch(`/api/topheadlines/${category}`)
 			.then(response => {
 				const returnedResponse = response.json();
 				return returnedResponse;
@@ -188,6 +188,7 @@ export function getInterest(articles,query){
 
 export const fetchInterest = query =>{
 	return function(dispatch){
+		console.log(query);
 		return fetch(`/api/search/${query}`)
 			.then(response => response.json())
 			.then(results => dispatch(getInterest(results.articles, query)));
