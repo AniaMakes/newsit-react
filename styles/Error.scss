@@ -5,12 +5,18 @@
 	text-transform: capitalize;
 }
 
+.error-component {
+	padding: 1.2rem 0 1.2rem 1.2rem;
+}
+
 .btn-try-again {
 	border-spacing: 0;
 	list-style: none outside none;
 	margin: 0;
 	padding: 0.3rem;
 	text-decoration: none;
+	font-family: inherit;
+	font-size: 0.9rem;
 }
 
 .btn-try-again:hover,
