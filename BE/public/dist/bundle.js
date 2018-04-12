@@ -162,7 +162,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".country-selector-component {\n  display: flex;\n  flex-wrap: wrap; }\n\n.country-container {\n  width: 48%; }\n\n.country-name {\n  cursor: pointer;\n  font-size: 0.9rem;\n  margin-top: 0.4rem;\n  margin-bottom: 0.4rem;\n  margin-right: 1.2rem; }\n\n.country-name:hover,\n.country-name:focus {\n  outline: none;\n  color: #cc0000; }\n\n.country-name:active {\n  outline: none;\n  color: #979595; }\n\n@media screen and (min-width: 768px) {\n  .country-selector-component {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    flex-wrap: wrap; }\n  .country-container {\n    width: auto; } }\n", ""]);
+exports.push([module.i, ".country-selector-component {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 1.2rem 0 1.2rem 1.2rem; }\n\n.country-container {\n  width: 48%; }\n\n.country-name {\n  cursor: pointer;\n  font-size: 0.9rem;\n  margin-top: 0.4rem;\n  margin-bottom: 0.4rem;\n  margin-right: 1.2rem; }\n\n.country-name:hover,\n.country-name:focus {\n  outline: none;\n  color: #cc0000; }\n\n.country-name:active {\n  outline: none;\n  color: #979595; }\n\n@media screen and (min-width: 768px) {\n  .country-selector-component {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-around;\n    flex-wrap: wrap; }\n  .country-container {\n    width: auto; } }\n", ""]);
 
 // exports
 
@@ -182,7 +182,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".customise-component h3 {\n  border-top: 1px solid #dae2e6;\n  border-bottom: 1px solid #dae2e6;\n  background-color: #fafafa;\n  padding: 1.2rem 0;\n  font-size: 1.5rem;\n  margin-top: 0; }\n\n.customise-component p {\n  margin-top: 1rem;\n  line-height: 1.1rem; }\n  .customise-component p strong {\n    color: #cc0000; }\n\n.customise-component .category-form {\n  margin: 0.5rem 0;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap; }\n  .customise-component .category-form .cat-checkboxes {\n    margin: 1rem;\n    background-color: #f6f6f6;\n    padding: 0.5rem; }\n    .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n      margin-bottom: 0.3rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox {\n        position: absolute;\n        z-index: -1000;\n        left: -1000px;\n        overflow: hidden;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        width: 1px;\n        padding: 0;\n        border: 0; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox + label.category-label {\n        padding-left: 23px;\n        height: 18px;\n        display: inline-block;\n        line-height: 18px;\n        background-repeat: no-repeat;\n        background-position: 0 0;\n        vertical-align: middle;\n        cursor: pointer;\n        text-transform: capitalize;\n        font-size: 0.9rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox:checked\n+ label.category-label {\n        background-position: 0 -18px; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap label.category-label {\n        background-image: url(/images/black-csscheckbox.png);\n        user-select: none; }\n  .customise-component .category-form .interests-input div {\n    margin: 0 0 1.5rem 1rem; }\n    .customise-component .category-form .interests-input div label {\n      margin-right: 0.5rem;\n      font-size: 1.1rem; }\n    .customise-component .category-form .interests-input div input {\n      padding-left: 0.5rem;\n      font-size: 1.1rem;\n      line-height: 1.5rem;\n      font-family: inherit;\n      border: 1px solid black;\n      border-radius: 3px;\n      outline: none; }\n  .customise-component .category-form .buttons-wrap {\n    display: flex;\n    justify-content: flex-start;\n    margin: 0 1rem 1rem 1rem; }\n    .customise-component .category-form .buttons-wrap .interests-btn {\n      color: black;\n      margin-right: 2rem;\n      border-radius: 0.2rem;\n      display: inline-block;\n      cursor: pointer;\n      padding: 0.5rem 1rem;\n      text-decoration: none;\n      -webkit-transition-duration: 0.4s;\n      transition-duration: 0.4s;\n      background-color: #dcdcdc;\n      color: #292b2d;\n      font-size: 0.9rem; }\n    .customise-component .category-form .buttons-wrap .interests-btn:hover {\n      background-color: #2a4bae;\n      color: #fff; }\n    .customise-component .category-form .buttons-wrap .interests-btn-clear:hover {\n      background-color: #cc0000;\n      color: #fff; }\n    .customise-component .category-form .buttons-wrap .interests-btn:active {\n      position: relative;\n      top: 1px; }\n    .customise-component .category-form .buttons-wrap .interests-btn:focus {\n      outline: 0; }\n\n@media screen and (min-width: 768px) {\n  .customise-component p {\n    width: 75%; }\n  .customise-component .category-form {\n    display: flex;\n    flex-direction: column; }\n    .customise-component .category-form .cat-checkboxes {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      margin: 1rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n        width: 45%;\n        margin-bottom: 0.5rem; } }\n\n@media screen and (min-width: 992px) {\n  .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n    width: 30%; } }\n", ""]);
+exports.push([module.i, ".customise-component h3 {\n  border-top: 1px solid #bbb;\n  border-bottom: 1px solid #bbb;\n  background-color: #f6f6f6;\n  padding: 1.2rem 0 1.2rem 1.2rem;\n  font-size: 1.5rem;\n  margin-top: 0; }\n\n.customise-component .costumise-instructions {\n  padding-left: 1rem; }\n  .customise-component .costumise-instructions p {\n    margin-top: 1rem;\n    line-height: 1.1rem; }\n    .customise-component .costumise-instructions p strong {\n      color: #cc0000; }\n\n.customise-component .category-form {\n  margin: 0.5rem 0;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap; }\n  .customise-component .category-form .cat-checkboxes {\n    margin: 1rem;\n    background-color: #f6f6f6;\n    padding: 0.5rem; }\n    .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n      margin-bottom: 0.3rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox {\n        position: absolute;\n        z-index: -1000;\n        left: -1000px;\n        overflow: hidden;\n        clip: rect(0 0 0 0);\n        height: 1px;\n        width: 1px;\n        padding: 0;\n        border: 0; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox + label.category-label {\n        padding-left: 23px;\n        height: 18px;\n        display: inline-block;\n        line-height: 18px;\n        background-repeat: no-repeat;\n        background-position: 0 0;\n        vertical-align: middle;\n        cursor: pointer;\n        text-transform: capitalize;\n        font-size: 0.9rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap input[type=\"checkbox\"].category-checkbox:checked\n+ label.category-label {\n        background-position: 0 -18px; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap label.category-label {\n        background-image: url(/images/happy-checkbox.png);\n        user-select: none; }\n  .customise-component .category-form .interests-input div {\n    margin: 0 0 1.5rem 1rem; }\n    .customise-component .category-form .interests-input div label {\n      margin-right: 0.5rem;\n      font-size: 1.1rem; }\n    .customise-component .category-form .interests-input div input {\n      padding-left: 0.5rem;\n      font-size: 1.1rem;\n      line-height: 1.5rem;\n      font-family: inherit;\n      border: 1px solid #666;\n      border-radius: 3px;\n      outline: none; }\n  .customise-component .category-form .buttons-wrap {\n    display: flex;\n    justify-content: flex-start;\n    margin: 0 1rem 1rem 1rem; }\n    .customise-component .category-form .buttons-wrap .interests-btn {\n      color: black;\n      margin-right: 2rem;\n      border-radius: 0.2rem;\n      display: inline-block;\n      cursor: pointer;\n      padding: 0.5rem 1rem;\n      text-decoration: none;\n      -webkit-transition-duration: 0.4s;\n      transition-duration: 0.4s;\n      background-color: #dcdcdc;\n      color: #292b2d;\n      font-size: 0.9rem; }\n    .customise-component .category-form .buttons-wrap .interests-btn:hover {\n      background-color: #2a4bae;\n      color: #fff; }\n    .customise-component .category-form .buttons-wrap .interests-btn-clear:hover {\n      background-color: #cc0000;\n      color: #fff; }\n    .customise-component .category-form .buttons-wrap .interests-btn:active {\n      position: relative;\n      top: 1px; }\n    .customise-component .category-form .buttons-wrap .interests-btn:focus {\n      outline: 0; }\n\n@media screen and (min-width: 768px) {\n  .customise-component p {\n    width: 75%; }\n  .customise-component .category-form {\n    display: flex;\n    flex-direction: column; }\n    .customise-component .category-form .cat-checkboxes {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      margin: 1rem; }\n      .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n        width: 45%;\n        margin-bottom: 0.5rem; } }\n\n@media screen and (min-width: 992px) {\n  .customise-component .category-form .cat-checkboxes .checkbox-wrap {\n    width: 30%; } }\n", ""]);
 
 // exports
 
@@ -302,7 +302,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".search-bar {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  border-top: 1px solid #dae2e6;\n  border-bottom: 1px solid #dae2e6;\n  background-color: #fafafa; }\n\n.bar-wrapper {\n  display: flex; }\n\n.search-bar .submit-search {\n  font-size: 1.1rem;\n  background: none repeat scroll 0 0 transparent;\n  background-color: #f1a1b0; }\n\n.search-bar .submit-search:hover,\n.search-bar .submit-search:focus {\n  outline: none;\n  border: none;\n  background-color: #2a4bae;\n  color: #fff; }\n\n.search-bar .submit-search:active {\n  outline: none;\n  background-color: #1e3781;\n  color: #fff; }\n\n.input-search {\n  margin-left: 1rem;\n  padding-left: 0.5rem;\n  font-size: 1.2rem;\n  line-height: 1.5rem;\n  font-family: inherit; }\n", ""]);
+exports.push([module.i, ".search-bar {\n  padding-top: 1rem;\n  padding-bottom: 1rem;\n  border-top: 1px solid #bbb;\n  border-bottom: 1px solid #bbb;\n  background-color: #f6f6f6; }\n\n.bar-wrapper {\n  display: flex; }\n\n.search-bar .submit-search {\n  font-size: 1.1rem;\n  background: none repeat scroll 0 0 transparent;\n  border-radius: 0 3px 3px 0;\n  border-color: #bbb;\n  border: 2px solid #bbb;\n  color: #cc0000; }\n\n.search-bar .submit-search:hover,\n.search-bar .submit-search:focus {\n  outline: none;\n  border: none;\n  background-color: #2a4bae;\n  color: #fff; }\n\n.search-bar .submit-search:active {\n  outline: none;\n  background-color: #1e3781;\n  color: #fff; }\n\n.input-search {\n  margin-left: 1rem;\n  padding-left: 0.5rem;\n  font-size: 1.2rem;\n  line-height: 1.5rem;\n  font-family: inherit;\n  border-color: #bbb;\n  border-style: solid;\n  border-radius: 3px 0 0 3px;\n  border-right-color: white; }\n", ""]);
 
 // exports
 
@@ -342,7 +342,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".story {\n  margin-bottom: 0.6rem;\n  border-top: 2px solid #cc0000;\n  background-color: #f6f6f6;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between; }\n\n.story-title {\n  margin: 0;\n  margin-top: 0.1rem;\n  color: #292b2d;\n  font-family: \"Bitter\", serif;\n  align-self: flex-start; }\n\n.story-title:hover,\n.story-title:focus {\n  outline: none;\n  color: #cc0000; }\n\n.story-title:active {\n  outline: none;\n  color: #979595; }\n\n.story-time {\n  font-size: 0.65rem; }\n\n@media screen and (min-width: 768px) {\n  .story {\n    width: 47%;\n    margin-bottom: 0.8rem; } }\n\n@media screen and (min-width: 1280px) {\n  .story {\n    width: 30%; } }\n", ""]);
+exports.push([module.i, ".story {\n  margin-bottom: 0.6rem;\n  border-top: 2px solid #cc0000;\n  background-color: #f6f6f6;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  padding: 0.5rem 0.5rem 0 0.8rem; }\n\n.story-title {\n  margin: 0;\n  margin-top: 0.1rem;\n  color: #292b2d;\n  font-family: \"Bitter\", serif;\n  align-self: flex-start; }\n\n.story-title:hover,\n.story-title:focus {\n  outline: none;\n  color: #cc0000; }\n\n.story-title:active {\n  outline: none;\n  color: #979595; }\n\n.story-time {\n  font-size: 0.65rem; }\n\n@media screen and (min-width: 768px) {\n  .story {\n    width: 47%;\n    margin-bottom: 0.8rem; } }\n\n@media screen and (min-width: 1280px) {\n  .story {\n    width: 30%; } }\n", ""]);
 
 // exports
 
@@ -362,7 +362,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".story-main-item {\n  display: flex;\n  flex-direction: column; }\n\n.story-main-img {\n  width: 100%;\n  object-fit: cover; }\n\n.story-main-0 {\n  order: -1;\n  width: 100%;\n  margin-bottom: 0.5rem; }\n\n.story-main-0 .story-main-img {\n  height: 170px; }\n\n.story-main-1,\n.story-main-2 {\n  width: 48%; }\n\n.story-main-1 .story-main-img,\n.story-main-2 .story-main-img {\n  height: 100px;\n  object-fit: cover; }\n\n.story-main-title {\n  font-weight: bold; }\n\n.story-main-title {\n  margin: 0;\n  margin-top: 0.1rem;\n  color: #292b2d;\n  font-family: \"Bitter\", serif; }\n\n.story-main-title:hover,\n.story-main-title:focus {\n  outline: none;\n  color: #cc0000; }\n\n.story-main-title:active {\n  outline: none;\n  color: #979595; }\n\n.story-time {\n  font-size: 0.65rem; }\n\n@media screen and (min-width: 768px) {\n  .story-main-0 {\n    width: 30%; }\n  .story-main-1,\n  .story-main-2 {\n    width: 30%; }\n  .story-main-item .story-main-img {\n    height: 170px; } }\n\n@media screen and (min-width: 1280px) {\n  .story-main-0,\n  .story-main-1,\n  .story-main-2 {\n    width: 25%; }\n  .story-main-item .story-main-img {\n    height: 220px; } }\n\n@media screen and (min-width: 1440px) {\n  .story-main-0,\n  .story-main-1,\n  .story-main-2 {\n    width: 23%; }\n  .story-main-item .story-main-img {\n    height: 270px; } }\n", ""]);
+exports.push([module.i, ".story-main-item {\n  display: flex;\n  flex-direction: column; }\n\n.story-main-img {\n  width: 100%;\n  object-fit: cover;\n  border: 1px solid #bbb; }\n\n.story-main-0 {\n  order: -1;\n  width: 100%;\n  margin-bottom: 0.5rem; }\n\n.story-main-0 .story-main-img {\n  height: 170px; }\n\n.story-main-1,\n.story-main-2 {\n  width: 48%; }\n\n.story-main-1 .story-main-img,\n.story-main-2 .story-main-img {\n  height: 100px;\n  object-fit: cover; }\n\n.story-main-title {\n  font-weight: bold; }\n\n.story-main-title {\n  margin: 0;\n  margin-top: 0.1rem;\n  color: #292b2d;\n  font-family: \"Bitter\", serif; }\n\n.story-main-title:hover,\n.story-main-title:focus {\n  outline: none;\n  color: #cc0000; }\n\n.story-main-title:active {\n  outline: none;\n  color: #979595; }\n\n.story-time {\n  font-size: 0.65rem; }\n\n@media screen and (min-width: 768px) {\n  .story-main-0 {\n    width: 30%; }\n  .story-main-1,\n  .story-main-2 {\n    width: 30%; }\n  .story-main-item .story-main-img {\n    height: 170px; } }\n\n@media screen and (min-width: 1280px) {\n  .story-main-0,\n  .story-main-1,\n  .story-main-2 {\n    width: 25%; }\n  .story-main-item .story-main-img {\n    height: 220px; } }\n\n@media screen and (min-width: 1440px) {\n  .story-main-0,\n  .story-main-1,\n  .story-main-2 {\n    width: 23%; }\n  .story-main-item .story-main-img {\n    height: 270px; } }\n", ""]);
 
 // exports
 
@@ -382,7 +382,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, ".world-news-component {\n  padding-left: 0.7rem;\n  padding-right: 0.7rem; }\n\n.world-header {\n  border-top: 1px solid #dae2e6;\n  border-bottom: 1px solid #dae2e6;\n  background-color: #fafafa; }\n\n.world-page-title {\n  font-size: 1.5rem; }\n\n.results-wrapper {\n  padding: 0rem 0.7rem;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap; }\n\n.country-name-news {\n  font-size: 1rem;\n  margin-top: 1rem;\n  margin-left: 1.5rem; }\n", ""]);
+exports.push([module.i, ".world-header {\n  border-top: 1px solid #bbb;\n  border-bottom: 1px solid #bbb;\n  background-color: #f6f6f6;\n  padding: 1.2rem 0 1.2rem 1.2rem; }\n\n.world-page-title {\n  font-size: 1.5rem;\n  margin: 0;\n  padding: 0; }\n\n.results-wrapper {\n  padding: 0rem 0.7rem;\n  display: flex;\n  flex-direction: column;\n  flex-wrap: nowrap; }\n\n.country-name-news {\n  font-size: 1rem;\n  margin-top: 1rem;\n  margin-left: 1.5rem; }\n", ""]);
 
 // exports
 
@@ -402,7 +402,7 @@ exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Bit
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Merriweather);", ""]);
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  min-width: 320px;\n  font-size: 13px;\n  line-height: 1.05rem;\n  background-color: #fff;\n  font-family: \"Merriweather\", serif; }\n\n.container {\n  padding-left: 0.7rem;\n  padding-right: 0.7rem; }\n\n#root {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh; }\n\n.stick-footer {\n  flex: 1; }\n\n.logo-block {\n  display: flex; }\n\n.logo {\n  margin: 0;\n  padding: 0;\n  margin-top: 1rem;\n  margin-bottom: 0.5rem;\n  font-size: 3rem;\n  line-height: 2rem; }\n\n.logo-pic {\n  align-self: center;\n  width: 70px;\n  height: 70px; }\n\n.hidden {\n  display: none; }\n\n.stories-show {\n  display: block; }\n\n.footer {\n  margin-top: 1rem;\n  font-size: 0.6rem;\n  text-align: center;\n  border-top: 1px solid #dae2e6;\n  background-color: #fafafa; }\n\n@media screen and (min-width: 768px) {\n  .main-header {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between; } }\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  min-width: 320px;\n  font-size: 13px;\n  line-height: 1.05rem;\n  background-color: #fff;\n  font-family: \"Merriweather\", serif; }\n\n.container {\n  padding-left: 0.7rem;\n  padding-right: 0.7rem; }\n\n#root {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh; }\n\n.stick-footer {\n  flex: 1; }\n\n.logo-block {\n  display: flex; }\n\n.logo {\n  margin: 0;\n  padding: 0;\n  margin-top: 1rem;\n  margin-bottom: 0.5rem;\n  font-size: 3rem;\n  line-height: 2rem; }\n\n.logo-pic {\n  align-self: center;\n  width: 70px;\n  height: 70px; }\n\n.hidden {\n  display: none; }\n\n.stories-show {\n  display: block; }\n\n.footer {\n  margin-top: 1rem;\n  font-size: 0.6rem;\n  text-align: center;\n  border-top: 1px solid #bbb;\n  background-color: #f6f6f6; }\n\n@media screen and (min-width: 768px) {\n  .main-header {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between; } }\n", ""]);
 
 // exports
 
@@ -27142,7 +27142,7 @@ var Customise = function Customise(_ref) {
 
 	return _react2.default.createElement(
 		'div',
-		{ className: 'container stick-footer' },
+		{ className: 'stick-footer' },
 		_react2.default.createElement(
 			'div',
 			{ className: 'customise-component' },
@@ -27152,30 +27152,34 @@ var Customise = function Customise(_ref) {
 				'Customise your interests'
 			),
 			_react2.default.createElement(
-				'p',
-				null,
-				'Your choices will be stored in your browser. By saving your preferences, you agree for this to happen. You can clear your preferences any time using the ',
+				'div',
+				{ className: 'costumise-instructions' },
 				_react2.default.createElement(
-					'strong',
+					'p',
 					null,
-					'"Clear preferences" '
+					'Your choices will be stored in your browser. By saving your preferences, you agree for this to happen. You can clear your preferences any time using the ',
+					_react2.default.createElement(
+						'strong',
+						null,
+						'"Clear preferences" '
+					),
+					'button.'
 				),
-				'button.'
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				'You can select any (or none) categories. Each category will display news relevant to that category.'
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				'You can add any number of interests. Please use a comma to separate interests.'
-			),
-			_react2.default.createElement(
-				'p',
-				null,
-				'Note: if you add interests, but no categories, only your interests will be displayed.'
+				_react2.default.createElement(
+					'p',
+					null,
+					'You can select any (or none) categories. Each category will display news relevant to that category.'
+				),
+				_react2.default.createElement(
+					'p',
+					null,
+					'You can add any number of interests. Please use a comma to separate interests.'
+				),
+				_react2.default.createElement(
+					'p',
+					null,
+					'Note: if you add interests, but no categories, only your interests will be displayed.'
+				)
 			),
 			_react2.default.createElement(
 				'form',
@@ -28449,7 +28453,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var WorldNews = function WorldNews(props) {
 	return _react2.default.createElement(
 		'section',
-		{ className: 'world-news-component stick-footer' },
+		{ className: 'stick-footer' },
 		_react2.default.createElement(
 			'div',
 			{ className: 'world-header' },

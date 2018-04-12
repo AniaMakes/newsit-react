@@ -4,11 +4,12 @@
 .story {
 	margin-bottom: 0.6rem;
 	border-top: 2px solid $story-border;
-	background-color: $story-background-color;
+	background-color: $section-background;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	padding: 0.5rem 0.5rem 0 0.8rem;
 }
 .story-title {
 	margin: 0;

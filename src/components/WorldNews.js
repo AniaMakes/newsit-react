@@ -6,7 +6,7 @@ import '../../styles/WorldNews.scss';
 
 const WorldNews = props => {
 	return (
-		<section className="world-news-component stick-footer">
+		<section className="stick-footer">
 			<div className="world-header">
 				<h2 className="world-page-title">World News</h2>
 			</div>
