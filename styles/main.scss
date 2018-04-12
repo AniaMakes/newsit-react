@@ -56,8 +56,8 @@ body {
   margin-top: 1rem;
   font-size: 0.6rem;
   text-align: center;
-  border-top: 1px solid #dae2e6;
-  background-color: $footer-background-color;
+  border-top: 1px solid $header-border;
+  background-color: $section-background;
 }
 
 @media screen and (min-width: 768px) {

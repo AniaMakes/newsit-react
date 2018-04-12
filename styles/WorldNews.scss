@@ -1,19 +1,18 @@
 @import 'colours';
 @import 'fonts';
 
-.world-news-component {
-    padding-left: 0.7rem;
-	padding-right: 0.7rem;
-}
 
 .world-header {
-	border-top: 1px solid #dae2e6;
-	border-bottom: 1px solid #dae2e6;
-	background-color: $footer-background-color;
+	border-top: 1px solid $header-border;
+    border-bottom: 1px solid $header-border;
+	background-color: $section-background;
+	padding: 1.2rem 0 1.2rem 1.2rem;
 }
 
 .world-page-title {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
+	margin: 0;
+	padding: 0;
 }
 
 .results-wrapper {

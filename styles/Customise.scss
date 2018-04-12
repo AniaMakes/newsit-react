@@ -3,19 +3,24 @@
 
 .customise-component {
   h3 {
-    border-top: 1px solid #dae2e6;
-    border-bottom: 1px solid #dae2e6;
-    background-color: $footer-background-color;
-    padding: 1.2rem 0;
+    border-top: 1px solid $header-border;
+    border-bottom: 1px solid $header-border;
+    background-color: $section-background;
+    padding: 1.2rem 0 1.2rem 1.2rem;
     font-size: 1.5rem;
     margin-top: 0;
   }
-  p {
-    margin-top: 1rem;
-    line-height: 1.1rem;
 
-    strong {
-      color: $title-color-hover;
+  .costumise-instructions {
+    padding-left: 1rem;
+
+    p {
+      margin-top: 1rem;
+      line-height: 1.1rem;
+  
+      strong {
+        color: $title-color-hover;
+      }
     }
   }
 
@@ -26,7 +31,7 @@
     flex-wrap: nowrap;
     .cat-checkboxes {
       margin: 1rem;
-      background-color: $story-background-color;
+      background-color: $section-background;
       padding: 0.5rem;
       .checkbox-wrap {
         margin-bottom: 0.3rem;
@@ -62,7 +67,7 @@
         }
 
         label.category-label {
-          background-image: url(/images/black-csscheckbox.png);
+          background-image: url(/images/happy-checkbox.png);
           user-select: none;
         }
       }
@@ -79,7 +84,7 @@
         font-size: 1.1rem;
         line-height: 1.5rem;
         font-family: inherit;
-        border: 1px solid black;
+        border: 1px solid #666;
         border-radius: 3px;
         outline: none;
       }

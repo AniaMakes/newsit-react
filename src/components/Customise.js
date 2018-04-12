@@ -58,28 +58,30 @@ const Customise = ({
 	});
 
 	return (
-		<div className="container stick-footer">
+		<div className="stick-footer">
 			<div className="customise-component">
 				<h3>Customise your interests</h3>
-				<p>
+				<div className='costumise-instructions'>
+					<p>
 					Your choices will be stored in your browser. By saving your
 					preferences, you agree for this to happen. You can clear your
 					preferences any time using the <strong>"Clear preferences" </strong>
 					button.
-				</p>
+					</p>
 
-				<p>
+					<p>
 					You can select any (or none) categories. Each category will display
 					news relevant to that category.
-				</p>
-				<p>
+					</p>
+					<p>
 					You can add any number of interests. Please use a comma to separate
 					interests.
-				</p>
-				<p>
+					</p>
+					<p>
 					Note: if you add interests, but no categories, only your interests
 					will be displayed.
-				</p>
+					</p>
+				</div>
 				<form
 					className="category-form"
 					onSubmit={event => {

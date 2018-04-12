@@ -4,9 +4,9 @@
 .search-bar {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	border-top: 1px solid #dae2e6;
-	border-bottom: 1px solid #dae2e6;
-	background-color: $footer-background-color;
+	border-top: 1px solid $header-border;
+	border-bottom: 1px solid $header-border;
+	background-color: $section-background;
 }
 
 .bar-wrapper {
@@ -16,7 +16,10 @@
 .search-bar .submit-search {
 	font-size: 1.1rem;
 	background: none repeat scroll 0 0 transparent;
-	background-color: #f1a1b0;
+	border-radius: 0 3px 3px 0;
+	border-color: #bbb;
+    border: 2px solid #bbb;
+    color: #cc0000;
 }
 
 .search-bar .submit-search:hover,
@@ -39,4 +42,8 @@
 	font-size: 1.2rem;
 	line-height: 1.5rem;
 	font-family: inherit;
+	border-color: #bbb;
+    border-style: solid;
+	border-radius: 3px 0 0 3px;
+	border-right-color: white;
 }
