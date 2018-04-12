@@ -16,7 +16,7 @@ The "Home" button returns the user to the default home page. The "Customise" but
 
 ### Frameworks used
 
-NewsIt was created using React and redux; these were the frameworks we were introduced to earlier during the course and we wanted to put them into practice.
+NewsIt was created using React and Redux; these were the frameworks we were introduced to earlier during the course and we wanted to put them into practice.
 
 We wanted the user to specify their preferences. We had several options for storing them: Local storage, Cookies or a Database. We opted for local storage as this means the user doesn't need to register to have the functionality.
 
